@@ -5,6 +5,9 @@
 
 class Point : public Shape {
 public:
+    int x, y;
+    Point();
+    Point(int, int);
     void draw();
 };
 

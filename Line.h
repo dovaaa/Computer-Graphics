@@ -6,6 +6,10 @@
 
 class Line : public Shape {
 public:
+    int stx, sty;
+    int edx, edy;
+    Line();
+    Line(int, int, int, int);
     void draw();
 };
 
