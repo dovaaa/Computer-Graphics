@@ -11,6 +11,7 @@ class Shape;
 
 class Drawer {
 public:
+    virtual void draw(Shape*) = 0;
     virtual void draw(Shape*,HDC,COLORREF) = 0;
 };
 

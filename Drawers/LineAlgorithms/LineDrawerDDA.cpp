@@ -6,10 +6,8 @@
 #include "LineDrawerDDA.h"
 #include "../../Shapes/Line.h"
 #include <iostream>
-int round(double x)
-{
-    return (int)(x+0.5);
-}
+#include <cmath>
+
 void LineDrawerDDA::draw(Shape *line,HDC hdc,COLORREF color) {//todo fix
     Line *l = (Line*) line;
     int dx = l->edx-l->stx;

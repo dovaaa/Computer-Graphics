@@ -5,11 +5,8 @@
 #include "LineDrawerParametric.h"
 #include "../../Shapes/Line.h"
 #include <iostream>
+#include <cmath>
 
-int round(double x)
-{
-    return (int)(x+0.5);
-}
 
 void LineDrawerParametric::draw(Shape *line,HDC hdc,COLORREF color) { //todo fix
 

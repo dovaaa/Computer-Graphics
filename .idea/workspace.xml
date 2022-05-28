@@ -11,7 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="">
+    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added hdc and color to lineDrawers, implemented lineDrawers">
       <change afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerDirect.cpp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerDirect.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerPolar.cpp" afterDir="false" />
@@ -174,12 +174,35 @@
       <workItem from="1653695815453" duration="123000" />
       <workItem from="1653696029978" duration="7583000" />
       <workItem from="1653764101842" duration="977000" />
-      <workItem from="1653769762949" duration="2512000" />
+      <workItem from="1653769762949" duration="3228000" />
     </task>
+    <task id="LOCAL-00001" summary="added hdc and color to lineDrawers, implemented lineDrawers">
+      <created>1653772360368</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653772360368</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added hdc and color to lineDrawers, implemented lineDrawers" />
+    <option name="LAST_COMMIT_MESSAGE" value="added hdc and color to lineDrawers, implemented lineDrawers" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

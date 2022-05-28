@@ -7,10 +7,6 @@
 #include "../../Shapes/Line.h"
 
 
-int round(double x)
-{
-    return (int)(x+0.5);
-}
 void LineDrawerMidpoint::draw(Shape *line,HDC hdc,COLORREF color) {
 
     Line *l = (Line*) line;
