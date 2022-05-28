@@ -6,10 +6,11 @@
 #define GRAPHICS_LINEDRAWERDDA_H
 #include "../Drawer.h"
 #include "../../Shapes/Shape.h"
+#include <Windows.h>
 
 class LineDrawerDDA : public Drawer {
 public:
-    void draw(Shape *line) override;
+    void draw(Shape *line,HDC hdc,COLORREF color) override;
 };
 
 

@@ -7,10 +7,11 @@
 
 #include "../Drawer.h"
 #include "../../Shapes/Shape.h"
+#include <Windows.h>
 
 class LineDrawerParametric : public Drawer {
 public:
-    void draw(Shape *line) override;
+    void draw(Shape *line,HDC hdc,COLORREF color) override;
 };
 
 

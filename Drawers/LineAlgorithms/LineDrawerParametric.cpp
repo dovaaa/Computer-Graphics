@@ -3,7 +3,7 @@
 //
 #include <Windows.h>
 #include "LineDrawerParametric.h"
-#include "../../Shapes/line.h"
+#include "../../Shapes/Line.h"
 #include <iostream>
 
 int round(double x)
@@ -12,7 +12,7 @@ int round(double x)
 }
 
 void LineDrawerParametric::draw(Shape *line,HDC hdc,COLORREF color) { //todo fix
-    //TODO : Line Parametric algorithm here
+
     Line *l = (Line*) line;
     int dx=l->edx-l->stx;
     int dy =l->edy-l->sty;

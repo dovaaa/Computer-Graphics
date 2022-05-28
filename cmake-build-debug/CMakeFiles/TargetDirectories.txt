@@ -1,3 +1,3 @@
-F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/CMakeFiles/edit_cache.dir
-F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/CMakeFiles/Graphics.dir
-F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+F:/Study/junior/Graphics/GraphicsProject/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir
+F:/Study/junior/Graphics/GraphicsProject/GraphicsProject/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/Study/junior/Graphics/GraphicsProject/GraphicsProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir
