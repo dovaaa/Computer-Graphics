@@ -1,21 +1,22 @@
-
-# Consider dependencies only in project.
-set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
-
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "CXX"
   )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_CXX
+  "D:/GitHub/GraphicsProject/Circle.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/Circle.cpp.obj"
+  "D:/GitHub/GraphicsProject/CircleDrawerMidpoint.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/CircleDrawerMidpoint.cpp.obj"
+  "D:/GitHub/GraphicsProject/CircleDrawerModifiedMidpoint.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/CircleDrawerModifiedMidpoint.cpp.obj"
+  "D:/GitHub/GraphicsProject/Ellipse.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/Ellipse.cpp.obj"
+  "D:/GitHub/GraphicsProject/Line.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/Line.cpp.obj"
+  "D:/GitHub/GraphicsProject/Point.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/Point.cpp.obj"
+  "D:/GitHub/GraphicsProject/Rectangle.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/Rectangle.cpp.obj"
+  "D:/GitHub/GraphicsProject/main.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/main.cpp.obj"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The set of dependency files which are needed:
-set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "F:/Courses/Graphics Project/Graphics Project/Circle.cpp" "CMakeFiles/Graphics.dir/Circle.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Circle.cpp.obj.d"
-  "F:/Courses/Graphics Project/Graphics Project/CircleDrawerMidpoint.cpp" "CMakeFiles/Graphics.dir/CircleDrawerMidpoint.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/CircleDrawerMidpoint.cpp.obj.d"
-  "F:/Courses/Graphics Project/Graphics Project/CircleDrawerModifiedMidpoint.cpp" "CMakeFiles/Graphics.dir/CircleDrawerModifiedMidpoint.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/CircleDrawerModifiedMidpoint.cpp.obj.d"
-  "F:/Courses/Graphics Project/Graphics Project/Ellipse.cpp" "CMakeFiles/Graphics.dir/Ellipse.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Ellipse.cpp.obj.d"
-  "F:/Courses/Graphics Project/Graphics Project/Line.cpp" "CMakeFiles/Graphics.dir/Line.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Line.cpp.obj.d"
-  "F:/Courses/Graphics Project/Graphics Project/Point.cpp" "CMakeFiles/Graphics.dir/Point.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Point.cpp.obj.d"
-  "F:/Courses/Graphics Project/Graphics Project/Rectangle.cpp" "CMakeFiles/Graphics.dir/Rectangle.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Rectangle.cpp.obj.d"
-  "F:/Courses/Graphics Project/Graphics Project/main.cpp" "CMakeFiles/Graphics.dir/main.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/main.cpp.obj.d"
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
   )
 
 # Targets to which this target links.

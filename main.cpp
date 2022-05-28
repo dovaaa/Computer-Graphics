@@ -68,6 +68,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hprevInst, LPSTR args, int ncmdsho
     return 0;
 }
 
+bool background_flag = false;
+
 LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
     HDC hdc;
@@ -80,6 +82,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case WHITE_BACKGROUND:
                     // todo 1- save the date 2- change the background 3- load the data, take care to not change the save of the user
                     // leave it to me (Kofta)
+                    background_flag = true;
                     SendMessage(hWnd, WM_PAINT, wp, lp);
                     break;
                 case CHANGE_CURSOR:
@@ -166,7 +169,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
             break;
         case WM_PAINT: {
-            if (LOWORD(wp) == WHITE_BACKGROUND) {
+            if (LOWORD(wp) == WHITE_BACKGROUND || background_flag) {
                 PAINTSTRUCT ps;
                 RECT rc;
                 HDC hdc = BeginPaint(hWnd, &ps);
