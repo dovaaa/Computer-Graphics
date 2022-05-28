@@ -8,7 +8,7 @@ public:
     int x, y;
     Point();
     Point(int, int);
-    void draw();
+    void draw() override;
 };
 
 

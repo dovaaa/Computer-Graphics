@@ -9,7 +9,7 @@ public:
     int cx, cy, r;
     Circle();
     Circle(int, int, int);
-    void draw();
+    void draw() override;
 };
 
 

@@ -5,7 +5,7 @@
 #include "Circle.h"
 
 void Circle::draw() {
-    drawer.draw(this);
+    drawer->draw(this);
 }
 
 Circle::Circle() {

@@ -5,9 +5,12 @@
 #ifndef GRAPHICS_DRAWER_H
 #define GRAPHICS_DRAWER_H
 
+#include "Shape.h"
+class Shape;
 
 class Drawer {
-    void draw(Shape) = 0;
+public:
+    virtual void draw(Shape*) = 0;
 };
 
 

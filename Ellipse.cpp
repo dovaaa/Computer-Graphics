@@ -5,7 +5,7 @@
 #include "Ellipse.h"
 
 void Ellipse::draw() {
-    drawer.draw(this);
+    drawer->draw(this);
 }
 
 Ellipse::Ellipse() {

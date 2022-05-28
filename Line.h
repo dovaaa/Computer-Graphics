@@ -10,7 +10,7 @@ public:
     int edx, edy;
     Line();
     Line(int, int, int, int);
-    void draw();
+    void draw() override;
 };
 
 

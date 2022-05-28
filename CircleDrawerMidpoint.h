@@ -8,7 +8,7 @@
 
 
 class CircleDrawerMidpoint : public Drawer{
-    void draw(Shape circle);
+    void draw(Shape *circle) override;
 };
 
 

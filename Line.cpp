@@ -1,7 +1,7 @@
 #include "Line.h"
 
 void Line::draw() {
-    drawer.draw(this);
+    drawer->draw(this);
 }
 
 Line::Line(int stx, int sty, int edx, int edy) {

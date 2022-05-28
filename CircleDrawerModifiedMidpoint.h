@@ -7,7 +7,7 @@
 #include "Drawer.h"
 
 class CircleDrawerModifiedMidpoint : public Drawer{
-    void draw(Shape circle);
+    void draw(Shape *circle) override;
 };
 
 #endif //GRAPHICS_CIRCLEDRAWERMODIFIEDMIDPOINT_H

@@ -1,7 +1,7 @@
 #include "Rectangle.h"
 
 void Rectangle::draw() {
-    drawer.draw(this);
+    drawer->draw(this);
 }
 
 Rectangle::Rectangle(int stx, int sty, int length, int width) {

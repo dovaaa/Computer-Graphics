@@ -4,6 +4,6 @@
 
 #include "CircleDrawerMidpoint.h"
 
-void CircleDrawerMidpoint::draw(Shape circle) {
+void CircleDrawerMidpoint::draw(Shape *circle) {
     //TODO : Midpoint Algorithm Implementation here
 }
