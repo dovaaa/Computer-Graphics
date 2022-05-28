@@ -7,3 +7,15 @@
 void Circle::draw() {
     drawer.draw(this);
 }
+
+Circle::Circle() {
+    cx = 0;
+    cy = 0;
+    r = 0;
+}
+
+Circle::Circle(int cx, int cy, int r) {
+    this->cx = cx;
+    this->cy = cy;
+    this->r = r;
+}

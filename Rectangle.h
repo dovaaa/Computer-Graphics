@@ -6,6 +6,13 @@
 
 class Rectangle : public Shape {
 public:
+    int length, width;
+    int stx, sty;
+
+    Rectangle();
+
+    Rectangle(int, int, int, int);
+
     void draw();
 };
 

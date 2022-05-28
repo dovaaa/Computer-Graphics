@@ -6,6 +6,10 @@
 
 class Ellipse : public Shape {
 public:
+    int cx, cy;
+    int a, b;
+    Ellipse();
+    Ellipse(int, int, int, int);
     void draw();
 };
 
