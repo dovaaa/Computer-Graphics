@@ -1,22 +1,27 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
   )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/GitHub/GraphicsProject/Circle.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/Circle.cpp.obj"
-  "D:/GitHub/GraphicsProject/CircleDrawerMidpoint.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/CircleDrawerMidpoint.cpp.obj"
-  "D:/GitHub/GraphicsProject/CircleDrawerModifiedMidpoint.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/CircleDrawerModifiedMidpoint.cpp.obj"
-  "D:/GitHub/GraphicsProject/Ellipse.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/Ellipse.cpp.obj"
-  "D:/GitHub/GraphicsProject/Line.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/Line.cpp.obj"
-  "D:/GitHub/GraphicsProject/Point.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/Point.cpp.obj"
-  "D:/GitHub/GraphicsProject/Rectangle.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/Rectangle.cpp.obj"
-  "D:/GitHub/GraphicsProject/main.cpp" "D:/GitHub/GraphicsProject/cmake-build-debug/CMakeFiles/Graphics.dir/main.cpp.obj"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CircleDrawerDirect.cpp" "CMakeFiles/Graphics.dir/Drawers/CircleAlgorithms/CircleDrawerDirect.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Drawers/CircleAlgorithms/CircleDrawerDirect.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CircleDrawerMidpoint.cpp" "CMakeFiles/Graphics.dir/Drawers/CircleAlgorithms/CircleDrawerMidpoint.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Drawers/CircleAlgorithms/CircleDrawerMidpoint.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.cpp" "CMakeFiles/Graphics.dir/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CircleDrawerPolar.cpp" "CMakeFiles/Graphics.dir/Drawers/CircleAlgorithms/CircleDrawerPolar.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Drawers/CircleAlgorithms/CircleDrawerPolar.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CricleDrawerIterativePolar.cpp" "CMakeFiles/Graphics.dir/Drawers/CircleAlgorithms/CricleDrawerIterativePolar.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Drawers/CircleAlgorithms/CricleDrawerIterativePolar.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/Drawers/LineAlgorithms/LineDrawerDDA.cpp" "CMakeFiles/Graphics.dir/Drawers/LineAlgorithms/LineDrawerDDA.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Drawers/LineAlgorithms/LineDrawerDDA.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/Drawers/LineAlgorithms/LineDrawerMidpoint.cpp" "CMakeFiles/Graphics.dir/Drawers/LineAlgorithms/LineDrawerMidpoint.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Drawers/LineAlgorithms/LineDrawerMidpoint.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/Drawers/LineAlgorithms/LineDrawerParametric.cpp" "CMakeFiles/Graphics.dir/Drawers/LineAlgorithms/LineDrawerParametric.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Drawers/LineAlgorithms/LineDrawerParametric.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/Shapes/Circle.cpp" "CMakeFiles/Graphics.dir/Shapes/Circle.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Shapes/Circle.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/Shapes/Ellipse.cpp" "CMakeFiles/Graphics.dir/Shapes/Ellipse.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Shapes/Ellipse.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/Shapes/Line.cpp" "CMakeFiles/Graphics.dir/Shapes/Line.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Shapes/Line.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/Shapes/Point.cpp" "CMakeFiles/Graphics.dir/Shapes/Point.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Shapes/Point.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/Shapes/Rectangle.cpp" "CMakeFiles/Graphics.dir/Shapes/Rectangle.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/Shapes/Rectangle.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/main.cpp" "CMakeFiles/Graphics.dir/main.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links.

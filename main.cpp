@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+
 #define WHITE_BACKGROUND 999
 #define CHANGE_CURSOR 1
 #define DISABLE_KEYBOARD 2
