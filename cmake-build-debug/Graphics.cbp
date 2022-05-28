@@ -82,7 +82,43 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/CircleDrawerMidpoint.cpp">
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/Circle.cpp">
+			<Option target="Graphics"/>
+		</Unit>
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/Circle.h">
+			<Option target="Graphics"/>
+		</Unit>
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/Ellipse.cpp">
+			<Option target="Graphics"/>
+		</Unit>
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/Ellipse.h">
+			<Option target="Graphics"/>
+		</Unit>
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/Line.cpp">
+			<Option target="Graphics"/>
+		</Unit>
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/Line.h">
+			<Option target="Graphics"/>
+		</Unit>
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/Point.cpp">
+			<Option target="Graphics"/>
+		</Unit>
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/Point.h">
+			<Option target="Graphics"/>
+		</Unit>
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/Rectangle.cpp">
+			<Option target="Graphics"/>
+		</Unit>
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/Rectangle.h">
+			<Option target="Graphics"/>
+		</Unit>
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/Shape.cpp">
+			<Option target="Graphics"/>
+		</Unit>
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/Shape.h">
+			<Option target="Graphics"/>
+		</Unit>
+		<Unit filename="C:/Users/AmrMahmoud/CLionProjects/Graphics/main.cpp">
 			<Option target="Graphics"/>
 		</Unit>
 		<Unit filename="F:/Courses/Graphics Project/Graphics Project/CircleDrawerMidpoint.h">
