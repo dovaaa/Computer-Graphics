@@ -3,4 +3,4 @@ project(Graphics)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Graphics main.cpp)
+add_executable(Graphics main.cpp Shape.cpp Shape.h Line.cpp Line.h Circle.cpp Circle.h Rectangle.cpp Rectangle.h Ellipse.cpp Ellipse.h Point.cpp Point.h)

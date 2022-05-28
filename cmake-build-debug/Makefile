@@ -122,6 +122,168 @@ Graphics/fast:
 	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/build
 .PHONY : Graphics/fast
 
+Circle.obj: Circle.cpp.obj
+
+.PHONY : Circle.obj
+
+# target to build an object file
+Circle.cpp.obj:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Circle.cpp.obj
+.PHONY : Circle.cpp.obj
+
+Circle.i: Circle.cpp.i
+
+.PHONY : Circle.i
+
+# target to preprocess a source file
+Circle.cpp.i:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Circle.cpp.i
+.PHONY : Circle.cpp.i
+
+Circle.s: Circle.cpp.s
+
+.PHONY : Circle.s
+
+# target to generate assembly for a file
+Circle.cpp.s:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Circle.cpp.s
+.PHONY : Circle.cpp.s
+
+Ellipse.obj: Ellipse.cpp.obj
+
+.PHONY : Ellipse.obj
+
+# target to build an object file
+Ellipse.cpp.obj:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Ellipse.cpp.obj
+.PHONY : Ellipse.cpp.obj
+
+Ellipse.i: Ellipse.cpp.i
+
+.PHONY : Ellipse.i
+
+# target to preprocess a source file
+Ellipse.cpp.i:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Ellipse.cpp.i
+.PHONY : Ellipse.cpp.i
+
+Ellipse.s: Ellipse.cpp.s
+
+.PHONY : Ellipse.s
+
+# target to generate assembly for a file
+Ellipse.cpp.s:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Ellipse.cpp.s
+.PHONY : Ellipse.cpp.s
+
+Line.obj: Line.cpp.obj
+
+.PHONY : Line.obj
+
+# target to build an object file
+Line.cpp.obj:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Line.cpp.obj
+.PHONY : Line.cpp.obj
+
+Line.i: Line.cpp.i
+
+.PHONY : Line.i
+
+# target to preprocess a source file
+Line.cpp.i:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Line.cpp.i
+.PHONY : Line.cpp.i
+
+Line.s: Line.cpp.s
+
+.PHONY : Line.s
+
+# target to generate assembly for a file
+Line.cpp.s:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Line.cpp.s
+.PHONY : Line.cpp.s
+
+Point.obj: Point.cpp.obj
+
+.PHONY : Point.obj
+
+# target to build an object file
+Point.cpp.obj:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Point.cpp.obj
+.PHONY : Point.cpp.obj
+
+Point.i: Point.cpp.i
+
+.PHONY : Point.i
+
+# target to preprocess a source file
+Point.cpp.i:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Point.cpp.i
+.PHONY : Point.cpp.i
+
+Point.s: Point.cpp.s
+
+.PHONY : Point.s
+
+# target to generate assembly for a file
+Point.cpp.s:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Point.cpp.s
+.PHONY : Point.cpp.s
+
+Rectangle.obj: Rectangle.cpp.obj
+
+.PHONY : Rectangle.obj
+
+# target to build an object file
+Rectangle.cpp.obj:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Rectangle.cpp.obj
+.PHONY : Rectangle.cpp.obj
+
+Rectangle.i: Rectangle.cpp.i
+
+.PHONY : Rectangle.i
+
+# target to preprocess a source file
+Rectangle.cpp.i:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Rectangle.cpp.i
+.PHONY : Rectangle.cpp.i
+
+Rectangle.s: Rectangle.cpp.s
+
+.PHONY : Rectangle.s
+
+# target to generate assembly for a file
+Rectangle.cpp.s:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Rectangle.cpp.s
+.PHONY : Rectangle.cpp.s
+
+Shape.obj: Shape.cpp.obj
+
+.PHONY : Shape.obj
+
+# target to build an object file
+Shape.cpp.obj:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Shape.cpp.obj
+.PHONY : Shape.cpp.obj
+
+Shape.i: Shape.cpp.i
+
+.PHONY : Shape.i
+
+# target to preprocess a source file
+Shape.cpp.i:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Shape.cpp.i
+.PHONY : Shape.cpp.i
+
+Shape.s: Shape.cpp.s
+
+.PHONY : Shape.s
+
+# target to generate assembly for a file
+Shape.cpp.s:
+	$(MAKE) -f CMakeFiles\Graphics.dir\build.make CMakeFiles/Graphics.dir/Shape.cpp.s
+.PHONY : Shape.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -158,6 +320,24 @@ help:
 	@echo ... edit_cache
 	@echo ... Graphics
 	@echo ... rebuild_cache
+	@echo ... Circle.obj
+	@echo ... Circle.i
+	@echo ... Circle.s
+	@echo ... Ellipse.obj
+	@echo ... Ellipse.i
+	@echo ... Ellipse.s
+	@echo ... Line.obj
+	@echo ... Line.i
+	@echo ... Line.s
+	@echo ... Point.obj
+	@echo ... Point.i
+	@echo ... Point.s
+	@echo ... Rectangle.obj
+	@echo ... Rectangle.i
+	@echo ... Rectangle.s
+	@echo ... Shape.obj
+	@echo ... Shape.i
+	@echo ... Shape.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

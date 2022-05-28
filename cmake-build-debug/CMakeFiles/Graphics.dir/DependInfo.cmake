@@ -4,6 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/AmrMahmoud/CLionProjects/Graphics/Circle.cpp" "C:/Users/AmrMahmoud/CLionProjects/Graphics/cmake-build-debug/CMakeFiles/Graphics.dir/Circle.cpp.obj"
+  "C:/Users/AmrMahmoud/CLionProjects/Graphics/Ellipse.cpp" "C:/Users/AmrMahmoud/CLionProjects/Graphics/cmake-build-debug/CMakeFiles/Graphics.dir/Ellipse.cpp.obj"
+  "C:/Users/AmrMahmoud/CLionProjects/Graphics/Line.cpp" "C:/Users/AmrMahmoud/CLionProjects/Graphics/cmake-build-debug/CMakeFiles/Graphics.dir/Line.cpp.obj"
+  "C:/Users/AmrMahmoud/CLionProjects/Graphics/Point.cpp" "C:/Users/AmrMahmoud/CLionProjects/Graphics/cmake-build-debug/CMakeFiles/Graphics.dir/Point.cpp.obj"
+  "C:/Users/AmrMahmoud/CLionProjects/Graphics/Rectangle.cpp" "C:/Users/AmrMahmoud/CLionProjects/Graphics/cmake-build-debug/CMakeFiles/Graphics.dir/Rectangle.cpp.obj"
+  "C:/Users/AmrMahmoud/CLionProjects/Graphics/Shape.cpp" "C:/Users/AmrMahmoud/CLionProjects/Graphics/cmake-build-debug/CMakeFiles/Graphics.dir/Shape.cpp.obj"
   "C:/Users/AmrMahmoud/CLionProjects/Graphics/main.cpp" "C:/Users/AmrMahmoud/CLionProjects/Graphics/cmake-build-debug/CMakeFiles/Graphics.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
