@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Graphics.dir/CircleDrawerMidpoint.cpp.obj"
+  "CMakeFiles/Graphics.dir/CircleDrawerMidpoint.cpp.obj.d"
   "CMakeFiles/Graphics.dir/main.cpp.obj"
+  "CMakeFiles/Graphics.dir/main.cpp.obj.d"
   "Graphics.exe"
   "Graphics.exe.manifest"
   "Graphics.pdb"

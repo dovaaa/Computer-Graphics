@@ -1,15 +1,15 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
   )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/AmrMahmoud/CLionProjects/Graphics/main.cpp" "C:/Users/AmrMahmoud/CLionProjects/Graphics/cmake-build-debug/CMakeFiles/Graphics.dir/main.cpp.obj"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "F:/Courses/Graphics Project/Graphics Project/CircleDrawerMidpoint.cpp" "CMakeFiles/Graphics.dir/CircleDrawerMidpoint.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/CircleDrawerMidpoint.cpp.obj.d"
+  "F:/Courses/Graphics Project/Graphics Project/main.cpp" "CMakeFiles/Graphics.dir/main.cpp.obj" "gcc" "CMakeFiles/Graphics.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links.
