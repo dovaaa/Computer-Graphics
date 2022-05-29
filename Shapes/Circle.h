@@ -10,6 +10,7 @@ public:
     Circle();
     Circle(int, int, int, Drawer*);
     void draw() override;
+    void save() override;
 };
 
 

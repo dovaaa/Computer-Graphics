@@ -20,3 +20,10 @@ Circle::Circle(int cx, int cy, int r, Drawer* circleDrawer) {
     this->cy = cy;
     this->r = r;
 }
+
+#include <iostream>
+using namespace std;
+
+void Circle::save() {
+    cout << mp["circle"] << ',' << cx << ',' << cy << ',' << r << ',' << c;
+}
