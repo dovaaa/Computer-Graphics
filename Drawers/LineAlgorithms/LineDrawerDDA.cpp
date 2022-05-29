@@ -33,4 +33,3 @@ void LineDrawerDDA::draw(Shape *line, HDC& hdc) {//todo fix
 
 }
 
-

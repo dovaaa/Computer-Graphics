@@ -9,8 +9,9 @@ public:
     int stx, sty;
     int edx, edy;
     Line();
-    Line(int, int, int, int);
-    void draw() override;
+    Line(int, int, int, int, COLORREF, Drawer* dr);
+    void draw(HDC& hdc) override;
+    void save() override;
 };
 
 

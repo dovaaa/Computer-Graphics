@@ -13,7 +13,8 @@ public:
 
     Rectangle(int, int, int, int);
 
-    void draw() override;
+    void draw(HDC& hdc) override;
+    void save() override;
 };
 
 

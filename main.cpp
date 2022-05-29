@@ -1,4 +1,8 @@
 #include <windows.h>
+#include "Shapes/Shape.h"
+#include "Drawers/Drawer.h"
+#include "Drawers/LineAlgorithms/LineDrawerDDA.h"
+#include "Shapes/Line.h"
 
 #include <iostream>
 
@@ -70,11 +74,14 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hprevInst, LPSTR args, int ncmdsho
 }
 
 bool background_flag = false;
+bool firstCreate = true;
 
 LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
     HDC hdc;
     HBRUSH hbrBkgnd = NULL;
+    Line line;
+    Drawer *dr;
     switch (msg)                  /* handle the messages */
     {
         case WM_COMMAND:
@@ -97,6 +104,12 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case LOAD_DATA:
                     break;
                 case DRAW_LINE_DDA:
+                    dr = new LineDrawerDDA();
+                    line = Line(0, 0, 100, 100, RGB(0, 0, 0), dr);
+                    hdc = GetDC(hWnd);
+                    line.draw(hdc);
+                    ReleaseDC(hWnd, hdc);
+
                     break;
                 case DRAW_LINE_PARAMETRIC:
                     break;
@@ -160,14 +173,13 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
             break;
         case WM_CREATE:
-            AddMenu(hWnd);
+            if (firstCreate) {
+                firstCreate = false;
+                AddMenu(hWnd);
+            }
             break;
         case WM_DESTROY:
             PostQuitMessage(0);       /* send a WM_QUIT to the message queue */
-            break;
-        case WM_LBUTTONDOWN:
-            //Circles are generated to keep track of the clicking position
-
             break;
         case WM_PAINT: {
             if (LOWORD(wp) == WHITE_BACKGROUND || background_flag) {
@@ -179,7 +191,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 FillRect(hdc, &rc, (HBRUSH) GetStockObject(DC_BRUSH));
                 EndPaint(hWnd, &ps);
             }
-            return 0;
+                return 0;
         }
         default:
             return DefWindowProcW(hWnd, msg, wp, lp);

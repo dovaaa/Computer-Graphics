@@ -8,7 +8,8 @@ public:
     int cx, cy, r;
     Circle();
     Circle(int, int, int, Drawer*);
-    void draw() override;
+    void draw(HDC& hdc) override;
+    void save() override;
 };
 
 

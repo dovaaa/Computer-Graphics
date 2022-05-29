@@ -15,12 +15,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added hdc and color to lineDrawers, implemented lineDrawers">
+      <change afterPath="$PROJECT_DIR$/File.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/File.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/Drawer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/Drawer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerDDA.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerDDA.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shapes/Circle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Circle.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shapes/Circle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Circle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Ellipse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Ellipse.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Ellipse.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Ellipse.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Line.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Line.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Line.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Line.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Point.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Point.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Point.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Point.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Rectangle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Rectangle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Rectangle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Rectangle.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shapes/Shape.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Shape.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653843509263</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added hdc and color to lineDrawers, implemented lineDrawers">
+      <created>1653844925674</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653844925674</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,10 +183,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="added hdc and color to lineDrawers, implemented lineDrawers" />
   </component>
   <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="CMakeRunConfiguration">
-        <watch expression="SetBkColor(hdc, c)" language="ObjectiveC" />
-      </configuration>
-    </watches-manager>
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>109</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

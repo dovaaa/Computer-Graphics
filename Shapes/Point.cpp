@@ -1,7 +1,7 @@
 #include "Point.h"
 
-void Point::draw() {
-    drawer->draw(this);
+void Point::draw(HDC& hdc) {
+    drawer->draw(this, hdc);
 }
 
 Point::Point() {

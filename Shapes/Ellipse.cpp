@@ -4,8 +4,8 @@
 
 #include "Ellipse.h"
 
-void Ellipse::draw() {
-    drawer->draw(this);
+void Ellipse::draw(HDC& hdc) {
+    drawer->draw(this, hdc);
 }
 
 Ellipse::Ellipse() {
@@ -20,4 +20,11 @@ Ellipse::Ellipse(int cx, int cy, int a, int b) {
     this->cy = cy;
     this->a = a;
     this->b = b;
+}
+
+void Ellipse::save() {
+    string s = to_string(mp["ellipse"]) + ':' + to_string(cx) + ',' + to_string(cy) + ',' + to_string(a) + ',' +
+               to_string(b) + ',' +
+               to_string(c) + ' ';
+    //f.write(s + drawer->save() + '\n');
 }

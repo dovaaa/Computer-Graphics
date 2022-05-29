@@ -7,12 +7,13 @@
 #include <Windows.h>
 
 #include "../Shapes/Shape.h"
+#include <iostream>
 class Shape;
 
 class Drawer {
 public:
-    virtual void draw(Shape*) = 0;
     virtual void draw(Shape*, HDC&) = 0;
+    //virtual std::string save() = 0;
 };
 
 

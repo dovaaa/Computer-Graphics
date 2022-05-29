@@ -10,7 +10,8 @@ public:
     int a, b;
     Ellipse();
     Ellipse(int, int, int, int);
-    void draw() override;
+    void draw(HDC& hdc) override;
+    void save() override;
 };
 
 

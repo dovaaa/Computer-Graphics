@@ -4,8 +4,8 @@
 
 #include "Circle.h"
 
-void Circle::draw() {
-    drawer->draw(this);
+void Circle::draw(HDC& hdc) {
+    drawer->draw(this, hdc);
 }
 
 Circle::Circle() {
@@ -21,6 +21,8 @@ Circle::Circle(int cx, int cy, int r, Drawer* circleDrawer) {
     this->r = r;
 }
 
-//void Circle::save() {
-//    cout << mp["circle"] << ',' << cx << ',' << cy << ',' << r << ',' << c;
-//}
+void Circle::save() {
+    string s = to_string(mp["circle"]) + ':' + to_string(cx) + ',' + to_string(cy) + ',' + to_string(r) + ',' +
+            to_string(c) + ' ';
+    //f.write(s + drawer->save() + '\n');
+}
