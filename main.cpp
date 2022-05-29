@@ -16,45 +16,44 @@
 #include "Drawers/EllipseAlgorithms/EllipseDrawerPolar.h"
 #include "Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.h"
 
-WNDCLASSEX wincl;
 #include <iostream>
 
 
-#define WHITE_BACKGROUND 999
-#define CHANGE_CURSOR 1
-#define DISABLE_KEYBOARD 2
-#define SET_SHAPE_COLOR 3
-#define SAVE_DATA 4
-#define LOAD_DATA 5
-#define DRAW_LINE_DDA 6
-#define DRAW_LINE_PARAMETRIC 7
-#define DRAW_LINE_MIDPOINT 8
-#define DRAW_CIRCLE_DIRECT 9
-#define DRAW_CIRCLE_POLAR 10
-#define DRAW_CIRCLE_ITERATIVE_POLAR 11
-#define DRAW_CIRCLE_MIDPOINT 12
-#define DRAW_CIRCLE_MODIFIED_MIDPOINT 13
-#define FILL_CIRCLE_WITH_LINE 14
-#define FILL_CIRCLE_WITH_CIRCLE 15
-#define FILL_SQUARE_WITH_HERMITE_CURVE 16
-#define FILL_RECTANGLE_WITH_BEZIER_CURVE 17
-#define CONVEX_FILLING 18
-#define NON_CONVEX_FILLING 19
-#define RECURSIVE_FLOOD_FILL 20
-#define NON_RECURSIVE_FLOOD_FILL 21
-#define CARDINAL_SPLINE_CURVE 22
-#define DRAW_ELLIPSE_DIRECT 23
-#define DRAW_ELLIPSE_POLAR 24
-#define DRAW_ELLIPSE_MIDPOINT 25
-#define CLIP_RECTANGLE_POINT 26
-#define CLIP_RECTANGLE_LINE 27
-#define CLIP_RECTANGLE_POLYGON 28
-#define CLIP_SQUARE_POINT 29
-#define CLIP_SQUARE_LINE 30
-#define CLIP_CIRCLE_POINT 31
-#define CLIP_CIRCLE_LINE 32
-#define CLEAR_WINDOW 33
-#define EXIT_WINDOW 34
+#define WHITE_BACKGROUND 10000
+#define CHANGE_CURSOR 10001
+#define DISABLE_KEYBOARD 10002
+#define SET_SHAPE_COLOR 10003
+#define SAVE_DATA 10004
+#define LOAD_DATA 10005
+#define DRAW_LINE_DDA 10006
+#define DRAW_LINE_PARAMETRIC 10007
+#define DRAW_LINE_MIDPOINT 10008
+#define DRAW_CIRCLE_DIRECT 10009
+#define DRAW_CIRCLE_POLAR 10010
+#define DRAW_CIRCLE_ITERATIVE_POLAR 10011
+#define DRAW_CIRCLE_MIDPOINT 10012
+#define DRAW_CIRCLE_MODIFIED_MIDPOINT 10013
+#define FILL_CIRCLE_WITH_LINE 10014
+#define FILL_CIRCLE_WITH_CIRCLE 10015
+#define FILL_SQUARE_WITH_HERMITE_CURVE 10016
+#define FILL_RECTANGLE_WITH_BEZIER_CURVE 10017
+#define CONVEX_FILLING 10018
+#define NON_CONVEX_FILLING 10019
+#define RECURSIVE_FLOOD_FILL 10020
+#define NON_RECURSIVE_FLOOD_FILL 10021
+#define CARDINAL_SPLINE_CURVE 10022
+#define DRAW_ELLIPSE_DIRECT 10023
+#define DRAW_ELLIPSE_POLAR 10024
+#define DRAW_ELLIPSE_MIDPOINT 10025
+#define CLIP_RECTANGLE_POINT 10026
+#define CLIP_RECTANGLE_LINE 10027
+#define CLIP_RECTANGLE_POLYGON 10028
+#define CLIP_SQUARE_POINT 10029
+#define CLIP_SQUARE_LINE 10030
+#define CLIP_CIRCLE_POINT 10031
+#define CLIP_CIRCLE_LINE 10032
+#define CLEAR_WINDOW 10033
+#define EXIT_WINDOW 10034
 HCURSOR cursor =  LoadCursorA(NULL,IDC_ARROW);
 LRESULT CALLBACK WindowProcedure(HWND, UINT, WPARAM, LPARAM);
 
@@ -70,7 +69,6 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hprevInst, LPSTR args, int ncmdsho
     wc.hInstance = hInst;
     wc.lpszClassName = L"myWindowClass";
     wc.lpfnWndProc = WindowProcedure;
-
 
     if (!RegisterClassW(&wc))
         return -1;
@@ -94,7 +92,6 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
     HDC hdc;
     HBRUSH hbrBkgnd = NULL;
-
     Line line;
     ELLIPSE ellipse;
     Circle circle;
@@ -108,15 +105,14 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     // todo 1- save the date 2- change the background 3- load the data, take care to not change the save of the user
                     // leave it to me (Kofta)
                     background_flag = true;
-//                    SendMessage(hWnd, WM_PAINT, wp, lp);
-                    wincl.hbrBackground=(HBRUSH)GetStockObject(WHITE_BRUSH);
+                    SendMessage(hWnd, CLEAR_WINDOW, wp, lp);
+                    SendMessage(hWnd, WM_PAINT, wp, lp);
                     break;
                 case CHANGE_CURSOR:
                     cursor=LoadCursorA(NULL,IDC_CROSS);
                     SetCursor(cursor);
                     break;
                 case DISABLE_KEYBOARD:
-
                     break;
                 case SET_SHAPE_COLOR:
                     break;
@@ -235,6 +231,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case CLIP_CIRCLE_LINE:
                     break;
                 case CLEAR_WINDOW:
+                    InvalidateRect(hWnd, NULL, true);
                     break;
                 case EXIT_WINDOW:
                     DestroyWindow(hWnd);
@@ -252,8 +249,14 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
         case WM_DESTROY:
             PostQuitMessage(0);       /* send a WM_QUIT to the message queue */
             break;
+        case WM_LBUTTONDOWN:
+            //Circles are generated to keep track of the clicking position
+
+            break;
         case WM_PAINT: {
-            if (LOWORD(wp) == WHITE_BACKGROUND || background_flag) {
+            if (!background_flag)
+                DefWindowProc(hWnd, msg, wp, lp);
+            else {
                 PAINTSTRUCT ps;
                 RECT rc;
                 HDC hdc = BeginPaint(hWnd, &ps);
@@ -262,8 +265,10 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 FillRect(hdc, &rc, (HBRUSH) GetStockObject(DC_BRUSH));
                 EndPaint(hWnd, &ps);
             }
-                return 0;
+            return 0;
         }
+        case WM_ERASEBKGND :
+
         case WM_SETCURSOR:
             if (LOWORD(lp) == HTCLIENT)
             {
@@ -275,6 +280,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
             return DefWindowProcW(hWnd, msg, wp, lp);
 
     }
+
 }
 
 void AddMenu(HWND hWnd) {
