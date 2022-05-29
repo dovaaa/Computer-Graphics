@@ -8,186 +8,186 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="F:/Courses/Graphics Project/Graphics Project/cmake-build-debug"/>
+				<Option working_dir="D:/GitHub/GraphicsProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="F:/Courses/Graphics Project/Graphics Project/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Graphics">
-				<Option output="F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Graphics.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="F:/Courses/Graphics Project/Graphics Project/cmake-build-debug"/>
+				<Option output="D:/GitHub/GraphicsProject/cmake-build-debug/Graphics.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/GitHub/GraphicsProject/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 Graphics"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 Graphics"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Graphics/fast">
-				<Option output="F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Graphics.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="F:/Courses/Graphics Project/Graphics Project/cmake-build-debug"/>
+				<Option output="D:/GitHub/GraphicsProject/cmake-build-debug/Graphics.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/GitHub/GraphicsProject/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.1.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 Graphics/fast"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 Graphics/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/GitHub/GraphicsProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="F:/Courses/Graphics Project/Graphics Project/cmake-build-debug"/>
+				<Option working_dir="D:/GitHub/GraphicsProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;F:/Courses/Graphics Project/Graphics Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;D:/GitHub/GraphicsProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CircleDrawerDirect.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/CircleAlgorithms/CircleDrawerDirect.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CircleDrawerDirect.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/CircleAlgorithms/CircleDrawerDirect.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CircleDrawerMidpoint.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/CircleAlgorithms/CircleDrawerMidpoint.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CircleDrawerMidpoint.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/CircleAlgorithms/CircleDrawerMidpoint.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CircleDrawerPolar.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/CircleAlgorithms/CircleDrawerPolar.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CircleDrawerPolar.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/CircleAlgorithms/CircleDrawerPolar.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CricleDrawerIterativePolar.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/CircleAlgorithms/CricleDrawerIterativePolar.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/CircleAlgorithms/CricleDrawerIterativePolar.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/CircleAlgorithms/CricleDrawerIterativePolar.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/Drawer.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/Drawer.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/EllipseAlgorithms/EllipseDrawerDirect.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/EllipseAlgorithms/EllipseDrawerDirect.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/EllipseAlgorithms/EllipseDrawerDirect.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/EllipseAlgorithms/EllipseDrawerDirect.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/EllipseAlgorithms/EllipseDrawerPolar.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/EllipseAlgorithms/EllipseDrawerPolar.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/EllipseAlgorithms/EllipseDrawerPolar.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/EllipseAlgorithms/EllipseDrawerPolar.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/LineAlgorithms/LineDrawerDDA.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/LineAlgorithms/LineDrawerDDA.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/LineAlgorithms/LineDrawerDDA.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/LineAlgorithms/LineDrawerDDA.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/LineAlgorithms/LineDrawerMidpoint.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/LineAlgorithms/LineDrawerMidpoint.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/LineAlgorithms/LineDrawerMidpoint.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/LineAlgorithms/LineDrawerMidpoint.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/LineAlgorithms/LineDrawerParametric.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/LineAlgorithms/LineDrawerParametric.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Drawers/LineAlgorithms/LineDrawerParametric.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Drawers/LineAlgorithms/LineDrawerParametric.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Shapes/Circle.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Shapes/Circle.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Shapes/Circle.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Shapes/Circle.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Shapes/Ellipse.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Shapes/Ellipse.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Shapes/Ellipse.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Shapes/Ellipse.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Shapes/Line.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Shapes/Line.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Shapes/Line.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Shapes/Line.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Shapes/Point.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Shapes/Point.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Shapes/Point.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Shapes/Point.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Shapes/Rectangle.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/Shapes/Rectangle.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Shapes/Rectangle.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Shapes/Rectangle.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/Shapes/Shape.h">
+		<Unit filename="D:/GitHub/GraphicsProject/Shapes/Shape.h">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/main.cpp">
+		<Unit filename="D:/GitHub/GraphicsProject/main.cpp">
 			<Option target="Graphics"/>
 		</Unit>
-		<Unit filename="F:/Courses/Graphics Project/Graphics Project/CMakeLists.txt">
+		<Unit filename="D:/GitHub/GraphicsProject/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
