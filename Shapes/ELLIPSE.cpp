@@ -15,7 +15,8 @@ ELLIPSE::ELLIPSE() {
     b = 0;
 }
 
-ELLIPSE::ELLIPSE(int cx, int cy, int a, int b) {
+ELLIPSE::ELLIPSE(int cx, int cy, int a, int b,Drawer* ellipseDrawer) {
+    this->drawer=ellipseDrawer;
     this->cx = cx;
     this->cy = cy;
     this->a = a;

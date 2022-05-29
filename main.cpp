@@ -3,7 +3,20 @@
 #include "Drawers/Drawer.h"
 #include "Drawers/LineAlgorithms/LineDrawerDDA.h"
 #include "Shapes/Line.h"
+#include "Shapes/ELLIPSE.h"
+#include "Shapes/Circle.h"
+#include "Drawers/LineAlgorithms/LineDrawerParametric.h"
+#include "Drawers/LineAlgorithms/LineDrawerMidpoint.h"
+#include "Drawers/CircleAlgorithms/CircleDrawerDirect.h"
+#include "Drawers/CircleAlgorithms/CircleDrawerPolar.h"
+#include "Drawers/CircleAlgorithms/CircleDrawerIterativePolar.h"
+#include "Drawers/CircleAlgorithms/CircleDrawerMidpoint.h"
+#include "Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.h"
+#include "Drawers/EllipseAlgorithms/EllipseDrawerDirect.h"
+#include "Drawers/EllipseAlgorithms/EllipseDrawerPolar.h"
+#include "Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.h"
 
+WNDCLASSEX wincl;
 #include <iostream>
 
 
@@ -42,7 +55,7 @@
 #define CLIP_CIRCLE_LINE 32
 #define CLEAR_WINDOW 33
 #define EXIT_WINDOW 34
-
+HCURSOR cursor =  LoadCursorA(NULL,IDC_ARROW);
 LRESULT CALLBACK WindowProcedure(HWND, UINT, WPARAM, LPARAM);
 
 void AddMenu(HWND hWnd);
@@ -57,6 +70,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hprevInst, LPSTR args, int ncmdsho
     wc.hInstance = hInst;
     wc.lpszClassName = L"myWindowClass";
     wc.lpfnWndProc = WindowProcedure;
+
 
     if (!RegisterClassW(&wc))
         return -1;
@@ -80,7 +94,10 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
     HDC hdc;
     HBRUSH hbrBkgnd = NULL;
+
     Line line;
+    ELLIPSE ellipse;
+    Circle circle;
     Drawer *dr;
     switch (msg)                  /* handle the messages */
     {
@@ -91,11 +108,15 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     // todo 1- save the date 2- change the background 3- load the data, take care to not change the save of the user
                     // leave it to me (Kofta)
                     background_flag = true;
-                    SendMessage(hWnd, WM_PAINT, wp, lp);
+//                    SendMessage(hWnd, WM_PAINT, wp, lp);
+                    wincl.hbrBackground=(HBRUSH)GetStockObject(WHITE_BRUSH);
                     break;
                 case CHANGE_CURSOR:
+                    cursor=LoadCursorA(NULL,IDC_CROSS);
+                    SetCursor(cursor);
                     break;
                 case DISABLE_KEYBOARD:
+
                     break;
                 case SET_SHAPE_COLOR:
                     break;
@@ -112,18 +133,53 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
                     break;
                 case DRAW_LINE_PARAMETRIC:
+                    dr = new LineDrawerParametric();
+                    line = Line(0,0,100,100,RGB(0,0,0),dr);
+                    hdc=GetDC(hWnd);
+                    line.draw(hdc);
+                    ReleaseDC(hWnd,hdc);
                     break;
                 case DRAW_LINE_MIDPOINT:
+                    dr = new LineDrawerMidpoint();
+                    line = Line(0,0,100,100,RGB(0,0,0),dr);
+                    hdc=GetDC(hWnd);
+                    line.draw(hdc);
+                    ReleaseDC(hWnd,hdc);
                     break;
                 case DRAW_CIRCLE_DIRECT:
+                    dr = new CircleDrawerDirect();
+                    circle = Circle(200,200,50,dr);
+                    hdc=GetDC(hWnd);
+                    circle.draw(hdc);
+                    ReleaseDC(hWnd,hdc);
                     break;
                 case DRAW_CIRCLE_POLAR:
+                    dr = new CircleDrawerPolar();
+                    circle = Circle(200,200,50,dr);
+                    hdc=GetDC(hWnd);
+                    circle.draw(hdc);
+                    ReleaseDC(hWnd,hdc);
                     break;
                 case DRAW_CIRCLE_ITERATIVE_POLAR:
+                    dr = new CircleDrawerIterativePolar();
+                    circle = Circle(200,200,50,dr);
+                    hdc=GetDC(hWnd);
+                    circle.draw(hdc);
+                    ReleaseDC(hWnd,hdc);
                     break;
                 case DRAW_CIRCLE_MIDPOINT:
+                    dr = new CircleDrawerMidpoint();
+                    circle = Circle(200,200,50,dr);
+                    hdc=GetDC(hWnd);
+                    circle.draw(hdc);
+                    ReleaseDC(hWnd,hdc);
                     break;
                 case DRAW_CIRCLE_MODIFIED_MIDPOINT:
+                    dr = new CircleDrawerModifiedMidpoint();
+                    circle = Circle(200,200,50,dr);
+                    hdc=GetDC(hWnd);
+                    circle.draw(hdc);
+                    ReleaseDC(hWnd,hdc);
                     break;
                 case FILL_CIRCLE_WITH_LINE:
                     break;
@@ -144,10 +200,25 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case CARDINAL_SPLINE_CURVE:
                     break;
                 case DRAW_ELLIPSE_DIRECT:
+                    dr = new EllipseDrawerDirect();
+                    ellipse = ELLIPSE(200,200,50,70,dr);
+                    hdc=GetDC(hWnd);
+                    ellipse.draw(hdc);
+                    ReleaseDC(hWnd,hdc);
                     break;
                 case DRAW_ELLIPSE_POLAR:
+                    dr = new EllipseDrawerPolar();
+                    ellipse = ELLIPSE(200,200,50,70,dr);
+                    hdc=GetDC(hWnd);
+                    ellipse.draw(hdc);
+                    ReleaseDC(hWnd,hdc);
                     break;
                 case DRAW_ELLIPSE_MIDPOINT:
+                    dr = new EllipseDrawerMidpoint();
+                    ellipse = ELLIPSE(200,200,50,70,dr);
+                    hdc=GetDC(hWnd);
+                    ellipse.draw(hdc);
+                    ReleaseDC(hWnd,hdc);
                     break;
                 case CLIP_RECTANGLE_POINT:
                     break;
@@ -193,6 +264,13 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
             }
                 return 0;
         }
+        case WM_SETCURSOR:
+            if (LOWORD(lp) == HTCLIENT)
+            {
+                ::SetCursor(cursor);
+                return TRUE;
+            }
+            break;
         default:
             return DefWindowProcW(hWnd, msg, wp, lp);
 

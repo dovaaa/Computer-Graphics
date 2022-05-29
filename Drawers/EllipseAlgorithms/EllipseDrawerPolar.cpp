@@ -12,7 +12,7 @@ void EllipseDrawerPolar::draw(Shape *ellipse, HDC& hdc) {
     int x=el->a, y=0;
     double theta = 0,dtheta=1.0/el->a;
     el->Draw4Points(hdc,el->cx,el->cy,x,y,el->c);
-    while(x+el->a>y){
+    while(theta<=el->a){
         theta+=dtheta;
         x=round(el->a* cos(theta));
         y=round(el->b* sin(theta));
