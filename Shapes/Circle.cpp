@@ -21,6 +21,6 @@ Circle::Circle(int cx, int cy, int r, Drawer* circleDrawer) {
     this->r = r;
 }
 
-void Circle::save() {
-    cout << mp["circle"] << ',' << cx << ',' << cy << ',' << r << ',' << c;
-}
+//void Circle::save() {
+//    cout << mp["circle"] << ',' << cx << ',' << cy << ',' << r << ',' << c;
+//}

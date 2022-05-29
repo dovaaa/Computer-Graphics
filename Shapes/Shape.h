@@ -12,8 +12,6 @@ public:
     static map<string, int> mp;
     Drawer *drawer;
     COLORREF c;
-    virtual void save() = 0;
-    virtual void load() = 0;
     virtual void draw() = 0;
 };
 
