@@ -7,9 +7,8 @@
 #include <iostream>
 #include <cmath>
 
-
 void LineDrawerParametric::draw(Shape *line, HDC& hdc) {
-    //TODO : FIX
+
     Line *l = (Line*) line;
     int dx=l->edx-l->stx;
     int dy =l->edy-l->sty;
