@@ -3,7 +3,19 @@
 //
 
 #include "CircleDrawerDirect.h"
+#include "../../Shapes/Circle.h"
+#include "cmath"
 
 void CircleDrawerDirect::draw(Shape *circle, HDC& hdc) {
-    //TODO : Circle direct algorithm here
+
+    Circle *circ = (Circle*) circle; //TODO CHECK auto or Circle?
+    int x =0, y = circ->r;
+    int r2 = y*y;
+
+    circ->Draw8Points(hdc,circ->cx,circ->cy,x,y,circ->c);
+    while(x<y){
+        x++;
+        y=round(sqrt((double)(r2-(x*x))));
+        circ->Draw8Points(hdc,circ->cx,circ->cy,x,y,circ->c);
+    }
 }

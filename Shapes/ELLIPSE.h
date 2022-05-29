@@ -12,6 +12,7 @@ public:
     Ellipse(int, int, int, int);
     void draw(HDC& hdc) override;
     void save() override;
+    void Draw4Points(HDC , int , int , int , int , COLORREF);
 };
 
 

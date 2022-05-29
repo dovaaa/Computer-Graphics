@@ -8,7 +8,7 @@
 #include <iostream>
 #include <cmath>
 
-void LineDrawerDDA::draw(Shape *line, HDC& hdc) {//todo fix
+void LineDrawerDDA::draw(Shape *line, HDC& hdc) {
     Line *l = (Line*) line;
     int dx = l->edx-l->stx;
     int dy = l->edy-l->sty;
