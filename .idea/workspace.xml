@@ -17,10 +17,8 @@
     <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added hdc and color to lineDrawers, implemented lineDrawers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Circle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Circle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Circle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Circle.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Shape.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Shape.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/ELLIPSE.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/ELLIPSE.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Ellipse.cpp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +37,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">

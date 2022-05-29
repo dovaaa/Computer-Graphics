@@ -4,11 +4,11 @@
 
 #include "ELLIPSE.h"
 
-void ELLIPSE::draw() {
-    drawer->draw(this);
+void ELLIPSE::draw(HDC& hdc) {
+    drawer->draw(this, hdc);
 }
 
-ELLIPSE::ELLIPSE(){
+ELLIPSE::ELLIPSE() {
     cx = 0;
     cy = 0;
     a = 0;
@@ -20,6 +20,13 @@ ELLIPSE::ELLIPSE(int cx, int cy, int a, int b) {
     this->cy = cy;
     this->a = a;
     this->b = b;
+}
+
+void ELLIPSE::save() {
+    string s = to_string(mp["ellipse"]) + ':' + to_string(cx) + ',' + to_string(cy) + ',' + to_string(a) + ',' +
+               to_string(b) + ',' +
+               to_string(c) + ' ';
+    //f.write(s + drawer->save() + '\n');
 }
 
 void ELLIPSE::Draw4Points(HDC hdc, int xc, int yc, int x, int y, COLORREF color) {
