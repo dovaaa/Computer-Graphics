@@ -1,8 +1,7 @@
-#include "Shape.h"
-
 #ifndef GRAPHICS_CIRCLE_H
 #define GRAPHICS_CIRCLE_H
 
+#include "Shape.h"
 
 class Circle : public Shape {
 public:

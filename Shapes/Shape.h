@@ -7,11 +7,9 @@
 using namespace std;
 class Drawer;
 
-
-
 class Shape {
 public:
-    static map<std::string, int> mp;
+    static map<string, int> mp;
     Drawer *drawer;
     COLORREF c;
     virtual void save() = 0;
