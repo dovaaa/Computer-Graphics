@@ -4,6 +4,6 @@
 
 #include "CircleDrawerDirect.h"
 
-void CircleDrawerDirect::draw(Shape *circle) {
+void CircleDrawerDirect::draw(Shape *circle, HDC& hdc) {
     //TODO : Circle direct algorithm here
 }

@@ -10,7 +10,7 @@
 
 class CricleDrawerIterativePolar : public Drawer{
 public:
-    void draw(Shape *circle) override;
+    void draw(Shape *circle, HDC& hdc) override;
 };
 
 

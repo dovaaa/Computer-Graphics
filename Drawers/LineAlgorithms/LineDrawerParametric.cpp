@@ -8,8 +8,8 @@
 #include <cmath>
 
 
-void LineDrawerParametric::draw(Shape *line,HDC hdc,COLORREF color) { //todo fix
-
+void LineDrawerParametric::draw(Shape *line, HDC& hdc) {
+    //TODO : FIX
     Line *l = (Line*) line;
     int dx=l->edx-l->stx;
     int dy =l->edy-l->sty;
@@ -22,7 +22,7 @@ void LineDrawerParametric::draw(Shape *line,HDC hdc,COLORREF color) { //todo fix
         }
         for (int x = l->stx; x < l->edx; ++x) {
             int y = round(l->sty+(x-l->stx)*slope);
-            SetPixel(hdc,x,y,color);
+            SetPixel(hdc, x, y, line->c);
         }
     }else{
         double islope = (double)dx/dy;
@@ -32,7 +32,7 @@ void LineDrawerParametric::draw(Shape *line,HDC hdc,COLORREF color) { //todo fix
         }
         for (int y = l->sty; y < l->edy; ++y) {
             int x = round(l->stx+(y-l->sty)*islope);
-            SetPixel(hdc,x,y,color);
+            SetPixel(hdc, x, y, line->c);
         }
     }
 

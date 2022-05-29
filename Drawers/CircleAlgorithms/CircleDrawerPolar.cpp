@@ -4,6 +4,6 @@
 
 #include "CircleDrawerPolar.h"
 
-void CircleDrawerPolar::draw(Shape *circle) {
+void CircleDrawerPolar::draw(Shape *circle, HDC& hdc) {
     //TODO : Circle Polar Algorithm here
 }

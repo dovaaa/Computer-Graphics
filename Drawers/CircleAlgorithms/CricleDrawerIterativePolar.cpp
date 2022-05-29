@@ -4,6 +4,6 @@
 
 #include "CricleDrawerIterativePolar.h"
 
-void CricleDrawerIterativePolar::draw(Shape *circle) {
+void CricleDrawerIterativePolar::draw(Shape *circle, HDC& hdc) {
     //TODO : Iterative Polar Circle Algorithm here
 }

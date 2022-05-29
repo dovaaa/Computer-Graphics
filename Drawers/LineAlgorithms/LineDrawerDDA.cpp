@@ -8,18 +8,18 @@
 #include <iostream>
 #include <cmath>
 
-void LineDrawerDDA::draw(Shape *line,HDC hdc,COLORREF color) {//todo fix
+void LineDrawerDDA::draw(Shape *line, HDC& hdc) {//todo fix
     Line *l = (Line*) line;
     int dx = l->edx-l->stx;
     int dy = l->edy-l->sty;
-    SetPixel(hdc,l->stx,l->sty,color);
+    SetPixel(hdc,l->stx, l->sty, line->c);
     if(abs(dx)>=abs(dy)){
         int x = l->stx,xinc = dx>0?1:-1;
         double y = l->sty,yinc=(double)dy/dx*xinc;
         while(x!=l->edx){
             x+=xinc;
             y+=yinc;
-            SetPixel(hdc,x,round(y),color);
+            SetPixel(hdc, x, round(y), line->c);
         }
     }else{
         int y=l->sty,yinc= dy>0?1:-1;
@@ -27,7 +27,7 @@ void LineDrawerDDA::draw(Shape *line,HDC hdc,COLORREF color) {//todo fix
         while(y!=l->edy){
             x+=xinc;
             y+=yinc;
-            SetPixel(hdc,round(x),y,color);
+            SetPixel(hdc, round(x), y, line->c);
         }
     }
 

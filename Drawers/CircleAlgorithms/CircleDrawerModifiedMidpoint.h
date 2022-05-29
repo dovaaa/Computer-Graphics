@@ -8,7 +8,7 @@
 
 class CircleDrawerModifiedMidpoint : public Drawer{
 public:
-    void draw(Shape *circle) override;
+    void draw(Shape *circle, HDC& hdc) override;
 };
 
 #endif //GRAPHICS_CIRCLEDRAWERMODIFIEDMIDPOINT_H

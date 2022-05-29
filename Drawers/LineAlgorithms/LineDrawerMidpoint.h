@@ -11,7 +11,7 @@
 
 class LineDrawerMidpoint : public Drawer{
 public:
-    void draw(Shape* line,HDC hdc,COLORREF color) override;
+    void draw(Shape* line, HDC& hdc) override;
 };
 
 
