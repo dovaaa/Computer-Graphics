@@ -137,7 +137,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case DRAW_LINE_MIDPOINT:
                     dr = new LineDrawerMidpoint();
-                    line = Line(0,0,100,100,RGB(0,0,0),dr);
+                    line = Line(200,200,00,00,RGB(0,0,0),dr);
                     hdc=GetDC(hWnd);
                     line.draw(hdc);
                     ReleaseDC(hWnd,hdc);

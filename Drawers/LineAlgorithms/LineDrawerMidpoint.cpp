@@ -8,7 +8,7 @@
 
 
 void LineDrawerMidpoint::draw(Shape *line, HDC& hdc) {
-
+    //TODO fix problem with slope
     Line *l = (Line*) line;
     int dx = l->edx-l->stx;
     int dy = l->edy - l->sty;
