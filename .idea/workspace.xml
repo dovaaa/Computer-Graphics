@@ -16,9 +16,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added hdc and color to lineDrawers, implemented lineDrawers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/ELLIPSE.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/ELLIPSE.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Ellipse.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653843509263</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added hdc and color to lineDrawers, implemented lineDrawers">
+      <created>1653851242714</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653851242714</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,10 +168,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="added hdc and color to lineDrawers, implemented lineDrawers" />
   </component>
   <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="CMakeRunConfiguration">
-        <watch expression="SetBkColor(hdc, c)" language="ObjectiveC" />
-      </configuration>
-    </watches-manager>
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>189</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
