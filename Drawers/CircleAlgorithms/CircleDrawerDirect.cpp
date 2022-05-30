@@ -8,7 +8,7 @@
 
 void CircleDrawerDirect::draw(Shape *circle, HDC& hdc) {
 
-    Circle *circ = (Circle*) circle; //TODO CHECK auto or Circle?
+    Circle *circ = (Circle*) circle;
     int x =0, y = circ->r;
     int r2 = y*y;
 
