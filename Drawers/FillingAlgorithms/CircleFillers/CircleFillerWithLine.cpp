@@ -6,7 +6,7 @@
 #include "../../../Shapes/Circle.h"
 #include "../../../Shapes/Line.h"
 #include "../../LineAlgorithms/LineDrawerDDA.h"
-#include <math.h>
+#include <cmath>
 
 Drawer *dr = new LineDrawerDDA();
 

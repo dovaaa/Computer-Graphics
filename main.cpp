@@ -25,7 +25,6 @@
 #include <vector>
 
 
-#define WHITE_BACKGROUND 10000
 #define CHANGE_CURSOR 10001
 #define DISABLE_KEYBOARD 10002
 #define SET_SHAPE_COLOR 10003
@@ -67,8 +66,7 @@
 #define COLOR_CYAN 10038
 #define COLOR_MAGENTA 10039
 #define COLOR_YELLOW 10040
-#define COLOR_WHITE 10041
-#define COLOR_BLACK 10042
+#define COLOR_BLACK 10041
 
 HCURSOR cursor = LoadCursorA(NULL, IDC_ARROW);
 
@@ -107,13 +105,14 @@ vector<Shape*> shapes;
 File file("mangaSave");
 bool flag = false;
 
+COLORREF currentColor = RGB(255, 128, 53);
+
 void init() {
     if (flag)
         return;
     flag = true;
     Shape *line = new Line();
     Shape::addShape("line", line);
-
 }
 
 LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
@@ -123,26 +122,39 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
     HBRUSH hbrBkgnd = NULL;
     Line line;
     ELLIPSE ellipse;
-    Circle circle;
+    Shape* circle;
     Curve curve;
     Drawer *dr;
     switch (msg)                  /* handle the messages */
     {
         case WM_COMMAND:
-
             switch (wp) {
-                case WHITE_BACKGROUND:
-                    // todo 1- save the date 2- change the background 3- load the data, take care to not change the save of the user
-                    // leave it to me (Kofta)
-                    SendMessage(hWnd, WM_PAINT, wp, lp);
-                    break;
                 case CHANGE_CURSOR:
                     cursor = LoadCursorA(NULL, IDC_CROSS);
                     SetCursor(cursor);
                     break;
                 case DISABLE_KEYBOARD:
                     break;
-                case SET_SHAPE_COLOR:
+                case COLOR_RED:
+                    currentColor = RGB(255, 0, 0);
+                    break;
+                case COLOR_BLUE:
+                    currentColor = RGB(0, 0, 255);
+                    break;
+                case COLOR_GREEN:
+                    currentColor = RGB(0, 255, 0);
+                    break;
+                case COLOR_CYAN:
+                    currentColor = RGB(0, 255, 255);
+                    break;
+                case COLOR_MAGENTA:
+                    currentColor = RGB(255, 0, 255);
+                    break;
+                case COLOR_YELLOW:
+                    currentColor = RGB(255, 255, 0);
+                    break;
+                case COLOR_BLACK:
+                    currentColor = RGB(0, 0, 0);
                     break;
                 case SAVE_DATA:
                     file.clear();
@@ -154,7 +166,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case DRAW_LINE_DDA:
                     dr = new LineDrawerDDA();
-                    line = Line(0, 0, 100, 100, RGB(0, 0, 0), dr);
+                    line = Line(0, 0, 100, 100, currentColor, dr);
                     hdc = GetDC(hWnd);
                     line.draw(hdc);
                     shapes.push_back(&line);
@@ -163,66 +175,72 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case DRAW_LINE_PARAMETRIC:
                     dr = new LineDrawerParametric();
-                    line = Line(0, 0, 100, 100, RGB(0, 0, 0), dr);
+                    line = Line(0, 0, 100, 100, currentColor, dr);
                     hdc = GetDC(hWnd);
                     line.draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_LINE_MIDPOINT:
                     dr = new LineDrawerMidpoint();
-                    line = Line(200, 200, 0, 0, RGB(0, 0, 0), dr);
+                    line = Line(200, 200, 0, 0, currentColor, dr);
                     hdc = GetDC(hWnd);
                     line.draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_CIRCLE_DIRECT:
                     dr = new CircleDrawerDirect();
-                    circle = Circle(200, 200, 50, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_CIRCLE_POLAR:
                     dr = new CircleDrawerPolar();
-                    circle = Circle(200, 200, 50, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(circle);
                     break;
                 case DRAW_CIRCLE_ITERATIVE_POLAR:
                     dr = new CircleDrawerIterativePolar();
-                    circle = Circle(200, 200, 50, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(circle);
                     break;
                 case DRAW_CIRCLE_MIDPOINT:
                     dr = new CircleDrawerMidpoint();
-                    circle = Circle(200, 200, 50, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(circle);
                     break;
                 case DRAW_CIRCLE_MODIFIED_MIDPOINT:
                     dr = new CircleDrawerModifiedMidpoint();
-                    circle = Circle(200, 200, 50, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(circle);
                     break;
                 case FILL_CIRCLE_WITH_LINE:
                     dr = new CircleFillerWithLine();
-                    circle = Circle(200, 200, 50, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(circle);
                     break;
                 case FILL_CIRCLE_WITH_CIRCLE:
                     dr = new CircleFillerWithCircle();
-                    circle = Circle(200, 200, 50, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(circle);
                     break;
                 case FILL_SQUARE_WITH_HERMITE_CURVE:
                     break;
@@ -238,28 +256,28 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case CARDINAL_SPLINE_CURVE:
                     dr = new CurveDrawerBezier();
-                    curve = Curve(311, 60, 278, 156, 215, 68, 126, 179, dr);
+                    curve = Curve(311, 60, 278, 156, 215, 68, 126, 179, currentColor, dr);
                     hdc = GetDC(hWnd);
                     curve.draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_ELLIPSE_DIRECT:
                     dr = new EllipseDrawerDirect();
-                    ellipse = ELLIPSE(200, 200, 50, 70, dr);
+                    ellipse = ELLIPSE(200, 200, 50, 70, currentColor, dr);
                     hdc = GetDC(hWnd);
                     ellipse.draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_ELLIPSE_POLAR:
                     dr = new EllipseDrawerPolar();
-                    ellipse = ELLIPSE(200, 200, 50, 70, dr);
+                    ellipse = ELLIPSE(200, 200, 50, 70, currentColor, dr);
                     hdc = GetDC(hWnd);
                     ellipse.draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_ELLIPSE_MIDPOINT:
                     dr = new EllipseDrawerMidpoint();
-                    ellipse = ELLIPSE(200, 200, 50, 70, dr);
+                    ellipse = ELLIPSE(200, 200, 50, 70, currentColor, dr);
                     hdc = GetDC(hWnd);
                     ellipse.draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -387,12 +405,21 @@ void AddMenu(HWND hWnd) {
     AppendMenu(clippingSubList, MF_POPUP, (UINT_PTR) squareClippingSubList, "Square");
     AppendMenu(clippingSubList, MF_POPUP, (UINT_PTR) circleClippingSubList, "Circle");
 
+    /* Shape Color Menu */
+    HMENU shapeColorSubList = CreateMenu();
+    AppendMenu(shapeColorSubList, MF_STRING, COLOR_BLUE, "Blue");
+    AppendMenu(shapeColorSubList, MF_STRING, COLOR_RED, "Red");
+    AppendMenu(shapeColorSubList, MF_STRING, COLOR_GREEN, "Green");
+    AppendMenu(shapeColorSubList, MF_STRING, COLOR_CYAN, "Cyan");
+    AppendMenu(shapeColorSubList, MF_STRING, COLOR_MAGENTA, "Magenta");
+    AppendMenu(shapeColorSubList, MF_STRING, COLOR_YELLOW, "Yellow");
+    AppendMenu(shapeColorSubList, MF_STRING, COLOR_BLACK, "Black");
+
 
     /* Demo List */
-    AppendMenu(mainList, MF_STRING, WHITE_BACKGROUND, "White background");
     AppendMenu(mainList, MF_STRING, CHANGE_CURSOR, "Change Cursor");
     AppendMenu(mainList, MF_STRING, DISABLE_KEYBOARD, "Disable keyboard");
-    AppendMenu(mainList, MF_STRING, SET_SHAPE_COLOR, "Set shape color");
+    AppendMenu(mainList, MF_POPUP, (UINT_PTR) shapeColorSubList, "Shape Color");
     AppendMenu(mainList, MF_STRING, SAVE_DATA, "Save data");
     AppendMenu(mainList, MF_STRING, LOAD_DATA, "Load data");
     AppendMenu(mainList, MF_POPUP, (UINT_PTR) drawLineSubList, "Draw Line");

@@ -1,9 +1,9 @@
-#include "Shape.h"
 
 #ifndef GRAPHICS_LINE_H
 #define GRAPHICS_LINE_H
 
 
+#include "Shape.h"
 class Line : public Shape {
 public:
     int stx, sty;

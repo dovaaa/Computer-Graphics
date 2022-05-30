@@ -16,12 +16,13 @@ ELLIPSE::ELLIPSE() {
     this->id = mp["ellipse"];
 }
 
-ELLIPSE::ELLIPSE(int cx, int cy, int a, int b, Drawer *ellipseDrawer) {
+ELLIPSE::ELLIPSE(int cx, int cy, int a, int b, COLORREF c, Drawer *ellipseDrawer) {
     this->drawer = ellipseDrawer;
     this->cx = cx;
     this->cy = cy;
     this->a = a;
     this->b = b;
+    this->c = c;
     this->id = mp["ellipse"];
 }
 

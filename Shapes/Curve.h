@@ -11,7 +11,7 @@ class Curve : public Shape {
 public:
     Point p1, p2, p3, p4;
     Curve();
-    Curve(double, double, double, double, double, double, double, double, Drawer *);
+    Curve(double, double, double, double, double, double, double, double, COLORREF, Drawer *);
     void draw(HDC& hdc) override;
     void save(File &f) override;
     Shape* copy(string) override;

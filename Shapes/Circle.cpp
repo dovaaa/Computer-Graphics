@@ -15,11 +15,12 @@ Circle::Circle() {
     this->id = mp["circle"];
 }
 
-Circle::Circle(int cx, int cy, int r, Drawer *circleDrawer) {
+Circle::Circle(int cx, int cy, int r, COLORREF c, Drawer *circleDrawer) {
     this->drawer = circleDrawer;
     this->cx = cx;
     this->cy = cy;
     this->r = r;
+    this->c = c;
     this->id = mp["circle"];
 }
 
@@ -41,7 +42,12 @@ void Circle::save(File &f) {
 }
 
 Shape *Circle::copy(string s) {
-    return nullptr;
+    vector<string> vec = UT::split(s, ',');
+    int x = stoi(vec[0]);
+    int y = stoi(vec[1]);
+    int rad = stoi(vec[2]);
+    COLORREF cc = stoi(vec[3]);
+    return new Circle(x, y, rad, cc, Drawer::drawers[Drawer::mp[vec[4]]]->copy());
 }
 
 
