@@ -19,6 +19,8 @@
 #include "Drawers/CurveAlgorithms/CurveDrawerBezier.h"
 
 #include <iostream>
+#include <cmath>
+#include <vector>
 
 
 #define WHITE_BACKGROUND 10000

@@ -4,24 +4,24 @@ void Rectangle::draw(HDC& hdc) {
     drawer->draw(this, hdc);
 }
 
-Rectangle::Rectangle(int stx, int sty, int length, int width) {
-    this->stx = stx;
-    this->sty = sty;
-    this->length = length;
-    this->width = width;
+Rectangle::Rectangle(int xleft, int yleft, int xright, int yright) {
+    this->xleft = xleft;
+    this->yleft = yleft;
+    this->xright = xright;
+    this->yright = yright;
 }
 
 Rectangle::Rectangle() {
-    stx = 0;
-    sty = 0;
-    length = 0;
-    width = 0;
+    xleft = 0;
+    yleft = 0;
+    xright = 0;
+    yright = 0;
 }
 
 void Rectangle::save() {
     string s =
-            to_string(mp["rectangle"]) + ':' + to_string(stx) + ',' + to_string(sty) + ',' + to_string(length) + ',' +
-            to_string(width) + ',' +
+            to_string(mp["rectangle"]) + ':' + to_string(xleft) + ',' + to_string(yleft) + ',' + to_string(xright) + ',' +
+            to_string(yright) + ',' +
             to_string(c) + ' ';
    // f.write(s + drawer->save() + '\n');
 }

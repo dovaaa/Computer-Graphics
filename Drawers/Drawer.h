@@ -13,6 +13,7 @@ class Shape;
 class Drawer {
 public:
     virtual void draw(Shape*, HDC&) = 0;
+    void draw(Shape*,Shape*,HDC&);
     //virtual std::string save() = 0;
 };
 

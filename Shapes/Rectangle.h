@@ -6,8 +6,8 @@
 
 class Rectangle : public Shape {
 public:
-    int length, width;
-    int stx, sty;
+    int xright, yright;
+    int xleft, yleft;
 
     Rectangle();
 
