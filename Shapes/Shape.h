@@ -11,6 +11,9 @@ class Drawer;
 
 class Shape {
 public:
+    Shape(){
+
+    };
     File f;
     static map<string, int> mp;
     Drawer *drawer;

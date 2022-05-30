@@ -6,7 +6,7 @@
 #include "../../Shapes/Circle.h"
 #include "../../Shapes/Point.h"
 
-bool CllipWithCircle1(int xc, int yc, int rx, int ry, int px, int py) {
+bool CllipWithCircle(int xc, int yc, int rx, int ry, int px, int py) {
     int dx = rx - xc, dy = ry - yc;
     dx *= dx;
     dy *= dy;
@@ -25,7 +25,7 @@ void ClippingCirclePoint::draw(Shape *circle, Shape *point, HDC &hdc)
 {
     Circle *circ = (Circle*) circle;
     Point *p = (Point*) point;
-    if (CllipWithCircle1(circ->cx, circ->cy,circ->cx+circ->r , circ->cy,
+    if (CllipWithCircle(circ->cx, circ->cy,circ->cx+circ->r , circ->cy,
                         p->x, p->y))
         SetPixel(hdc, p->x, p->y, p->c);
 }

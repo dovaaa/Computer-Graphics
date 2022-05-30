@@ -14,24 +14,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="fixed LineDrawerMidpoint.cpp">
-      <change afterPath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCircleLine.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCircleLine.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCirclePoint.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCirclePoint.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/Drawer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/Drawer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Rectangle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Rectangle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Rectangle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Rectangle.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added ClippingAlgorithms for Rectangle and Circle" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +109,7 @@
       <workItem from="1653764101842" duration="977000" />
       <workItem from="1653769762949" duration="3228000" />
       <workItem from="1653866059541" duration="1502000" />
-      <workItem from="1653931048226" duration="6145000" />
+      <workItem from="1653931048226" duration="6485000" />
     </task>
     <task id="LOCAL-00001" summary="added hdc and color to lineDrawers, implemented lineDrawers">
       <created>1653772360368</created>
@@ -163,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653864607478</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added ClippingAlgorithms for Rectangle and Circle">
+      <created>1653937329993</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1653937329994</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +174,8 @@
     <MESSAGE value="added hdc and color to lineDrawers, implemented lineDrawers" />
     <MESSAGE value="added circle and ellipse algorithms to main" />
     <MESSAGE value="added todo LineDrawerMidpoint.cpp" />
-    <option name="LAST_COMMIT_MESSAGE" value="added todo LineDrawerMidpoint.cpp" />
+    <MESSAGE value="added ClippingAlgorithms for Rectangle and Circle" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ClippingAlgorithms for Rectangle and Circle" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

@@ -11,6 +11,9 @@ class File {
 private:
     std :: string fileName;
 public:
+    File(){
+
+    }
     void write(std::string);
     std::string get();
     void clear();
