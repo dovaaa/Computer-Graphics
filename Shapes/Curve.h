@@ -14,6 +14,7 @@ public:
     Curve(double, double, double, double, double, double, double, double, Drawer *);
     void draw(HDC& hdc) override;
     void save() override;
+    Shape* copy() override;
 };
 
 

@@ -19,3 +19,7 @@ void EllipseDrawerPolar::draw(Shape *ellipse, HDC& hdc) {
         el->Draw4Points(hdc,el->cx,el->cy,x,y,el->c);
     }
 }
+
+Drawer *EllipseDrawerPolar::copy() {
+    return nullptr;
+}

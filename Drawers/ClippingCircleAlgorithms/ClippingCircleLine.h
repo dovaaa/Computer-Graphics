@@ -10,6 +10,7 @@ class ClippingCircleLine:public Drawer
 {
 public:
     void draw(Shape *Circle,Shape *line,HDC& hdc);
+    Drawer* copy() override;
 };
 
 

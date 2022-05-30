@@ -11,6 +11,7 @@
 class CurveDrawerBezier : public Drawer {
 public:
     void draw(Shape*, HDC&) override;
+    Drawer* copy() override;
 };
 
 

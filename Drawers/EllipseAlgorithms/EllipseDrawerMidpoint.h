@@ -9,6 +9,7 @@
 
 class EllipseDrawerMidpoint : public Drawer {
     void draw(Shape *ellipse, HDC& hdc) override;
+    Drawer* copy() override;
 };
 
 

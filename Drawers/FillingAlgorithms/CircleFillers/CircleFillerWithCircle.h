@@ -15,6 +15,7 @@ public:
     void Draw2PointsQuarter2(HDC&, int, int, int, int, COLORREF);
     void Draw2PointsQuarter3(HDC&, int, int, int, int, COLORREF);
     void Draw2PointsQuarter4(HDC&, int, int, int, int, COLORREF);
+    Drawer* copy() override;
 };
 
 

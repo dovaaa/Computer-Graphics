@@ -25,7 +25,11 @@ void ClippingCirclePoint::draw(Shape *circle, Shape *point, HDC &hdc)
 {
     Circle *circ = (Circle*) circle;
     Point *p = (Point*) point;
-    if (CllipWithCircle(circ->cx, circ->cy,circ->cx+circ->r , circ->cy,
-                        p->x, p->y))
+    if (CllipWithCircle(circ->cx, circ->cy, circ->cx + circ->r, circ->cy,
+                         p->x, p->y))
         SetPixel(hdc, p->x, p->y, p->c);
+}
+
+Drawer *ClippingCirclePoint::copy() {
+    return nullptr;
 }

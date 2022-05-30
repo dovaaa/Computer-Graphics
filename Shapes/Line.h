@@ -12,6 +12,7 @@ public:
     Line(int, int, int, int, COLORREF, Drawer* dr);
     void draw(HDC& hdc) override;
     void save() override;
+    Shape* copy() override;
 };
 
 

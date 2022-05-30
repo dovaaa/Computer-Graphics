@@ -28,3 +28,7 @@ void CircleDrawerModifiedMidpoint::draw(Shape *circle, HDC& hdc) {
         circ->Draw8Points(hdc,circ->cx,circ->cy,x,y,circ->c);
     }
 }
+
+Drawer *CircleDrawerModifiedMidpoint::copy() {
+    return nullptr;
+}

@@ -14,8 +14,62 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added default to File.h, Shape.h">
+    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added ClippingAlgorithms for Rectangle and Circle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerDirect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerDirect.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerDirect.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerDirect.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerIterativePolar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerIterativePolar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerIterativePolar.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerIterativePolar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerMidpoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerMidpoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerMidpoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerMidpoint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerPolar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerPolar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerPolar.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerPolar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCircleLine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCircleLine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCircleLine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCircleLine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCirclePoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCirclePoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCirclePoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCirclePoint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CurveAlgorithms/CurveDrawerBezier.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CurveAlgorithms/CurveDrawerBezier.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CurveAlgorithms/CurveDrawerBezier.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CurveAlgorithms/CurveDrawerBezier.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/Drawer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/Drawer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerDirect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerDirect.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerDirect.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerDirect.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerPolar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerPolar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerPolar.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerPolar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerDDA.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerDDA.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerDDA.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerDDA.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerMidpoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerMidpoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerMidpoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerMidpoint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerParametric.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerParametric.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerParametric.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerParametric.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Circle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Circle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Circle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Circle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Curve.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Curve.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Curve.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Curve.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/ELLIPSE.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/ELLIPSE.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/ELLIPSE.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/ELLIPSE.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Line.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Line.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Line.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Line.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Point.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Point.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Point.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Point.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Rectangle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Rectangle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Rectangle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Rectangle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Shape.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Shape.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Shape.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Shape.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,18 +110,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "cmake.loaded.for.project": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CMakeSettings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cmake.loaded.for.project&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CMakeSettings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Courses\Graphics Project\Graphics Project\Drawers" />
@@ -76,12 +130,12 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Graphics" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/cmake-build-debug/Graphics.exe" EXPLICIT_BUILD_TARGET_NAME="all">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="Graphics" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/cmake-build-debug/Graphics.exe" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -111,7 +165,7 @@
       <workItem from="1653764101842" duration="977000" />
       <workItem from="1653769762949" duration="3228000" />
       <workItem from="1653866059541" duration="1502000" />
-      <workItem from="1653931048226" duration="7729000" />
+      <workItem from="1653931048226" duration="6485000" />
     </task>
     <task id="LOCAL-00001" summary="added hdc and color to lineDrawers, implemented lineDrawers">
       <created>1653772360368</created>
@@ -155,14 +209,7 @@
       <option name="project" value="LOCAL" />
       <updated>1653937329994</updated>
     </task>
-    <task id="LOCAL-00007" summary="added default to File.h, Shape.h">
-      <created>1653937924941</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1653937924941</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,8 +231,7 @@
     <MESSAGE value="added circle and ellipse algorithms to main" />
     <MESSAGE value="added todo LineDrawerMidpoint.cpp" />
     <MESSAGE value="added ClippingAlgorithms for Rectangle and Circle" />
-    <MESSAGE value="added default to File.h, Shape.h" />
-    <option name="LAST_COMMIT_MESSAGE" value="added default to File.h, Shape.h" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ClippingAlgorithms for Rectangle and Circle" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

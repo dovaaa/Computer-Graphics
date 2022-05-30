@@ -6,7 +6,8 @@
 #include "../../Shapes/Line.h"
 #include "../../Shapes/Circle.h"
 #include "cmath"
-bool CllipWithCircle(int xc, int yc, int rx, int ry, int px, int py) {
+
+bool CllipWithCircle2(int xc, int yc, int rx, int ry, int px, int py) {
     int dx = rx - xc, dy = ry - yc;
     dx *= dx;
     dy *= dy;
@@ -31,7 +32,7 @@ void CllipLineCircle(HDC hdc, int x1, int y1, int x2, int y2, int xc, int yc, in
         while (x != x2) {
             x += xinc;
             y += yinc;
-            if (CllipWithCircle(xc, yc, rx, ry, x, round(y)))
+            if (CllipWithCircle2(xc, yc, rx, ry, x, round(y)))
                 SetPixel(hdc, x, round(y), color);
         }
     } else {
@@ -40,7 +41,7 @@ void CllipLineCircle(HDC hdc, int x1, int y1, int x2, int y2, int xc, int yc, in
         while (y != y2) {
             x += xinc;
             y += yinc;
-            if (CllipWithCircle(xc, yc, rx, ry, round(x), y))
+            if (CllipWithCircle2(xc, yc, rx, ry, round(x), y))
                 SetPixel(hdc, round(x), y, color);
         }
     }
@@ -54,4 +55,8 @@ void ClippingCircleLine::draw(Shape *circle, Shape *line, HDC &hdc)
     Line *l = (Line*) line;
     CllipLineCircle( hdc,l->stx,l->sty,l->edx,l->edy,
                      circ->cx,circ->cy,circ->cx+circ->r,circ->cy, l->c);
+}
+
+Drawer *ClippingCircleLine::copy() {
+    return nullptr;
 }

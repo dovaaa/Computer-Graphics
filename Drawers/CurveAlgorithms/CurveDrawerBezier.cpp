@@ -27,3 +27,7 @@ void CurveDrawerBezier::draw(Shape * c, HDC &hdc) {
         SetPixel(hdc, (int) (x+0.5), (int) (y+0.5), c->c);
     }
 }
+
+Drawer *CurveDrawerBezier::copy() {
+    return nullptr;
+}

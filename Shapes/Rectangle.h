@@ -15,6 +15,7 @@ public:
 
     void draw(HDC& hdc) override;
     void save() override;
+    Shape* copy() override;
 };
 
 

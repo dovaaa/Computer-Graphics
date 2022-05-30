@@ -12,6 +12,7 @@ class ClippingRectanglePolygon:public Drawer
 public:
 
     void draw(Shape *rectangle, POINT *points, int n, HDC &hdc);
+    Drawer* copy() override;
 };
 
 

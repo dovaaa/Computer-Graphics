@@ -11,6 +11,7 @@ class ClippingRectangleLine:public Drawer
 {
 public:
     void draw(Shape *rectangle,Shape *line,HDC& hdc);
+    Drawer* copy() override;
 };
 
 

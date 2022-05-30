@@ -86,3 +86,7 @@ void ClippingRectanglePolygon::draw(Shape *rectangle, POINT *points,int n, HDC &
     class Rectangle *rect = (class Rectangle*) rectangle;
     PolygonClip( hdc, points,n, rect->xleft, rect->yleft,  rect->xright, rect->yright);
 }
+
+Drawer *ClippingRectanglePolygon::copy() {
+    return nullptr;
+}

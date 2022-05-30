@@ -19,3 +19,7 @@ void CircleDrawerIterativePolar::draw(Shape *circle, HDC& hdc) {
         circ->Draw8Points(hdc,circ->cx,circ->cy,round(x),round(y),circ->c);
     }
 }
+
+Drawer *CircleDrawerIterativePolar::copy() {
+    return nullptr;
+}

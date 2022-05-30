@@ -63,3 +63,7 @@ void CircleFillerWithCircle::draw(Shape *circle, HDC &hdc) {
     }
 
 }
+
+Drawer *CircleFillerWithCircle::copy() {
+    return nullptr;
+}

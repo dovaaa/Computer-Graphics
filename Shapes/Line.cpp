@@ -11,6 +11,7 @@ Line::Line(int stx, int sty, int edx, int edy, COLORREF c, Drawer* dr) {
     this->edy = edy;
     this->c = c;
     this->drawer = dr;
+    this->id = mp["line"];
 }
 
 Line::Line() {
@@ -18,6 +19,7 @@ Line::Line() {
     sty = 0;
     edx = 0;
     edy = 0;
+    this->id = mp["line"];
 }
 
 void Line::save() {
@@ -25,4 +27,8 @@ void Line::save() {
                to_string(edy) + ',' +
                to_string(c) + ' ';
  //   f.write(s + drawer->save() + '\n');
+}
+
+Shape *Line::copy() {
+    return nullptr;
 }

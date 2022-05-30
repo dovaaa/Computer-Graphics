@@ -19,3 +19,7 @@ void CircleDrawerDirect::draw(Shape *circle, HDC& hdc) {
         circ->Draw8Points(hdc,circ->cx,circ->cy,x,y,circ->c);
     }
 }
+
+Drawer *CircleDrawerDirect::copy() {
+    return nullptr;
+}

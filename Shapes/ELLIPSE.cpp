@@ -13,6 +13,7 @@ ELLIPSE::ELLIPSE() {
     cy = 0;
     a = 0;
     b = 0;
+    this->id = mp["ellipse"];
 }
 
 ELLIPSE::ELLIPSE(int cx, int cy, int a, int b,Drawer* ellipseDrawer) {
@@ -21,6 +22,7 @@ ELLIPSE::ELLIPSE(int cx, int cy, int a, int b,Drawer* ellipseDrawer) {
     this->cy = cy;
     this->a = a;
     this->b = b;
+    this->id = mp["ellipse"];
 }
 
 void ELLIPSE::save() {
@@ -36,4 +38,8 @@ void ELLIPSE::Draw4Points(HDC hdc, int xc, int yc, int x, int y, COLORREF color)
     SetPixel(hdc, x + xc, -y + yc, color);
     SetPixel(hdc, -x + xc, -y + yc, color);
 
+}
+
+Shape *ELLIPSE::copy() {
+    return nullptr;
 }

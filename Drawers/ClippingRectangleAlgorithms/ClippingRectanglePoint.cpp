@@ -13,3 +13,7 @@ void ClippingRectanglePoint::draw(Shape *rectangle,Shape* point, HDC &hdc)
     if (point1->x >= rect->xleft && point1->x <= rect->xright && point1->y >= rect->yleft && point1->y <= rect->yright)
         SetPixel(hdc, point1->x, point1->y, point->c);
 }
+
+Drawer *ClippingRectanglePoint::copy() {
+    return nullptr;
+}

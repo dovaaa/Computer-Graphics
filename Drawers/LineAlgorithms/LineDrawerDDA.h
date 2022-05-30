@@ -11,6 +11,7 @@
 class LineDrawerDDA : public Drawer {
 public:
     void draw(Shape *line, HDC& hdc) override;
+    Drawer* copy() override;
 };
 
 

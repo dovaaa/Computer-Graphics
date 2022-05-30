@@ -13,6 +13,7 @@ public:
     void draw(HDC& hdc) override;
     void save() override;
     void Draw4Points(HDC , int , int , int , int , COLORREF);
+    Shape* copy() override;
 };
 
 

@@ -25,3 +25,7 @@ void EllipseDrawerDirect::draw(Shape *ellipse, HDC &hdc) {
         el->Draw4Points(hdc,el->cx,el->cy,x,y,el->c);
     }
 }
+
+Drawer *EllipseDrawerDirect::copy() {
+    return nullptr;
+}

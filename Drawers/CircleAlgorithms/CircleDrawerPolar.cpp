@@ -18,3 +18,7 @@ void CircleDrawerPolar::draw(Shape *circle, HDC& hdc) {
         circ->Draw8Points(hdc,circ->cx,circ->cy,x,y, RGB(255, 0, 0));
     }
 }
+
+Drawer *CircleDrawerPolar::copy() {
+    return nullptr;
+}

@@ -16,6 +16,7 @@ public:
     void Draw2LinesQuarter2(HDC &hdc, int xc, int yc, int a, int b, COLORREF color);
     void Draw2LinesQuarter3(HDC &hdc, int xc, int yc, int a, int b, COLORREF color);
     void Draw2LinesQuarter4(HDC &hdc, int xc, int yc, int a, int b, COLORREF color);
+    Drawer* copy() override;
 };
 
 

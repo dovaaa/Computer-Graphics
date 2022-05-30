@@ -69,3 +69,7 @@ void ClippingRectangleLine::draw(Shape *rectangle, Shape *line, HDC &hdc)
         LineTo(hdc,round(x2),round(y2));
     }
 }
+
+Drawer *ClippingRectangleLine::copy() {
+    return nullptr;
+}

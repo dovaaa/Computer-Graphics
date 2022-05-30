@@ -33,3 +33,7 @@ void LineDrawerDDA::draw(Shape *line, HDC& hdc) {
 
 }
 
+Drawer *LineDrawerDDA::copy() {
+    return nullptr;
+}
+
