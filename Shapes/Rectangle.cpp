@@ -1,6 +1,6 @@
 #include "Rectangle.h"
 
-void Rectangle::draw(HDC& hdc) {
+void Rectangle::draw(HDC &hdc) {
     drawer->draw(this, hdc);
 }
 
@@ -21,14 +21,15 @@ Rectangle::Rectangle() {
     this->id = mp["rectangle"];
 }
 
-void Rectangle::save() {
+void Rectangle::save(File &f) {
     string s =
-            to_string(mp["rectangle"]) + ':' + to_string(xleft) + ',' + to_string(yleft) + ',' + to_string(xright) + ',' +
+            to_string(mp["rectangle"]) + ':' + to_string(xleft) + ',' + to_string(yleft) + ',' + to_string(xright) +
+            ',' +
             to_string(yright) + ',' +
-            to_string(c) + ' ';
-   // f.write(s + drawer->save() + '\n');
+            to_string(c) + ':' + to_string(drawer->id) + '\n';
+    f.write(s);
 }
 
-Shape *Rectangle::copy() {
+Shape *Rectangle::copy(string s) {
     return nullptr;
 }

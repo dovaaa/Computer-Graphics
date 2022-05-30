@@ -1,10 +1,10 @@
 #include "Line.h"
 
-void Line::draw(HDC& hdc) {
+void Line::draw(HDC &hdc) {
     drawer->draw(this, hdc);
 }
 
-Line::Line(int stx, int sty, int edx, int edy, COLORREF c, Drawer* dr) {
+Line::Line(int stx, int sty, int edx, int edy, COLORREF c, Drawer *dr) {
     this->stx = stx;
     this->sty = sty;
     this->edx = edx;
@@ -22,13 +22,12 @@ Line::Line() {
     this->id = mp["line"];
 }
 
-void Line::save() {
+void Line::save(File &f) {
     string s = to_string(mp["line"]) + ':' + to_string(stx) + ',' + to_string(sty) + ',' + to_string(edx) + ',' +
                to_string(edy) + ',' +
-               to_string(c) + ' ';
- //   f.write(s + drawer->save() + '\n');
+               to_string(c) + ':' + to_string(drawer->id) + '\n';
+    f.write(s);
 }
 
-Shape *Line::copy() {
-    return nullptr;
+Shape *Line::copy(string s) {
 }

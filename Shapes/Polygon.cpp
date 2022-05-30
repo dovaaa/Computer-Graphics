@@ -21,12 +21,12 @@ Polygon::Polygon(Point *points,int n)
     this->id = mp["Polygon"];
 }
 
-void Polygon::save()
+void Polygon::save(File &f)
 {
 
 }
 
-Shape *Polygon::copy()
+Shape *Polygon::copy(string s)
 {
     return nullptr;
 }

@@ -11,9 +11,9 @@ public:
     ELLIPSE();
     ELLIPSE(int, int, int, int,Drawer*);
     void draw(HDC& hdc) override;
-    void save() override;
+    void save(File &f) override;
     void Draw4Points(HDC , int , int , int , int , COLORREF);
-    Shape* copy() override;
+    Shape* copy(string) override;
 };
 
 

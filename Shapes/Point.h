@@ -9,8 +9,9 @@ public:
     Point();
     Point(double, double);
     void draw(HDC& hdc) override;
-    void save() override;
-    Shape* copy() override;
+    void save(File &f) override;
+    Shape* copy(string) override;
+    string getSave();
 };
 
 

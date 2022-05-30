@@ -16,8 +16,8 @@ public:
     Polygon();
     Polygon(Point*,int);
     void draw(HDC& hdc) override;
-    void save() override;
-    Shape* copy() override;
+    void save(File &f) override;
+    Shape* copy(string) override;
 };
 
 

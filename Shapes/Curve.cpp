@@ -25,11 +25,14 @@ void Curve::draw(HDC &hdc) {
     this->drawer->draw(this, hdc);
 }
 
-void Curve::save() {
-    //TODO : implement save for curve
+void Curve::save(File &f) {
+    string s = to_string(mp["curve"]) + ':' + p1.getSave() + ',' + p2.getSave() + ',' + p3.getSave() + ',' +
+               p4.getSave() + ',' +
+               to_string(c) + ':' + to_string(drawer->id) + '\n';
+    f.write(s);
 }
 
-Shape *Curve::copy() {
+Shape *Curve::copy(string s) {
     return nullptr;
 }
 
