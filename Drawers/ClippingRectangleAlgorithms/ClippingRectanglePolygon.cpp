@@ -7,6 +7,7 @@
 #include "ClippingRectanglePolygon.h"
 #include "../../Shapes/Rectangle.h"
 #include "../../Shapes/Point.h"
+#include "../../Shapes/Polygon.h"
 
 struct Vertex {
     double x, y;
@@ -81,10 +82,19 @@ void PolygonClip(HDC hdc, POINT *p, int n, int xleft, int ytop, int xright, int 
     }
 }
 
-void ClippingRectanglePolygon::draw(Shape *rectangle, POINT *points,int n, HDC &hdc)
+void ClippingRectanglePolygon::draw(Shape *rectangle,Shape *polygon, HDC &hdc)
 {
+
     class Rectangle *rect = (class Rectangle*) rectangle;
-    PolygonClip( hdc, points,n, rect->xleft, rect->yleft,  rect->xright, rect->yright);
+    class Polygon *poly = (class Polygon*) polygon;
+    POINT points[poly->n];
+    for(int i=0; i < poly->n; ++i)
+    {
+        POINT p;
+        p.x= poly->points[i].x;p.y= poly->points[i].y;
+        points[i]=p;
+    }
+    PolygonClip( hdc, points,poly->n, rect->xleft, rect->yleft,  rect->xright, rect->yright);
 }
 
 Drawer *ClippingRectanglePolygon::copy() {
