@@ -14,8 +14,8 @@ public:
     Flood();
     Flood(Point,COLORREF);
     void draw(HDC& hdc) override;
-    void save() override;
-    Shape* copy() override;
+    void save(File &f) override;
+    Shape* copy(string s) override;
 
 };
 

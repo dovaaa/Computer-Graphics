@@ -20,12 +20,15 @@ void Flood::draw(HDC &hdc)
     drawer->draw(this, hdc);
 }
 
-void Flood::save()
-{
-
-}
-
-Shape *Flood::copy()
+Shape *Flood::copy(string s)
 {
     return nullptr;
 }
+
+void Flood::save(File &f)
+{
+
+}
+
+
+
