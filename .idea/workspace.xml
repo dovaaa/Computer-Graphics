@@ -14,15 +14,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added default to File.h, Shape.h">
-      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shapes/Polygon.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shapes/Polygon.h" afterDir="false" />
+    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="changed ClippingRectanglePolygon.cpp From POINT to point">
+      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/NonConvexFiller.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/NonConvexFiller.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +115,7 @@
       <workItem from="1653769762949" duration="3228000" />
       <workItem from="1653866059541" duration="1502000" />
       <workItem from="1653931048226" duration="7729000" />
-      <workItem from="1653945153094" duration="1844000" />
+      <workItem from="1653945153094" duration="2338000" />
     </task>
     <task id="LOCAL-00001" summary="added hdc and color to lineDrawers, implemented lineDrawers">
       <created>1653772360368</created>
@@ -170,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653937924941</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="changed ClippingRectanglePolygon.cpp From POINT to point">
+      <created>1653947074090</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1653947074090</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +196,8 @@
     <MESSAGE value="added todo LineDrawerMidpoint.cpp" />
     <MESSAGE value="added ClippingAlgorithms for Rectangle and Circle" />
     <MESSAGE value="added default to File.h, Shape.h" />
-    <option name="LAST_COMMIT_MESSAGE" value="added default to File.h, Shape.h" />
+    <MESSAGE value="changed ClippingRectanglePolygon.cpp From POINT to point" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed ClippingRectanglePolygon.cpp From POINT to point" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
