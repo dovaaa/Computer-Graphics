@@ -5,10 +5,11 @@
 
 class Point : public Shape {
 public:
-    int x, y;
+    double x, y;
     Point();
-    Point(int, int);
+    Point(double, double);
     void draw(HDC& hdc) override;
+    void save() override;
 };
 
 

@@ -9,7 +9,11 @@ Point::Point() {
     y = 0;
 }
 
-Point::Point(int x, int y) {
+Point::Point(double x, double y) {
     this->x = x;
     this->y = y;
+}
+
+void Point::save() {
+    //TODO : implement save for point
 }

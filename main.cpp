@@ -5,6 +5,7 @@
 #include "Shapes/Line.h"
 #include "Shapes/ELLIPSE.h"
 #include "Shapes/Circle.h"
+#include "Shapes/Curve.h"
 #include "Drawers/LineAlgorithms/LineDrawerParametric.h"
 #include "Drawers/LineAlgorithms/LineDrawerMidpoint.h"
 #include "Drawers/CircleAlgorithms/CircleDrawerDirect.h"
@@ -15,6 +16,7 @@
 #include "Drawers/EllipseAlgorithms/EllipseDrawerDirect.h"
 #include "Drawers/EllipseAlgorithms/EllipseDrawerPolar.h"
 #include "Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.h"
+#include "Drawers/CurveAlgorithms/CurveDrawerBezier.h"
 
 #include <iostream>
 
@@ -85,7 +87,6 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hprevInst, LPSTR args, int ncmdsho
     return 0;
 }
 
-bool background_flag = false;
 bool firstCreate = true;
 
 LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
@@ -95,6 +96,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
     Line line;
     ELLIPSE ellipse;
     Circle circle;
+    Curve curve;
     Drawer *dr;
     switch (msg)                  /* handle the messages */
     {
@@ -104,8 +106,6 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case WHITE_BACKGROUND:
                     // todo 1- save the date 2- change the background 3- load the data, take care to not change the save of the user
                     // leave it to me (Kofta)
-                    background_flag = true;
-                    SendMessage(hWnd, CLEAR_WINDOW, wp, lp);
                     SendMessage(hWnd, WM_PAINT, wp, lp);
                     break;
                 case CHANGE_CURSOR:
@@ -137,7 +137,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case DRAW_LINE_MIDPOINT:
                     dr = new LineDrawerMidpoint();
-                    line = Line(200,00,100,100,RGB(0,0,0),dr);
+                    line = Line(200, 200, 0, 0, RGB(0,0,0), dr);
                     hdc=GetDC(hWnd);
                     line.draw(hdc);
                     ReleaseDC(hWnd,hdc);
@@ -194,6 +194,11 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case NON_RECURSIVE_FLOOD_FILL:
                     break;
                 case CARDINAL_SPLINE_CURVE:
+                    dr = new CurveDrawerBezier();
+                    curve = Curve(311, 60, 278, 156, 215, 68, 126, 179, dr);
+                    hdc=GetDC(hWnd);
+                    curve.draw(hdc);
+                    ReleaseDC(hWnd,hdc);
                     break;
                 case DRAW_ELLIPSE_DIRECT:
                     dr = new EllipseDrawerDirect();
@@ -254,18 +259,14 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
             break;
         case WM_PAINT: {
-            if (!background_flag)
-                DefWindowProc(hWnd, msg, wp, lp);
-            else {
-                PAINTSTRUCT ps;
-                RECT rc;
-                HDC hdc = BeginPaint(hWnd, &ps);
-                GetClientRect(hWnd, &rc);
-                SetDCBrushColor(hdc, RGB(255, 255, 255));
-                FillRect(hdc, &rc, (HBRUSH) GetStockObject(DC_BRUSH));
-                EndPaint(hWnd, &ps);
-            }
-            return 0;
+            PAINTSTRUCT ps;
+            RECT rc;
+            HDC hdc = BeginPaint(hWnd, &ps);
+            GetClientRect(hWnd, &rc);
+            SetDCBrushColor(hdc, RGB(255, 255, 255));
+            FillRect(hdc, &rc, (HBRUSH) GetStockObject(DC_BRUSH));
+            EndPaint(hWnd, &ps);
+        return 0;
         }
         case WM_ERASEBKGND :
 

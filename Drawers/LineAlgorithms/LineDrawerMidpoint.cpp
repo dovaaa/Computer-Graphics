@@ -62,6 +62,4 @@ void LineDrawerMidpoint::plotPixel(int x1, int y1, int x2, int y2, int dx, int d
             pk = pk + 2 * dy - 2 * dx;
         }
     }
-
-
 }
