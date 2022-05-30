@@ -122,7 +122,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
     HBRUSH hbrBkgnd = NULL;
     Line line;
     ELLIPSE ellipse;
-    Circle circle;
+    Shape* circle;
     Curve curve;
     Drawer *dr;
     switch (msg)                  /* handle the messages */
@@ -189,52 +189,58 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case DRAW_CIRCLE_DIRECT:
                     dr = new CircleDrawerDirect();
-                    circle = Circle(200, 200, 50, currentColor, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_CIRCLE_POLAR:
                     dr = new CircleDrawerPolar();
-                    circle = Circle(200, 200, 50, currentColor, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(circle);
                     break;
                 case DRAW_CIRCLE_ITERATIVE_POLAR:
                     dr = new CircleDrawerIterativePolar();
-                    circle = Circle(200, 200, 50, currentColor, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(circle);
                     break;
                 case DRAW_CIRCLE_MIDPOINT:
                     dr = new CircleDrawerMidpoint();
-                    circle = Circle(200, 200, 50, currentColor, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(circle);
                     break;
                 case DRAW_CIRCLE_MODIFIED_MIDPOINT:
                     dr = new CircleDrawerModifiedMidpoint();
-                    circle = Circle(200, 200, 50, currentColor, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(circle);
                     break;
                 case FILL_CIRCLE_WITH_LINE:
                     dr = new CircleFillerWithLine();
-                    circle = Circle(200, 200, 50, currentColor, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(circle);
                     break;
                 case FILL_CIRCLE_WITH_CIRCLE:
                     dr = new CircleFillerWithCircle();
-                    circle = Circle(200, 200, 50, currentColor, dr);
+                    circle = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle.draw(hdc);
+                    circle->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(circle);
                     break;
                 case FILL_SQUARE_WITH_HERMITE_CURVE:
                     break;

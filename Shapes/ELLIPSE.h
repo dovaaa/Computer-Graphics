@@ -1,8 +1,8 @@
-#include "Shape.h"
 
 #ifndef GRAPHICS_ELLIPSE_H
 #define GRAPHICS_ELLIPSE_H
 
+#include "Shape.h"
 
 class ELLIPSE : public Shape {
 public:

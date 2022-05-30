@@ -5,11 +5,12 @@ void Rectangle::draw(HDC &hdc) {
 }
 
 
-Rectangle::Rectangle(int xleft, int yleft, int xright, int yright) {
+Rectangle::Rectangle(int xleft, int yleft, int xright, int yright, Drawer *d) {
     this->xleft = xleft;
     this->yleft = yleft;
     this->xright = xright;
     this->yright = yright;
+    this->drawer = d;
     this->id = mp["rectangle"];
 }
 
@@ -31,5 +32,10 @@ void Rectangle::save(File &f) {
 }
 
 Shape *Rectangle::copy(string s) {
-    return nullptr;
+    vector<string> vec = UT::split(s, ',');
+    int xl = stoi(vec[0]);
+    int yl = stoi(vec[1]);
+    int xr = stoi(vec[2]);
+    int yr = stoi(vec[3]);
+    return new Rectangle(xl, yl, xr, yr, Drawer::drawers[Drawer::mp[vec[4]]]->copy());
 }

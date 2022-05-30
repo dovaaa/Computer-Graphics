@@ -1,8 +1,8 @@
-#include "Shape.h"
 
 #ifndef GRAPHICS_POINT_H
 #define GRAPHICS_POINT_H
 
+#include "Shape.h"
 class Point : public Shape {
 public:
     double x, y;
