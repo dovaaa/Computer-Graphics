@@ -10,7 +10,7 @@ public:
     Circle(int, int, int, Drawer*);
     void draw(HDC& hdc) override;
     void save() override;
-    void Draw8Points(HDC ,int ,int , int , int ,COLORREF );
+    void Draw8Points(HDC&, int, int, int, int, COLORREF);
 };
 
 

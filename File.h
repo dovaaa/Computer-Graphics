@@ -8,9 +8,13 @@
 #include <iostream>
 
 class File {
+private:
+    std :: string fileName;
 public:
     void write(std::string);
     std::string get();
+    void clear();
+    explicit File(std :: string name);
 };
 
 

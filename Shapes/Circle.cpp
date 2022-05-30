@@ -21,7 +21,7 @@ Circle::Circle(int cx, int cy, int r, Drawer* circleDrawer) {
     this->r = r;
 
 }
-void Circle::Draw8Points(HDC hdc,int xc,int yc, int a, int b,COLORREF color){
+void Circle::Draw8Points(HDC& hdc,int xc,int yc, int a, int b,COLORREF color){
     SetPixel(hdc, xc+a, yc+b, color);
     SetPixel(hdc, xc-a, yc+b, color);
     SetPixel(hdc, xc-a, yc-b, color);
@@ -37,3 +37,5 @@ void Circle::save() {
             to_string(c) + ' ';
     //f.write(s + drawer->save() + '\n');
 }
+
+
