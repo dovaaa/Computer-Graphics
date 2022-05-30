@@ -5,9 +5,9 @@
 #include "Shape.h"
 class Point : public Shape {
 public:
-    double x, y;
+    int x, y;
     Point();
-    Point(double, double);
+    Point(int, int);
     void draw(HDC& hdc) override;
     void save(File &f) override;
     Shape* copy(string) override;

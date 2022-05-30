@@ -10,7 +10,7 @@ Point::Point() {
     this->id = mp["point"];
 }
 
-Point::Point(double x, double y) {
+Point::Point(int x, int y) {
     this->x = x;
     this->y = y;
     this->id = mp["point"];
