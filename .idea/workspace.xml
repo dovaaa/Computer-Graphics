@@ -3,7 +3,7 @@
   <component name="CMakeReloadState">
     <option name="reloaded" value="true" />
   </component>
-  <component name="CMakeRunConfigurationManager">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="Graphics" targetName="Graphics" />
     </generated>
@@ -14,11 +14,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="changed ClippingRectanglePolygon.cpp From POINT to point">
-      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/NonConvexFiller.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/NonConvexFiller.h" afterDir="false" />
+    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added default to File.h, Shape.h">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,18 +59,9 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cmake.loaded.for.project&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CMakeSettings&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="cmake.loaded.for.project" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Courses\Graphics Project\Graphics Project\Drawers" />
@@ -79,12 +70,12 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="Graphics" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/cmake-build-debug/Graphics.exe" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Graphics" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/cmake-build-debug/Graphics.exe" EXPLICIT_BUILD_TARGET_NAME="all">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -114,8 +105,7 @@
       <workItem from="1653764101842" duration="977000" />
       <workItem from="1653769762949" duration="3228000" />
       <workItem from="1653866059541" duration="1502000" />
-      <workItem from="1653931048226" duration="7729000" />
-      <workItem from="1653945153094" duration="2338000" />
+      <workItem from="1653931048226" duration="6485000" />
     </task>
     <task id="LOCAL-00001" summary="added hdc and color to lineDrawers, implemented lineDrawers">
       <created>1653772360368</created>
@@ -159,21 +149,7 @@
       <option name="project" value="LOCAL" />
       <updated>1653937329994</updated>
     </task>
-    <task id="LOCAL-00007" summary="added default to File.h, Shape.h">
-      <created>1653937924941</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1653937924941</updated>
-    </task>
-    <task id="LOCAL-00008" summary="changed ClippingRectanglePolygon.cpp From POINT to point">
-      <created>1653947074090</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1653947074090</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,9 +171,7 @@
     <MESSAGE value="added circle and ellipse algorithms to main" />
     <MESSAGE value="added todo LineDrawerMidpoint.cpp" />
     <MESSAGE value="added ClippingAlgorithms for Rectangle and Circle" />
-    <MESSAGE value="added default to File.h, Shape.h" />
-    <MESSAGE value="changed ClippingRectanglePolygon.cpp From POINT to point" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed ClippingRectanglePolygon.cpp From POINT to point" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ClippingAlgorithms for Rectangle and Circle" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

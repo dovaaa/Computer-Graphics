@@ -3,6 +3,7 @@
 //
 
 #include <cmath>
+#include <limits.h>
 #include "ConvexFiller.h"
 #include "../../../Shapes/Polygon.h"
 #define MAXENTRIES 600
@@ -14,8 +15,8 @@ void InitEntries(Entry table[])
 {
     for(int i=0;i<MAXENTRIES ; i++)
     {
-        table[i].xmin=MAXINT;
-        table[i].xmax=-MAXINT;
+        table[i].xmin = INT_MAX;
+        table[i].xmax = -INT_MIN;
     }
 }
 void ScanEdge(POINT v1,POINT v2,Entry table[])
