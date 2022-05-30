@@ -19,7 +19,7 @@ bool CllipWithCircle(int xc, int yc, int rx, int ry, int px, int py) {
         return true;
     //else
     return false;
-
+    //test
 }
 void CllipLineCircle(HDC hdc, int x1, int y1, int x2, int y2, int xc, int yc, int rx, int ry, COLORREF color) {
     int dx = x2 - x1;
