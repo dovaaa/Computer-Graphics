@@ -14,9 +14,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="changed ClippingRectanglePolygon.cpp From POINT to point">
-      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/NonConvexFiller.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/NonConvexFiller.h" afterDir="false" />
+    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="implemented ConvexFiller.cpp, NonConvexFiller.cpp">
+      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shapes/Flood.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shapes/Flood.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
@@ -115,7 +119,7 @@
       <workItem from="1653769762949" duration="3228000" />
       <workItem from="1653866059541" duration="1502000" />
       <workItem from="1653931048226" duration="7729000" />
-      <workItem from="1653945153094" duration="2338000" />
+      <workItem from="1653945153094" duration="4616000" />
     </task>
     <task id="LOCAL-00001" summary="added hdc and color to lineDrawers, implemented lineDrawers">
       <created>1653772360368</created>
@@ -173,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653947074090</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="implemented ConvexFiller.cpp, NonConvexFiller.cpp">
+      <created>1653947686117</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1653947686117</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,7 +208,8 @@
     <MESSAGE value="added ClippingAlgorithms for Rectangle and Circle" />
     <MESSAGE value="added default to File.h, Shape.h" />
     <MESSAGE value="changed ClippingRectanglePolygon.cpp From POINT to point" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed ClippingRectanglePolygon.cpp From POINT to point" />
+    <MESSAGE value="implemented ConvexFiller.cpp, NonConvexFiller.cpp" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented ConvexFiller.cpp, NonConvexFiller.cpp" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
