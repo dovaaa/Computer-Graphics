@@ -14,9 +14,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="changed ClippingRectanglePolygon.cpp From POINT to point">
+    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="Implemented SquareDrawer.cpp, RectangleDrawer.cpp">
+      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CurveFilling/RectangleBezierCurve.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CurveFilling/RectangleBezierCurve.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CurveFilling/SquareHermiteCurve.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CurveFilling/SquareHermiteCurve.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Flood.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Flood.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +175,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653947074090</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="implemented FloodFillNonRecursive.cpp, FloodFillRecursive.cpp, Flood.cpp shape">
+      <created>1653951797004</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1653951797004</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Implemented SquareDrawer.cpp, RectangleDrawer.cpp">
+      <created>1653953974943</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1653953974943</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +213,9 @@
     <MESSAGE value="added ClippingAlgorithms for Rectangle and Circle" />
     <MESSAGE value="added default to File.h, Shape.h" />
     <MESSAGE value="changed ClippingRectanglePolygon.cpp From POINT to point" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed ClippingRectanglePolygon.cpp From POINT to point" />
+    <MESSAGE value="implemented FloodFillNonRecursive.cpp, FloodFillRecursive.cpp, Flood.cpp shape" />
+    <MESSAGE value="Implemented SquareDrawer.cpp, RectangleDrawer.cpp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented SquareDrawer.cpp, RectangleDrawer.cpp" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
