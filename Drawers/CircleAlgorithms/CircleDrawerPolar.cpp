@@ -15,7 +15,7 @@ void CircleDrawerPolar::draw(Shape *circle, HDC& hdc) {
         theta+=dtheta;
         x=round(circ->r*cos(theta));
         y=round(circ->r*sin(theta));
-        circ->Draw8Points(hdc,circ->cx,circ->cy,x,y, RGB(255, 0, 0));
+        circ->Draw8Points(hdc,circ->cx,circ->cy,x,y, circle->c);
     }
 }
 
