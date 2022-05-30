@@ -17,6 +17,8 @@
 #include "Drawers/EllipseAlgorithms/EllipseDrawerPolar.h"
 #include "Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.h"
 #include "Drawers/CurveAlgorithms/CurveDrawerBezier.h"
+#include "Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.h"
+#include "Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.h"
 
 #include <iostream>
 
@@ -56,7 +58,8 @@
 #define CLIP_CIRCLE_LINE 10032
 #define CLEAR_WINDOW 10033
 #define EXIT_WINDOW 10034
-HCURSOR cursor =  LoadCursorA(NULL,IDC_ARROW);
+HCURSOR cursor = LoadCursorA(NULL, IDC_ARROW);
+
 LRESULT CALLBACK WindowProcedure(HWND, UINT, WPARAM, LPARAM);
 
 void AddMenu(HWND hWnd);
@@ -109,7 +112,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     SendMessage(hWnd, WM_PAINT, wp, lp);
                     break;
                 case CHANGE_CURSOR:
-                    cursor=LoadCursorA(NULL,IDC_CROSS);
+                    cursor = LoadCursorA(NULL, IDC_CROSS);
                     SetCursor(cursor);
                     break;
                 case DISABLE_KEYBOARD:
@@ -130,56 +133,66 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case DRAW_LINE_PARAMETRIC:
                     dr = new LineDrawerParametric();
-                    line = Line(0,0,100,100,RGB(0,0,0),dr);
-                    hdc=GetDC(hWnd);
+                    line = Line(0, 0, 100, 100, RGB(0, 0, 0), dr);
+                    hdc = GetDC(hWnd);
                     line.draw(hdc);
-                    ReleaseDC(hWnd,hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_LINE_MIDPOINT:
                     dr = new LineDrawerMidpoint();
-                    line = Line(200, 200, 0, 0, RGB(0,0,0), dr);
-                    hdc=GetDC(hWnd);
+                    line = Line(200, 200, 0, 0, RGB(0, 0, 0), dr);
+                    hdc = GetDC(hWnd);
                     line.draw(hdc);
-                    ReleaseDC(hWnd,hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_CIRCLE_DIRECT:
                     dr = new CircleDrawerDirect();
-                    circle = Circle(200,200,50,dr);
-                    hdc=GetDC(hWnd);
+                    circle = Circle(200, 200, 50, dr);
+                    hdc = GetDC(hWnd);
                     circle.draw(hdc);
-                    ReleaseDC(hWnd,hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_CIRCLE_POLAR:
                     dr = new CircleDrawerPolar();
-                    circle = Circle(200,200,50,dr);
-                    hdc=GetDC(hWnd);
+                    circle = Circle(200, 200, 50, dr);
+                    hdc = GetDC(hWnd);
                     circle.draw(hdc);
-                    ReleaseDC(hWnd,hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_CIRCLE_ITERATIVE_POLAR:
                     dr = new CircleDrawerIterativePolar();
-                    circle = Circle(200,200,50,dr);
-                    hdc=GetDC(hWnd);
+                    circle = Circle(200, 200, 50, dr);
+                    hdc = GetDC(hWnd);
                     circle.draw(hdc);
-                    ReleaseDC(hWnd,hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_CIRCLE_MIDPOINT:
                     dr = new CircleDrawerMidpoint();
-                    circle = Circle(200,200,50,dr);
-                    hdc=GetDC(hWnd);
+                    circle = Circle(200, 200, 50, dr);
+                    hdc = GetDC(hWnd);
                     circle.draw(hdc);
-                    ReleaseDC(hWnd,hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_CIRCLE_MODIFIED_MIDPOINT:
                     dr = new CircleDrawerModifiedMidpoint();
-                    circle = Circle(200,200,50,dr);
-                    hdc=GetDC(hWnd);
+                    circle = Circle(200, 200, 50, dr);
+                    hdc = GetDC(hWnd);
                     circle.draw(hdc);
-                    ReleaseDC(hWnd,hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case FILL_CIRCLE_WITH_LINE:
+                    dr = new CircleFillerWithLine();
+                    circle = Circle(200, 200, 50, dr);
+                    hdc = GetDC(hWnd);
+                    circle.draw(hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case FILL_CIRCLE_WITH_CIRCLE:
+                    dr = new CircleFillerWithCircle();
+                    circle = Circle(200, 200, 50, dr);
+                    hdc = GetDC(hWnd);
+                    circle.draw(hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case FILL_SQUARE_WITH_HERMITE_CURVE:
                     break;
@@ -196,30 +209,30 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case CARDINAL_SPLINE_CURVE:
                     dr = new CurveDrawerBezier();
                     curve = Curve(311, 60, 278, 156, 215, 68, 126, 179, dr);
-                    hdc=GetDC(hWnd);
+                    hdc = GetDC(hWnd);
                     curve.draw(hdc);
-                    ReleaseDC(hWnd,hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_ELLIPSE_DIRECT:
                     dr = new EllipseDrawerDirect();
-                    ellipse = ELLIPSE(200,200,50,70,dr);
-                    hdc=GetDC(hWnd);
+                    ellipse = ELLIPSE(200, 200, 50, 70, dr);
+                    hdc = GetDC(hWnd);
                     ellipse.draw(hdc);
-                    ReleaseDC(hWnd,hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_ELLIPSE_POLAR:
                     dr = new EllipseDrawerPolar();
-                    ellipse = ELLIPSE(200,200,50,70,dr);
-                    hdc=GetDC(hWnd);
+                    ellipse = ELLIPSE(200, 200, 50, 70, dr);
+                    hdc = GetDC(hWnd);
                     ellipse.draw(hdc);
-                    ReleaseDC(hWnd,hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_ELLIPSE_MIDPOINT:
                     dr = new EllipseDrawerMidpoint();
-                    ellipse = ELLIPSE(200,200,50,70,dr);
-                    hdc=GetDC(hWnd);
+                    ellipse = ELLIPSE(200, 200, 50, 70, dr);
+                    hdc = GetDC(hWnd);
                     ellipse.draw(hdc);
-                    ReleaseDC(hWnd,hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case CLIP_RECTANGLE_POINT:
                     break;
@@ -241,7 +254,8 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case EXIT_WINDOW:
                     DestroyWindow(hWnd);
                     break;
-
+                default:
+                    break;
             }
 
             break;
@@ -266,13 +280,12 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
             SetDCBrushColor(hdc, RGB(255, 255, 255));
             FillRect(hdc, &rc, (HBRUSH) GetStockObject(DC_BRUSH));
             EndPaint(hWnd, &ps);
-        return 0;
+            return 0;
         }
         case WM_ERASEBKGND :
 
         case WM_SETCURSOR:
-            if (LOWORD(lp) == HTCLIENT)
-            {
+            if (LOWORD(lp) == HTCLIENT) {
                 ::SetCursor(cursor);
                 return TRUE;
             }
