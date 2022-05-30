@@ -30,7 +30,7 @@ void CircleFillerWithCircle::Draw2PointsQuarter4(HDC& hdc, int xc, int yc, int a
 
 void CircleFillerWithCircle::draw(Shape *circle, HDC &hdc) {
     Circle *temp = (Circle *) circle;
-    Circle *circ = new Circle(temp->cx, temp->cy, 0, temp->drawer);
+    Circle *circ = new Circle(temp->cx, temp->cy, 0, temp->c, temp->drawer);
     int quarter;
     cout << "Enter the number of quarter you would like to fill (1 to 4 inclusive)\n-> ";
     cin >> quarter;

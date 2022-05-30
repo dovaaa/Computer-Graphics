@@ -9,7 +9,7 @@ public:
     int cx, cy;
     int a, b;
     ELLIPSE();
-    ELLIPSE(int, int, int, int,Drawer*);
+    ELLIPSE(int, int, int, int, COLORREF, Drawer*);
     void draw(HDC& hdc) override;
     void save(File &f) override;
     void Draw4Points(HDC , int , int , int , int , COLORREF);

@@ -15,11 +15,12 @@ Circle::Circle() {
     this->id = mp["circle"];
 }
 
-Circle::Circle(int cx, int cy, int r, Drawer *circleDrawer) {
+Circle::Circle(int cx, int cy, int r, COLORREF c, Drawer *circleDrawer) {
     this->drawer = circleDrawer;
     this->cx = cx;
     this->cy = cy;
     this->r = r;
+    this->c = c;
     this->id = mp["circle"];
 }
 
