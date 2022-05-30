@@ -60,6 +60,16 @@
 #define CLIP_CIRCLE_LINE 10032
 #define CLEAR_WINDOW 10033
 #define EXIT_WINDOW 10034
+
+#define COLOR_RED 10035
+#define COLOR_BLUE 10036
+#define COLOR_GREEN 10037
+#define COLOR_CYAN 10038
+#define COLOR_MAGENTA 10039
+#define COLOR_YELLOW 10040
+#define COLOR_WHITE 10041
+#define COLOR_BLACK 10042
+
 HCURSOR cursor = LoadCursorA(NULL, IDC_ARROW);
 
 LRESULT CALLBACK WindowProcedure(HWND, UINT, WPARAM, LPARAM);
@@ -93,8 +103,21 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hprevInst, LPSTR args, int ncmdsho
 }
 
 bool firstCreate = true;
+vector<Shape*> shapes;
+File file("mangaSave");
+bool flag = false;
+
+void init() {
+    if (flag)
+        return;
+    flag = true;
+    Shape *line = new Line();
+    Shape::addShape("line", line);
+
+}
 
 LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
+
 
     HDC hdc;
     HBRUSH hbrBkgnd = NULL;
@@ -122,6 +145,10 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case SET_SHAPE_COLOR:
                     break;
                 case SAVE_DATA:
+                    file.clear();
+                    for (int i = 0; i < shapes.size(); ++i) {
+                        shapes[i]->save(file);
+                    }
                     break;
                 case LOAD_DATA:
                     break;
@@ -130,6 +157,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     line = Line(0, 0, 100, 100, RGB(0, 0, 0), dr);
                     hdc = GetDC(hWnd);
                     line.draw(hdc);
+                    shapes.push_back(&line);
                     ReleaseDC(hWnd, hdc);
 
                     break;

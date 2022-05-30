@@ -4,7 +4,7 @@
 
 #include "ELLIPSE.h"
 
-void ELLIPSE::draw(HDC& hdc) {
+void ELLIPSE::draw(HDC &hdc) {
     drawer->draw(this, hdc);
 }
 
@@ -16,8 +16,8 @@ ELLIPSE::ELLIPSE() {
     this->id = mp["ellipse"];
 }
 
-ELLIPSE::ELLIPSE(int cx, int cy, int a, int b,Drawer* ellipseDrawer) {
-    this->drawer=ellipseDrawer;
+ELLIPSE::ELLIPSE(int cx, int cy, int a, int b, Drawer *ellipseDrawer) {
+    this->drawer = ellipseDrawer;
     this->cx = cx;
     this->cy = cy;
     this->a = a;
@@ -25,11 +25,11 @@ ELLIPSE::ELLIPSE(int cx, int cy, int a, int b,Drawer* ellipseDrawer) {
     this->id = mp["ellipse"];
 }
 
-void ELLIPSE::save() {
+void ELLIPSE::save(File &f) {
     string s = to_string(mp["ellipse"]) + ':' + to_string(cx) + ',' + to_string(cy) + ',' + to_string(a) + ',' +
                to_string(b) + ',' +
-               to_string(c) + ' ';
-    //f.write(s + drawer->save() + '\n');
+               to_string(c) + ':' + to_string(drawer->id) + '\n';
+    f.write(s);
 }
 
 void ELLIPSE::Draw4Points(HDC hdc, int xc, int yc, int x, int y, COLORREF color) {
@@ -40,6 +40,6 @@ void ELLIPSE::Draw4Points(HDC hdc, int xc, int yc, int x, int y, COLORREF color)
 
 }
 
-Shape *ELLIPSE::copy() {
+Shape *ELLIPSE::copy(string s) {
     return nullptr;
 }

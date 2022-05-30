@@ -15,7 +15,6 @@ public:
     Shape(){
 
     };
-    File f;
     static map<string, int> mp;
     static void addShape(string, Shape*);
     static int idx;
@@ -23,9 +22,9 @@ public:
     int id;
     Drawer *drawer;
     COLORREF c;
-    virtual Shape* copy() = 0;
+    virtual Shape* copy(string) = 0;
     virtual void draw(HDC& hdc) = 0;
-    virtual void save() = 0;
+    virtual void save(File &f) = 0;
 };
 
 

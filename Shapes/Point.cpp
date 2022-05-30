@@ -1,6 +1,6 @@
 #include "Point.h"
 
-void Point::draw(HDC& hdc) {
+void Point::draw(HDC &hdc) {
     drawer->draw(this, hdc);
 }
 
@@ -16,10 +16,16 @@ Point::Point(double x, double y) {
     this->id = mp["point"];
 }
 
-void Point::save() {
-    //TODO : implement save for point
+void Point::save(File &f) {
+    string s = to_string(mp["point"]) + ':' + to_string(x) + ',' + to_string(y) + ',' +
+               to_string(c) + ':' + to_string(drawer->id) + '\n';
+    f.write(s);
 }
 
-Shape *Point::copy() {
+Shape *Point::copy(string s) {
     return nullptr;
+}
+
+string Point::getSave() {
+    return std::string();
 }

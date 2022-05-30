@@ -4,7 +4,7 @@
 
 #include "Circle.h"
 
-void Circle::draw(HDC& hdc) {
+void Circle::draw(HDC &hdc) {
     drawer->draw(this, hdc);
 }
 
@@ -15,31 +15,32 @@ Circle::Circle() {
     this->id = mp["circle"];
 }
 
-Circle::Circle(int cx, int cy, int r, Drawer* circleDrawer) {
+Circle::Circle(int cx, int cy, int r, Drawer *circleDrawer) {
     this->drawer = circleDrawer;
     this->cx = cx;
     this->cy = cy;
     this->r = r;
     this->id = mp["circle"];
 }
-void Circle::Draw8Points(HDC& hdc,int xc,int yc, int a, int b,COLORREF color){
-    SetPixel(hdc, xc+a, yc+b, color);
-    SetPixel(hdc, xc-a, yc+b, color);
-    SetPixel(hdc, xc-a, yc-b, color);
-    SetPixel(hdc, xc+a, yc-b, color);
-    SetPixel(hdc, xc+b, yc+a, color);
-    SetPixel(hdc, xc-b, yc+a, color);
-    SetPixel(hdc, xc-b, yc-a, color);
-    SetPixel(hdc, xc+b, yc-a, color);
+
+void Circle::Draw8Points(HDC &hdc, int xc, int yc, int a, int b, COLORREF color) {
+    SetPixel(hdc, xc + a, yc + b, color);
+    SetPixel(hdc, xc - a, yc + b, color);
+    SetPixel(hdc, xc - a, yc - b, color);
+    SetPixel(hdc, xc + a, yc - b, color);
+    SetPixel(hdc, xc + b, yc + a, color);
+    SetPixel(hdc, xc - b, yc + a, color);
+    SetPixel(hdc, xc - b, yc - a, color);
+    SetPixel(hdc, xc + b, yc - a, color);
 }
 
-void Circle::save() {
+void Circle::save(File &f) {
     string s = to_string(mp["circle"]) + ':' + to_string(cx) + ',' + to_string(cy) + ',' + to_string(r) + ',' +
-            to_string(c) + ' ';
-    //f.write(s + drawer->save() + '\n');
+               to_string(c) + ':' + to_string(drawer->id) + '\n';
+    f.write(s);
 }
 
-Shape *Circle::copy() {
+Shape *Circle::copy(string s) {
     return nullptr;
 }
 
