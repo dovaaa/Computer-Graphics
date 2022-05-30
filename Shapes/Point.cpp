@@ -27,5 +27,5 @@ Shape *Point::copy(string s) {
 }
 
 string Point::getSave() {
-    return std::string();
+    return to_string(x) + '-' + to_string(y);
 }

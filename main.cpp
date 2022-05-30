@@ -121,9 +121,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
     HDC hdc;
     HBRUSH hbrBkgnd = NULL;
     Line line;
-    ELLIPSE ellipse;
-    Shape* circle;
-    Curve curve;
+    Shape* shape;
     Drawer *dr;
     switch (msg)                  /* handle the messages */
     {
@@ -189,58 +187,58 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case DRAW_CIRCLE_DIRECT:
                     dr = new CircleDrawerDirect();
-                    circle = new Circle(200, 200, 50, currentColor, dr);
+                    shape = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle->draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_CIRCLE_POLAR:
                     dr = new CircleDrawerPolar();
-                    circle = new Circle(200, 200, 50, currentColor, dr);
+                    shape = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle->draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
-                    shapes.push_back(circle);
+                    shapes.push_back(shape);
                     break;
                 case DRAW_CIRCLE_ITERATIVE_POLAR:
                     dr = new CircleDrawerIterativePolar();
-                    circle = new Circle(200, 200, 50, currentColor, dr);
+                    shape = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle->draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
-                    shapes.push_back(circle);
+                    shapes.push_back(shape);
                     break;
                 case DRAW_CIRCLE_MIDPOINT:
                     dr = new CircleDrawerMidpoint();
-                    circle = new Circle(200, 200, 50, currentColor, dr);
+                    shape = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle->draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
-                    shapes.push_back(circle);
+                    shapes.push_back(shape);
                     break;
                 case DRAW_CIRCLE_MODIFIED_MIDPOINT:
                     dr = new CircleDrawerModifiedMidpoint();
-                    circle = new Circle(200, 200, 50, currentColor, dr);
+                    shape = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle->draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
-                    shapes.push_back(circle);
+                    shapes.push_back(shape);
                     break;
                 case FILL_CIRCLE_WITH_LINE:
                     dr = new CircleFillerWithLine();
-                    circle = new Circle(200, 200, 50, currentColor, dr);
+                    shape = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle->draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
-                    shapes.push_back(circle);
+                    shapes.push_back(shape);
                     break;
                 case FILL_CIRCLE_WITH_CIRCLE:
                     dr = new CircleFillerWithCircle();
-                    circle = new Circle(200, 200, 50, currentColor, dr);
+                    shape = new Circle(200, 200, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    circle->draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
-                    shapes.push_back(circle);
+                    shapes.push_back(shape);
                     break;
                 case FILL_SQUARE_WITH_HERMITE_CURVE:
                     break;
@@ -256,30 +254,31 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case CARDINAL_SPLINE_CURVE:
                     dr = new CurveDrawerBezier();
-                    curve = Curve(311, 60, 278, 156, 215, 68, 126, 179, currentColor, dr);
+                    shape = new Curve(311, 60, 278, 156, 215, 68, 126, 179, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    curve.draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
                 case DRAW_ELLIPSE_DIRECT:
                     dr = new EllipseDrawerDirect();
-                    ellipse = ELLIPSE(200, 200, 50, 70, currentColor, dr);
+                    shape = new ELLIPSE(200, 200, 50, 70, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    ellipse.draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_ELLIPSE_POLAR:
                     dr = new EllipseDrawerPolar();
-                    ellipse = ELLIPSE(200, 200, 50, 70, currentColor, dr);
+                    shape = new ELLIPSE(200, 200, 50, 70, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    ellipse.draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_ELLIPSE_MIDPOINT:
                     dr = new EllipseDrawerMidpoint();
-                    ellipse = ELLIPSE(200, 200, 50, 70, currentColor, dr);
+                    shape = new ELLIPSE(200, 200, 50, 70, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    ellipse.draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case CLIP_RECTANGLE_POINT:

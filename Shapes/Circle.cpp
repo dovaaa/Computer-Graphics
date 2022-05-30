@@ -47,7 +47,7 @@ Shape *Circle::copy(string s) {
     int y = stoi(vec[1]);
     int rad = stoi(vec[2]);
     COLORREF cc = stoi(vec[3]);
-    return new Circle(x, y, rad, cc, Drawer::drawers[Drawer::mp[vec[4]]]->copy());
+    return new Circle(x, y, rad, cc, NULL);
 }
 
 

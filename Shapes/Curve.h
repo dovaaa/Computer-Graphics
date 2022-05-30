@@ -12,6 +12,7 @@ public:
     Point p1, p2, p3, p4;
     Curve();
     Curve(double, double, double, double, double, double, double, double, COLORREF, Drawer *);
+    Curve(Point, Point, Point, Point, COLORREF, Drawer *);
     void draw(HDC& hdc) override;
     void save(File &f) override;
     Shape* copy(string) override;
