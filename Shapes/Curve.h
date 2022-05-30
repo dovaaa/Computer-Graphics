@@ -13,8 +13,8 @@ public:
     Curve();
     Curve(double, double, double, double, double, double, double, double, Drawer *);
     void draw(HDC& hdc) override;
-    void save() override;
-    Shape* copy() override;
+    void save(File &f) override;
+    Shape* copy(string) override;
 };
 
 

@@ -14,8 +14,8 @@ public:
     Rectangle(int, int, int, int);
 
     void draw(HDC& hdc) override;
-    void save() override;
-    Shape* copy() override;
+    void save(File &f) override;
+    Shape* copy(string) override;
 };
 
 
