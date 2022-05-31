@@ -244,9 +244,9 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case LOAD_DATA: {
                     string s = file.get();
                     hdc = GetDC(hWnd);
-                    vector <string> vec = UT::split(s, '\n');
+                    vector<string> vec = UT::split(s, '\n');
                     for (int i = 0; i < vec.size(); ++i) {
-                        vector <string> cur = UT::split(vec[i], ':');
+                        vector<string> cur = UT::split(vec[i], ':');
                         shape = Shape::shapes[stoi(cur[0])]->copy(cur[1]);
                         shape->drawer = Drawer::drawers[stoi(cur[2])]->copy();
                         shape->draw(hdc);
@@ -848,83 +848,80 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     ((ClippingRectanglePolygon *) dr)->draw(rect, poly, hdc);
                     break;
                 }
-                case CLIP_SQUARE_POINT:
-                {
-                    if(xInputs.size() < 3)
-                    {
+                case CLIP_SQUARE_POINT: {
+                    if (xInputs.size() < 3) {
                         std::cout
                                 << "You need to register at least 3 input points in order to clip a point on a rectangle\n";
                         return 0;
                     }
-                    x1=xInputs.top();
-                    y1=yInputs.top();
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
-                    x3=xInputs.top();
-                    y3=yInputs.top();
-                    dr=new SquareDrawer();
-                    Shape *squ=new Square(x1, y1, x2, y2, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    x3 = xInputs.top();
+                    y3 = yInputs.top();
+                    dr = new SquareDrawer();
+                    Shape *squ = new Square(x1, y1, x2, y2, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     squ->draw(hdc);
 
                     shapes.push_back(squ);
-                    dr=new PointDrawer();
-                    Shape *point=new Point(x3, y3, currentColor, dr);
+                    dr = new PointDrawer();
+                    Shape *point = new Point(x3, y3, currentColor, dr);
 
                     //TO accommodate rectanglepoint for square
                     //x2,y2 is now rightbottom instead of R;
 
-                    int r=sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
-                    Shape *square=new Square(x1, y1, x1 + r, y1 + r, currentColor, dr);
+                    int r = sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
+                    Shape *square = new Square(x1, y1, x1 + r, y1 + r, currentColor, dr);
 
-                    dr=new ClippingRectanglePoint();
+                    dr = new ClippingRectanglePoint();
                     ((ClippingRectanglePoint *) dr)->draw(square, point, hdc);
                     break;
                 }
-                case CLIP_SQUARE_LINE:
-                {
-                    if(xInputs.size() < 4)
-                    {
+                case CLIP_SQUARE_LINE: {
+                    if (xInputs.size() < 4) {
                         std::cout
                                 << "You need to register 4 input points in order to clip a line on a rectangle\n";
                         return 0;
                     }
-                    x1=xInputs.top();
-                    y1=yInputs.top();
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
-                    x3=xInputs.top();
-                    y3=yInputs.top();
+                    x3 = xInputs.top();
+                    y3 = yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
-                    x4=xInputs.top();
-                    y4=yInputs.top();
+                    x4 = xInputs.top();
+                    y4 = yInputs.top();
 
-                    dr=new SquareDrawer();
-                    Shape *sq=new Square(x1, y1, x2, y2, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    dr = new SquareDrawer();
+                    Shape *sq = new Square(x1, y1, x2, y2, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     sq->draw(hdc);
                     shapes.push_back(sq);
-                    dr=new LineDrawerDDA();
-                    Shape *line=new Line(x3, y3, x4, y4, currentColor, dr);
-                    dr=new ClippingRectangleLine();
+                    dr = new LineDrawerDDA();
+                    Shape *line = new Line(x3, y3, x4, y4, currentColor, dr);
+                    dr = new ClippingRectangleLine();
 
                     //TO accommodate rectanglepoint for square
                     //x2,y2 is now rightbottom instead of R;
-                    int r=sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
-                    Shape *square=new Square(x1, y1, x1 + r, y1 + r, currentColor, dr);
+                    int r = sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
+                    Shape *square = new Square(x1, y1, x1 + r, y1 + r, currentColor, dr);
 
-                    dr=new ClippingRectangleLine();
+                    dr = new ClippingRectangleLine();
                     ((ClippingRectangleLine *) dr)->draw(square, line, hdc);
                     break;
+                }
                 case CLIP_CIRCLE_POINT: {
                     if (xInputs.size() < 3) {
                         std::cout
@@ -993,9 +990,9 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case EXIT_WINDOW:
                     DestroyWindow(hWnd);
                     break;
-                    default:
-                        break;
-                }
+                default:
+                    break;
+            }
 
             break;
         case WM_CREATE:
