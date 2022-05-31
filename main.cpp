@@ -795,16 +795,18 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     yInputs.pop();
                     x3=xInputs.top();
                     y3=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
                     dr=new RectangleDrawer();
                     Shape *rect=new RECTANGLE(x1, y1, x2, y2, currentColor, dr);
                     hdc=GetDC(hWnd);
-                    shape->draw(hdc);
+                    rect->draw(hdc);
                     shapes.push_back(rect);
                     dr=new PointDrawer();
                     Shape *point=new Point(x3, y3, currentColor, dr);
                     dr=new ClippingRectanglePoint();
                     ((ClippingRectanglePoint *) dr)->draw(rect, point, hdc);
-
+                    ReleaseDC(hWnd, hdc);
 
                     break;
                 }
@@ -830,16 +832,18 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     yInputs.pop();
                     x4=xInputs.top();
                     y4=yInputs.top();
-
+                    xInputs.pop();
+                    yInputs.pop();
                     dr=new RectangleDrawer();
                     Shape *rect=new RECTANGLE(x1, y1, x2, y2, currentColor, dr);
                     hdc=GetDC(hWnd);
-                    shape->draw(hdc);
+                    rect->draw(hdc);
                     shapes.push_back(rect);
                     dr=new LineDrawerDDA();
                     Shape *line=new Line(x3, y3, x4, y4, currentColor, dr);
                     dr=new ClippingRectangleLine();
                     ((ClippingRectangleLine *) dr)->draw(rect, line, hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 }
 
@@ -861,7 +865,11 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     yInputs.pop();
                     x2=xInputs.top();
                     y2=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
                     hdc=GetDC(hWnd);
+                    dr=new RectangleDrawer();
+                    Shape *rect=new RECTANGLE(x1, y1, x2, y2, currentColor, dr);
                     Point *points=new Point[n];
                     for(int i=0; i < n; ++i)
                     {
@@ -872,14 +880,14 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                         points[i].x=x1;
                         points[i].y=y1;
                     }
-                    dr=new RectangleDrawer();
-                    Shape *rect=new RECTANGLE(x1, y1, x2, y2, currentColor, dr);
+
                     rect->draw(hdc);
                     shapes.push_back(rect);
                     dr=new PolygonDrawer();
                     Shape *poly=new POLYGON(points, n, currentColor, dr);
                     dr=new ClippingRectanglePolygon();
                     ((ClippingRectanglePolygon *) dr)->draw(rect, poly, hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 }
                 case CLIP_SQUARE_POINT:
@@ -900,6 +908,8 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     yInputs.pop();
                     x3=xInputs.top();
                     y3=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
                     dr=new SquareDrawer();
                     Shape *squ=new Square(x1, y1, x2, y2, currentColor, dr);
                     hdc=GetDC(hWnd);
@@ -917,6 +927,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 
                     dr=new ClippingRectanglePoint();
                     ((ClippingRectanglePoint *) dr)->draw(square, point, hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 }
                 case CLIP_SQUARE_LINE:
@@ -941,7 +952,8 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     yInputs.pop();
                     x4=xInputs.top();
                     y4=yInputs.top();
-
+                    xInputs.pop();
+                    yInputs.pop();
                     dr=new SquareDrawer();
                     Shape *sq=new Square(x1, y1, x2, y2, currentColor, dr);
                     hdc=GetDC(hWnd);
@@ -958,6 +970,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 
                     dr=new ClippingRectangleLine();
                     ((ClippingRectangleLine *) dr)->draw(square, line, hdc);
+                    ReleaseDC(hWnd, hdc);
                     break;
                 }
                     case CLIP_CIRCLE_POINT:
@@ -978,6 +991,8 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                         yInputs.pop();
                         x3=xInputs.top();
                         y3=yInputs.top();
+                        xInputs.pop();
+                        yInputs.pop();
                         dr=new CircleDrawerDirect();
                         a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
                         Shape *circle=new Circle(x1, y1, a, currentColor, dr);
@@ -988,6 +1003,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                         Shape *point=new Point(x3, y3, currentColor, dr);
                         dr=new ClippingCirclePoint();
                         ((ClippingCirclePoint *) dr)->draw(circle, point, hdc);
+                        ReleaseDC(hWnd, hdc);
                         break;
                     }
                     case CLIP_CIRCLE_LINE:
@@ -1012,7 +1028,8 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                         yInputs.pop();
                         x4=xInputs.top();
                         y4=yInputs.top();
-
+                        xInputs.pop();
+                        yInputs.pop();
                         dr=new CircleDrawerDirect();
                         a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
                         Shape *circle=new Circle(x1, y1, a, currentColor, dr);
@@ -1023,6 +1040,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                         Shape *line=new Line(x3, y3, x4, y4, currentColor, dr);
                         dr=new ClippingCircleLine();
                         ((ClippingCircleLine *) dr)->draw(circle, line, hdc);
+                        ReleaseDC(hWnd, hdc);
                         break;
                     }
                     case CLEAR_WINDOW:
