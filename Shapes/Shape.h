@@ -20,6 +20,7 @@ public:
     int id;
     Drawer *drawer;
     COLORREF c;
+    virtual std::string getSave();
     virtual Shape* copy(std::string) = 0;
     virtual void draw(HDC& hdc) = 0;
     virtual void save(File &f) = 0;
