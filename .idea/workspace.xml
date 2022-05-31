@@ -16,12 +16,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added ClippingAlgorithms for Rectangle and Circle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Circle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Circle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Circle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Circle.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +116,7 @@
       <workItem from="1653945153094" duration="2338000" />
       <workItem from="1653971553987" duration="734000" />
       <workItem from="1653975157286" duration="3924000" />
-      <workItem from="1654012064899" duration="3279000" />
+      <workItem from="1654012064899" duration="4207000" />
     </task>
     <task id="LOCAL-00001" summary="added hdc and color to lineDrawers, implemented lineDrawers">
       <created>1653772360368</created>
@@ -208,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654012860361</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added ClippingAlgorithms for Rectangle and Circle">
+      <created>1654015728692</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1654015728692</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +245,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>226</line>
+          <line>228</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -254,7 +255,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>452</line>
+          <line>454</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>

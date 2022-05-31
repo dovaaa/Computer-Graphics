@@ -171,6 +171,8 @@ void init() {
     Drawer::addDrawer("CircleFillerWithLine", new CircleFillerWithLine());
     Drawer::addDrawer("FloodFillRecursive", new FloodFillRecursive());
     Drawer::addDrawer("FloodFillNonRecursive", new FloodFillNonRecursive());
+    Drawer::addDrawer("ConvexFiller", new ConvexFiller());
+    Drawer::addDrawer("NonConvexFiller", new NonConvexFiller());
     Drawer::addDrawer("SquareFillerWithHermiteCurve", new SquareFillerWithHermiteCurve());
     Drawer::addDrawer("RectangleFillerWithBezierCurve", new RectangleFillerWithBezierCurve());
 
