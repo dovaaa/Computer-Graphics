@@ -64,3 +64,7 @@ Drawer *ClippingCircleLine::copy() {
 void ClippingCircleLine::draw(Shape *, HDC &) {
 
 }
+
+ClippingCircleLine::ClippingCircleLine() {
+    id = mp["ClippingCircleLine"];
+}

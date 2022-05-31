@@ -9,8 +9,9 @@
 
 class ClippingCircleLine : public Drawer {
 public:
+    ClippingCircleLine();
     void draw(Shape *Circle, Shape *line, HDC &hdc);
-    void draw(Shape *, HDC &);
+    void draw(Shape *, HDC &) override;
     Drawer *copy() override;
 };
 

@@ -8,6 +8,7 @@
 
 class PolygonDrawer: public Drawer{
 public:
+    PolygonDrawer();
     void draw(Shape* polygon, HDC& hdc) override;
     Drawer* copy() override;
 };

@@ -28,3 +28,7 @@ Drawer *PolygonDrawer::copy()
     return nullptr;
 }
 
+PolygonDrawer::PolygonDrawer() {
+    id = mp["PolygonDrawer"];
+}
+

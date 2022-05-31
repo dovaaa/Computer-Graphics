@@ -1056,7 +1056,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     hdc = GetDC(hWnd);
                     for (x1 = -1; x1 < 2; x1++){
                         for (x2 = -1; x2 < 2; x2++){
-                            SetPixel(hdc, xInputs.top() + x1, yInputs.top() + x2, currentColor);
+                            SetPixel(hdc, xInputs.top() + x1, yInputs.top() + x2, RGB(0,0,0));
                         }
                     }
                     ReleaseDC(hWnd, hdc);

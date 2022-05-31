@@ -37,3 +37,7 @@ Drawer *ClippingCirclePoint::copy() {
 void ClippingCirclePoint::draw(Shape *, HDC &) {
 
 }
+
+ClippingCirclePoint::ClippingCirclePoint() {
+    id = mp["ClippingCirclePoint"];
+}

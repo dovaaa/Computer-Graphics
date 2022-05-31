@@ -74,3 +74,7 @@ Drawer *ClippingRectangleLine::copy() {
 void ClippingRectangleLine::draw(Shape *, HDC &) {
 
 }
+
+ClippingRectangleLine::ClippingRectangleLine() {
+    id = mp["ClippingRectangleLine"];
+}

@@ -14,3 +14,7 @@ Drawer *PointDrawer::copy() {
     return new PointDrawer();
 }
 
+PointDrawer::PointDrawer() {
+    id = mp["PointDrawer"];
+}
+

@@ -10,7 +10,7 @@
 class ClippingRectanglePolygon:public Drawer
 {
 public:
-
+    ClippingRectanglePolygon();
     void draw(Shape *rectangle, Shape *polygon, HDC &hdc);
     void draw(Shape *, HDC &);
     Drawer* copy() override;

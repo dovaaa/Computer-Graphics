@@ -23,3 +23,7 @@ void ClippingRectanglePoint::draw(Shape *sh, HDC &hdc) {
     Container *cr = (Container*) sh;
     draw(cr->s1, cr->s2, hdc);
 }
+
+ClippingRectanglePoint::ClippingRectanglePoint() {
+    id = mp["ClippingRectanglePoint"];
+}

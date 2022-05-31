@@ -9,6 +9,7 @@
 
 class RectangleDrawer: public Drawer{
 public:
+    RectangleDrawer();
     void draw(Shape *rectangle, HDC& hdc) override;
     Drawer* copy() override;
 };

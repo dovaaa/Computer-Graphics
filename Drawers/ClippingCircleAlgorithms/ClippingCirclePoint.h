@@ -10,6 +10,7 @@
 
 class ClippingCirclePoint : public Drawer {
 public:
+    ClippingCirclePoint();
     void draw(Shape *Circle, Shape *point, HDC &hdc);
     void draw(Shape *, HDC &);
     Drawer *copy() override;

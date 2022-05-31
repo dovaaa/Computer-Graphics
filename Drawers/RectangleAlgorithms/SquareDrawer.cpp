@@ -25,3 +25,7 @@ void SquareDrawer::draw(Shape *square, HDC &hdc) {
     line = new Line(x1, y1 + r, x1, y1, sq->c, dr);
     line->draw(hdc);
 }
+
+SquareDrawer::SquareDrawer() {
+    id = mp["SquareDrawer"];
+}

@@ -109,3 +109,7 @@ Drawer *ClippingRectanglePolygon::copy() {
 void ClippingRectanglePolygon::draw(Shape *, HDC &) {
 
 }
+
+ClippingRectanglePolygon::ClippingRectanglePolygon() {
+    id = mp["ClippingRectanglePolygon"];
+}

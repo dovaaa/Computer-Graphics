@@ -24,3 +24,7 @@ void RectangleDrawer::draw(Shape *rectangle, HDC &hdc) {
 Drawer *RectangleDrawer::copy() {
     return new RectangleDrawer();
 }
+
+RectangleDrawer::RectangleDrawer() {
+    id = mp["RectangleDrawer"];
+}

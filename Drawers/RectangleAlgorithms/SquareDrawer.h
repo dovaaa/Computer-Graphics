@@ -11,6 +11,7 @@
 class SquareDrawer : public Drawer
 {
 public:
+    SquareDrawer();
     void draw(Shape *square, HDC& hdc) override;
     Drawer* copy() override;
 };
