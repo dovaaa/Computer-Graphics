@@ -4,19 +4,16 @@
 
 #include <algorithm>
 #include <cmath>
-#include <climits>
 #include "SquareFillerWithHermiteCurve.h"
 #include "../../CurveAlgorithms/CurveDrawerHermite.h"
 #include "../../../Shapes/Square.h"
-#include "../../../Shapes/Curve.h"
-
 
 
 void SquareFillerWithHermiteCurve::draw(Shape *square, HDC &hdc) {
     Square *sq = (Square *) square;
 
     int x1 = min(sq->x1, sq->x2), y1 = min(sq->y1, sq->y2),
-        x2 = max(sq->x1, sq->x2), y2 = max(sq->y1, sq->y2);
+            x2 = max(sq->x1, sq->x2), y2 = max(sq->y1, sq->y2);
     int r = sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
 
     Drawer *dr = new CurveDrawerHermite();
@@ -34,7 +31,7 @@ void SquareFillerWithHermiteCurve::draw(Shape *square, HDC &hdc) {
     curve.p1.x = x1;
     curve.p4.x = x1 + r;
 
-    for (int y = y1; y <= y1 + r; y++){
+    for (int y = y1; y <= y1 + r; y++) {
         curve.p1.x = y;
         curve.p4.x = y;
         curve.draw(hdc);
@@ -42,5 +39,9 @@ void SquareFillerWithHermiteCurve::draw(Shape *square, HDC &hdc) {
 }
 
 Drawer *SquareFillerWithHermiteCurve::copy() {
-    return new SquareFillerWithHermiteCurve();
+    return new SquareFillerWithHermiteCurve;
+}
+
+SquareFillerWithHermiteCurve::SquareFillerWithHermiteCurve() {
+    this->id = mp["SquareFillerWithHermiteCurve"];
 }

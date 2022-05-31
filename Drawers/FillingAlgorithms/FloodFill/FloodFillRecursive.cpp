@@ -25,3 +25,7 @@ Drawer *FloodFillRecursive::copy()
 {
     return new FloodFillRecursive();
 }
+
+FloodFillRecursive::FloodFillRecursive() {
+    this->id = mp["FloodFillRecursive"];
+}

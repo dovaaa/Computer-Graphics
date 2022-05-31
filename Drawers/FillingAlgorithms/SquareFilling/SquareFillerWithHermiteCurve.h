@@ -9,6 +9,7 @@
 
 class SquareFillerWithHermiteCurve : public Drawer {
 public:
+    SquareFillerWithHermiteCurve();
     void draw(Shape *curve, HDC &hdc) override;
 
     Drawer *copy() override;

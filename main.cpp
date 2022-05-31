@@ -8,6 +8,7 @@
 #include "Shapes/Rectangle.h"
 #include "Shapes/Square.h"
 #include "Shapes/Polygon.h"
+#include "Shapes/Flood.h"
 
 //Line Algorithms Imports
 #include "Drawers/LineAlgorithms/LineDrawerDDA.h"
@@ -35,6 +36,8 @@
 #include "Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.h"
 #include "Drawers/FillingAlgorithms/RectangleFilling/RectangleFillerWithBezierCurve.h"
 #include "Drawers/FillingAlgorithms/SquareFilling/SquareFillerWithHermiteCurve.h"
+#include "Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.h"
+#include "Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.h"
 
 //Utility Imports
 #include <stack>
@@ -135,10 +138,12 @@ void init() {
     Shape::addShape("ellipse", new ELLIPSE());
     Shape::addShape("curve", new Curve());
     Shape::addShape("polygon", new POLYGON());
+    Shape::addShape("square", new Square());
+    Shape::addShape("flood", new Flood());
 
     /* Line Drawer Algorithms */
-    Drawer::addDrawer("LineDrawerMidpoint", new LineDrawerMidpoint());
     Drawer::addDrawer("LineDrawerDDA", new LineDrawerDDA());
+    Drawer::addDrawer("LineDrawerMidpoint", new LineDrawerMidpoint());
     Drawer::addDrawer("LineDrawerParametric", new LineDrawerParametric());
 
     /* Circle Drawer Algorithms */
@@ -148,9 +153,24 @@ void init() {
     Drawer::addDrawer("CircleDrawerModifiedMidpoint", new CircleDrawerModifiedMidpoint());
     Drawer::addDrawer("CircleDrawerPolar", new CircleDrawerPolar());
 
+    /* Ellipse Drawer Algorithms */
+    Drawer::addDrawer("EllipseDrawerDirect", new EllipseDrawerDirect());
+    Drawer::addDrawer("EllipseDrawerMidpoint", new EllipseDrawerMidpoint());
+    Drawer::addDrawer("EllipseDrawerPolar", new EllipseDrawerPolar());
+
+
     /* Curve Drawer Algorithms */
     Drawer::addDrawer("CurveDrawerBezier", new CurveDrawerBezier());
     Drawer::addDrawer("CurveDrawerBezier", new CurveDrawerHermite());
+
+    /* Filling Algorithms */
+    Drawer::addDrawer("CircleFillerWithCircle", new CircleFillerWithCircle());
+    Drawer::addDrawer("CircleFillerWithLine", new CircleFillerWithLine());
+    Drawer::addDrawer("FloodFillRecursive", new FloodFillRecursive());
+    Drawer::addDrawer("FloodFillNonRecursive", new FloodFillNonRecursive());
+    Drawer::addDrawer("SquareFillerWithHermiteCurve", new SquareFillerWithHermiteCurve());
+    Drawer::addDrawer("RectangleFillerWithBezierCurve", new RectangleFillerWithBezierCurve());
+
 
 }
 
@@ -519,6 +539,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
                 case DRAW_ELLIPSE_POLAR:
                     if (xInputs.size() < 3){
@@ -542,6 +563,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
                 case DRAW_ELLIPSE_MIDPOINT:
                     if (xInputs.size() < 3){
@@ -565,6 +587,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
                 case CLIP_RECTANGLE_POINT:
                     break;

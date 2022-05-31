@@ -8,6 +8,8 @@
 #include "../../Shapes/Shape.h"
 
 class EllipseDrawerMidpoint : public Drawer {
+public:
+    EllipseDrawerMidpoint();
     void draw(Shape *ellipse, HDC& hdc) override;
     Drawer* copy() override;
 };

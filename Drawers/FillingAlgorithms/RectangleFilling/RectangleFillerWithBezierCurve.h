@@ -7,10 +7,13 @@
 
 #include "../../Drawer.h"
 
-class RectangleFillerWithBezierCurve: public Drawer{
+class RectangleFillerWithBezierCurve : public Drawer {
 public:
+    RectangleFillerWithBezierCurve();
+
     void draw(Shape *, HDC &hdc) override;
-    Drawer* copy() override;
+
+    Drawer *copy() override;
 };
 
 

@@ -55,3 +55,7 @@ void EllipseDrawerMidpoint::draw(Shape *ellipse, HDC &hdc)
 Drawer *EllipseDrawerMidpoint::copy() {
     return new EllipseDrawerMidpoint();
 }
+
+EllipseDrawerMidpoint::EllipseDrawerMidpoint() {
+    id = mp["EllipseDrawerMidpoint"];
+}

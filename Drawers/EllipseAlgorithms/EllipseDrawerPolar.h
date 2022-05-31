@@ -8,6 +8,8 @@
 #include "../../Shapes/Shape.h"
 
 class EllipseDrawerPolar : public Drawer{
+public:
+    EllipseDrawerPolar();
     void draw(Shape *ellipse, HDC& hdc) override;
     Drawer* copy() override;
 };

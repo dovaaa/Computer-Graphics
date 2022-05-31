@@ -39,3 +39,7 @@ void RectangleFillerWithBezierCurve::draw(Shape *rectangle, HDC &hdc) {
 Drawer *RectangleFillerWithBezierCurve::copy() {
     return new RectangleFillerWithBezierCurve();
 }
+
+RectangleFillerWithBezierCurve::RectangleFillerWithBezierCurve() {
+    this->id = mp["RectangleFillerWithBezierCurve"];
+}

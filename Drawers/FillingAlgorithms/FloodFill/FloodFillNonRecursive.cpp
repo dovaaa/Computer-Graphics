@@ -42,3 +42,7 @@ Drawer *FloodFillNonRecursive::copy()
 {
     return new FloodFillNonRecursive();
 }
+
+FloodFillNonRecursive::FloodFillNonRecursive() {
+    this->id = mp["FloodFillNonRecursive"];
+}

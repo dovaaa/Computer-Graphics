@@ -29,3 +29,7 @@ void EllipseDrawerDirect::draw(Shape *ellipse, HDC &hdc) {
 Drawer *EllipseDrawerDirect::copy() {
     return new EllipseDrawerDirect();
 }
+
+EllipseDrawerDirect::EllipseDrawerDirect() {
+    id = mp["EllipseDrawerDirect"];
+}

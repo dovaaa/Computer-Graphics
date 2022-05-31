@@ -67,3 +67,7 @@ void CircleFillerWithCircle::draw(Shape *circle, HDC &hdc) {
 Drawer *CircleFillerWithCircle::copy() {
     return new CircleFillerWithCircle();
 }
+
+CircleFillerWithCircle::CircleFillerWithCircle() {
+    this->id = mp["CircleFillerWithCircle"];
+}
