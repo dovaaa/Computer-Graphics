@@ -11,6 +11,10 @@
 class POLYGON: public Shape
 {
 public:
+    POLYGON(Point *points, int n,COLORREF color, Drawer *dr);
+
+    POLYGON(Point *points, int n, Drawer *dr);
+
     Point* points;
     int n;
     POLYGON();
