@@ -276,7 +276,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case FILL_RECTANGLE_WITH_BEZIER_CURVE:
                     dr = new RectangleFillerWithBezierCurve();
                     hdc = GetDC(hWnd);
-                    shape = new RECTANGLE(100, 100, 200, 300, currentColor, dr);
+                    shape = new RECTANGLE(100, 100, 600, 200, currentColor, dr);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);

@@ -4,40 +4,37 @@
 
 #include <algorithm>
 #include "RectangleFillerWithBezierCurve.h"
-#include "../../LineAlgorithms/LineDrawerParametric.h"
+#include "../../CurveAlgorithms/CurveDrawerBezier.h"
 #include "../../../Shapes/Rectangle.h"
-#include "../../../Shapes/Line.h"
+#include "../../../Shapes/Curve.h"
 
 void RectangleFillerWithBezierCurve::draw(Shape *rectangle, HDC &hdc) {
     RECTANGLE *rect = (RECTANGLE *) rectangle;
-    int x1 = rect->xleft, y1 = rect->yleft,
-            x2 = rect->xright, y2 = rect->yleft,
-            x3 = rect->xright, y3 = rect->yright,
-            x4 = rect->xleft, y4 = rect->yright;
+    int     x1 = min(rect->xleft, rect->xright), y1 = min(rect->yleft, rect->yright),
+            x2 = max(rect->xleft, rect->xright), y2 = y1,
+            x3 = x2, y3 = max(rect->yright, rect->yleft),
+            x4 = x1, y4 = y3;
 
-    Drawer *dr = new LineDrawerParametric();
-    Line line;
+    Drawer *dr = new CurveDrawerBezier();
+    Curve curve;
 
     //Right & Left Side
-    line = Line(x2, y2, x3, y3, rect->c, dr);
-    line.draw(hdc);
-    line.stx = x4; line.sty = y4;
-    line.edx = x1; line.edy = y1;
-    line.draw(hdc);
+    curve = Curve(x2, y2, x3, y3, x2, y2, x3, y3, rect->c, dr);
+    curve.draw(hdc);
+    curve.p1.x = x4; curve.p1.y = y4;
+    curve.p2.x = x1; curve.p2.y = y1;
+    curve.p3.x = x4; curve.p3.y = y4;
+    curve.p4.x = x1; curve.p4.y = y1;
+    curve.draw(hdc);
 
-    if (y1 > y2){
-        swap(y1, y2);
-        swap(x1, y2);
+    curve.p1.x = x1; curve.p2.x = x1;
+    curve.p3.x = x2; curve.p4.x = x2;
+    for (int y = y1; y <= y3; y++){
+        std :: cout << y << "\n";
+        curve.p1.y = y; curve.p2.y = y;
+        curve.p3.y = y; curve.p4.y = y;
+        curve.draw(hdc);
     }
-    line.stx = x1; line.sty = y1;
-    line.edx = x2; line.edy = y2;
-    line.draw(hdc);
-    for (int i = y1; i <= y2; i++) ;
-//    line = new Line(x1, y1, x2, y2, RGB(255, 255, 0), dr);
-//    line->draw(hdc);
-//    line = new Line(x3, y3, x4, y4, RGB(255, 255, 0), dr);
-//    line->draw(hdc);
-
 }
 
 Drawer *RectangleFillerWithBezierCurve::copy() {
