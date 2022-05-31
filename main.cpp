@@ -53,6 +53,7 @@
 #include "Drawers/ClippingCircleAlgorithms/ClippingCircleLine.h"
 #include "Drawers/PolygonAlgorithms/PolygonDrawer.h"
 #include "Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.h"
+#include "Shapes/Container.h"
 
 
 //Utility Imports
@@ -806,7 +807,8 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     dr=new PolygonDrawer();
                     Shape *poly= new POLYGON(points,n,currentColor,dr);
                     dr = new ClippingRectanglePolygon();
-                    ((ClippingRectanglePolygon *) dr)->draw(rect, poly, hdc);
+                    shape = new Container(rect, poly, dr);
+                    shape->draw(hdc);
                     break;
                 }
                 case CLIP_SQUARE_POINT:

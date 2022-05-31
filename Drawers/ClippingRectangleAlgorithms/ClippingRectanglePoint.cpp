@@ -5,6 +5,7 @@
 #include "ClippingRectanglePoint.h"
 #include "../../Shapes/Rectangle.h"
 #include "../../Shapes/Point.h"
+#include "../../Shapes/Container.h"
 
 void ClippingRectanglePoint::draw(Shape *rectangle, Shape *point, HDC &hdc) {
     RECTANGLE *rect = (RECTANGLE *) rectangle;
@@ -18,6 +19,7 @@ Drawer *ClippingRectanglePoint::copy() {
     return new ClippingRectanglePoint();
 }
 
-void ClippingRectanglePoint::draw(Shape *, HDC &) {
-
+void ClippingRectanglePoint::draw(Shape *sh, HDC &hdc) {
+    Container *cr = (Container*) sh;
+    draw(cr->s1, cr->s2, hdc);
 }
