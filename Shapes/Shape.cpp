@@ -13,3 +13,7 @@ void Shape::addShape(string str, Shape* s) {
     mp[str] = shapes.size();
     shapes.push_back(s);
 }
+
+std::string Shape::getSave() {
+    return std::string();
+}
