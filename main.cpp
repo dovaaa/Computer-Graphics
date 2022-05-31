@@ -122,6 +122,11 @@ void init() {
     Shape::addShape("curve", new Curve());
     Shape::addShape("polygon", new POLYGON());
 
+    /* Line Drawer Algorithms */
+    Drawer::addDrawer("LineDrawerMidpoint", new LineDrawerMidpoint());
+    Drawer::addDrawer("LineDrawerDDA", new LineDrawerDDA());
+    Drawer::addDrawer("LineDrawerParametric", new LineDrawerParametric());
+
     /* Circle Drawer Algorithms */
     Drawer::addDrawer("CircleDrawerDirect", new CircleDrawerDirect());
     Drawer::addDrawer("CircleDrawerIterativePolar", new CircleDrawerIterativePolar());
@@ -130,8 +135,10 @@ void init() {
     Drawer::addDrawer("CircleDrawerPolar", new CircleDrawerPolar());
 
 
-
+    /* Curve Drawer Algorithms */
     Drawer::addDrawer("CurveDrawerBezier", new CurveDrawerBezier());
+
+
 }
 
 LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
@@ -194,11 +201,11 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case DRAW_LINE_DDA:
                     dr = new LineDrawerDDA();
-                    shape = new Line(0, 0, 100, 100, currentColor, dr);
+                    shape = new Line(300, 300, 400, 400, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
-                    shapes.push_back(shape);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
 
                     break;
                 case DRAW_LINE_PARAMETRIC:
@@ -207,13 +214,15 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
                 case DRAW_LINE_MIDPOINT:
                     dr = new LineDrawerMidpoint();
-                    shape = new Line(200, 200, 0, 0, currentColor, dr);
+                    shape = new Line(200, 200, 50, 100, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
                 case DRAW_CIRCLE_DIRECT:
                     dr = new CircleDrawerDirect();

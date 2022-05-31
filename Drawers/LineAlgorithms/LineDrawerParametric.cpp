@@ -41,3 +41,7 @@ Drawer *LineDrawerParametric::copy() {
     return new LineDrawerParametric();
 }
 
+LineDrawerParametric::LineDrawerParametric() {
+    this->id = mp["LineDrawerParametric"];
+}
+
