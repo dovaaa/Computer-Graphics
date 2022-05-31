@@ -520,7 +520,8 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                         points[i].x = x1; points[i].y=y1;
                     }
                     shape = new POLYGON(points,n);
-                    dr->draw(shape,hdc);
+                    shape->drawer = dr;
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
@@ -536,7 +537,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                                   <<" or at least 3" <<" input points in order to draw a Polygon of Size " << n << "\n";
                         return 0;
                     }
-                    dr=new NonConvexFiller();
+                    dr= new NonConvexFiller();
                     hdc=GetDC(hWnd);
                     Point *points = new Point[n];
                     for(int i=0; i < n; ++i)
@@ -547,7 +548,8 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                         points[i].x = x1; points[i].y=y1;
                     }
                     shape = new POLYGON(points,n);
-                    dr->draw(shape,hdc);
+                    shape->drawer = dr;
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
