@@ -9,10 +9,11 @@ Flood::Flood()
 
 }
 
-Flood::Flood(Point p, COLORREF borderColor)
+Flood::Flood(Point p, COLORREF borderColor,Drawer* dr)
 {
     this->p=p;
     this->borderColor=borderColor;
+    this->drawer=dr;
 }
 
 void Flood::draw(HDC &hdc)

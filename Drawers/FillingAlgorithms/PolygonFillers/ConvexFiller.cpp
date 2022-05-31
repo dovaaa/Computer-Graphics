@@ -66,3 +66,8 @@ Drawer *ConvexFiller::copy()
 {
     return new ConvexFiller();
 }
+
+ConvexFiller::ConvexFiller()
+{
+    this->id = mp["ConvexFiller"];
+}

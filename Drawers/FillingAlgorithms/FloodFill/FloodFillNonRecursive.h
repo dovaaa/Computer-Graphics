@@ -10,8 +10,8 @@ class FloodFillNonRecursive: public Drawer
 {
 public:
     FloodFillNonRecursive();
-    void draw(Shape *point, HDC &hdc);
-    void NRFloodFill(HDC hdc,int x,int y,COLORREF Cb,COLORREF Cf);
+    void draw(Shape *flood, HDC &hdc);
+    void NRFloodFill(HDC &hdc,int x,int y,COLORREF Cb,COLORREF Cf);
     Drawer* copy() override;
 };
 

@@ -10,9 +10,10 @@
 
 class ConvexFiller: public Drawer
 {
+public:
     void draw(Shape *polygon, HDC &hdc);
     Drawer* copy() override;
-
+    ConvexFiller();
 };
 
 

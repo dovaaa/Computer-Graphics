@@ -38,6 +38,9 @@
 #include "Drawers/FillingAlgorithms/SquareFilling/SquareFillerWithHermiteCurve.h"
 #include "Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.h"
 #include "Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.h"
+#include "Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.h"
+#include "Drawers/FillingAlgorithms/PolygonFillers/NonConvexFiller.h"
+
 
 //Utility Imports
 #include <stack>
@@ -239,6 +242,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case DRAW_LINE_DDA:
                     if (xInputs.size() < 2){
                         std :: cout << "You need at least 2 points to draw  a line\n";
+                        return 0;
                     }
                     //Extracting Line Input
                     x1 = xInputs.top(); y1 = yInputs.top();
@@ -258,6 +262,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case DRAW_LINE_PARAMETRIC:
                     if (xInputs.size() < 2){
                         std :: cout << "You need at least 2 points to draw  a line\n";
+                        return 0;
                     }
                     //Extracting Line Input
                     x1 = xInputs.top(); y1 = yInputs.top();
@@ -276,6 +281,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case DRAW_LINE_MIDPOINT:
                     if (xInputs.size() < 2){
                         std :: cout << "You need at least 2 points to draw  a line\n";
+                        return 0;
                     }
                     //Extracting Line Input
                     x1 = xInputs.top(); y1 = yInputs.top();
@@ -294,7 +300,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case DRAW_CIRCLE_DIRECT:
                     if (xInputs.size() < 2){
                         std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
-                        break;
+                        return 0; //TODO difference between break; and return 0;???
                     }
                     //Extracting Circle Input
                     x1 = xInputs.top();
@@ -315,7 +321,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case DRAW_CIRCLE_POLAR:
                     if (xInputs.size() < 2){
                         std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
-                        break;
+                        return 0;
                     }
                     //Extracting Circle Input
                     x1 = xInputs.top();
@@ -336,7 +342,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case DRAW_CIRCLE_ITERATIVE_POLAR:
                     if (xInputs.size() < 2){
                         std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
-                        break;
+                        return 0;
                     }
                     //Extracting Circle Input
                     x1 = xInputs.top();
@@ -357,7 +363,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case DRAW_CIRCLE_MIDPOINT:
                     if (xInputs.size() < 2){
                         std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
-                        break;
+                        return 0;
                     }
                     //Extracting Circle Input
                     x1 = xInputs.top();
@@ -379,7 +385,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case DRAW_CIRCLE_MODIFIED_MIDPOINT:
                     if (xInputs.size() < 2){
                         std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
-                        break;
+                        return 0;
                     }
                     //Extracting Circle Input
                     x1 = xInputs.top();
@@ -401,7 +407,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case FILL_CIRCLE_WITH_LINE:
                     if (xInputs.size() < 2){
                         std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
-                        break;
+                        return 0;
                     }
                     //Extracting Circle Input
                     x1 = xInputs.top();
@@ -422,7 +428,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case FILL_CIRCLE_WITH_CIRCLE:
                     if (xInputs.size() < 2){
                         std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
-                        break;
+                        return 0;
                     }
                     //Extracting Circle Input
                     x1 = xInputs.top();
@@ -444,7 +450,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     //TODO : Fix Input
                     if (xInputs.size() < 2){
                         std :: cout << "You need to register at least 2 input points in order to draw a square\n";
-                        break;
+                        return 0;
                     }
                     //Extracting Circle Input
                     x1 = xInputs.top();
@@ -465,7 +471,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case FILL_RECTANGLE_WITH_BEZIER_CURVE:
                     if (xInputs.size() < 2){
                         std :: cout << "You need to register at least 2 input points in order to draw a rectangle\n";
-                        break;
+                        return 0;
                     }
                     //Extracting Circle Input
                     x1 = xInputs.top();
@@ -482,18 +488,102 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
-                case CONVEX_FILLING:
+                case CONVEX_FILLING:{
+                    //need number of points for polygon
+                    int n;
+                    cout << "enter number of points needed";
+                    cin >> n;
+                    if(xInputs.size() < n&&n>3)
+                    {
+                        std::cout << "You need to register at least " << n
+                                  <<" or at least 3" <<" input points in order to draw a Polygon of Size " << n << "\n";
+                        return 0;
+                    }
+                    dr=new ConvexFiller();
+                    hdc=GetDC(hWnd);
+                    Point *points = new Point[n];
+                    for(int i=0; i < n; ++i)
+                    {
+                        x1 = xInputs.top();
+                        y1 = yInputs.top();
+                        xInputs.pop(); yInputs.pop();
+                        points[i].x = x1; points[i].y=y1;
+                    }
+                    shape = new POLYGON(points,n);
+                    dr->draw(shape,hdc);
+                    ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
-                case NON_CONVEX_FILLING:
+                }
+                case NON_CONVEX_FILLING:{
+                    //need number of points for polygon
+                    int n;
+                    cout << "enter number of points needed";
+                    cin >> n;
+                    if(xInputs.size() < n&&n>3)
+                    {
+                        std::cout << "You need to register at least " << n
+                                  <<" or at least 3" <<" input points in order to draw a Polygon of Size " << n << "\n";
+                        return 0;
+                    }
+                    dr=new NonConvexFiller();
+                    hdc=GetDC(hWnd);
+                    Point *points = new Point[n];
+                    for(int i=0; i < n; ++i)
+                    {
+                        x1 = xInputs.top();
+                        y1 = yInputs.top();
+                        xInputs.pop(); yInputs.pop();
+                        points[i].x = x1; points[i].y=y1;
+                    }
+                    shape = new POLYGON(points,n);
+                    dr->draw(shape,hdc);
+                    ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
+                }
                 case RECURSIVE_FLOOD_FILL:
+                {
+                    if (xInputs.size() < 1){
+                        std :: cout << "You need to register at least 1 input point in order to Fill\n";
+                        return 0;
+                    }
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    Point p(x1,y1);
+                    dr=new FloodFillRecursive();
+                    shape = new Flood(p,currentColor,dr);
+                    shape->c=currentColor;
+                    hdc=GetDC(hWnd);
+                    shape->draw(hdc);
+                    ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
+                }
                 case NON_RECURSIVE_FLOOD_FILL:
+                {
+                    if (xInputs.size() < 1){
+                        std :: cout << "You need to register at least 1 input point in order to Fill\n";
+                        return 0;
+                    }
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    Point p(x1,y1);
+                    dr=new FloodFillNonRecursive();
+                    shape = new Flood(p,currentColor,dr);
+                    shape->c=currentColor;
+                    hdc=GetDC(hWnd);
+                    shape->draw(hdc);
+                    ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
+                }
                 case CARDINAL_SPLINE_CURVE:
                     if (xInputs.size() < 4){
                         std :: cout << "You need to register at least 4 input points in order to draw a curve\n";
-                        break;
+                        return 0;
                     }
                     //Extracting Circle Input
                     x1 = xInputs.top();
@@ -519,7 +609,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case DRAW_ELLIPSE_DIRECT:
                     if (xInputs.size() < 3){
                         std :: cout << "You need to register at least 3 input points in order to draw an ellipse\n";
-                        break;
+                        return 0;
                     }
                     x1 = xInputs.top();
                     y1 = yInputs.top();
@@ -544,7 +634,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case DRAW_ELLIPSE_POLAR:
                     if (xInputs.size() < 3){
                         std :: cout << "You need to register at least 3 input points in order to draw an ellipse\n";
-                        break;
+                        return 0;
                     }
                     x1 = xInputs.top();
                     y1 = yInputs.top();
@@ -568,7 +658,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case DRAW_ELLIPSE_MIDPOINT:
                     if (xInputs.size() < 3){
                         std :: cout << "You need to register at least 3 input points in order to draw an ellipse\n";
-                        break;
+                        return 0;
                     }
                     x1 = xInputs.top();
                     y1 = yInputs.top();

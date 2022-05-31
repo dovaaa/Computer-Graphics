@@ -6,30 +6,25 @@
 #include "../../../Shapes/Flood.h"
 
 #include <stack>
+#include <iostream>
+#include <utility>
 using namespace std;
 
-struct Vertex
+void FloodFillNonRecursive::NRFloodFill(HDC &hdc,int x,int y,COLORREF Cb,COLORREF Cf)
 {
-    int x,y;
-    Vertex(int x,int y):x(x),y(y)
-    {
-    }
-};
-void FloodFillNonRecursive::NRFloodFill(HDC hdc,int x,int y,COLORREF Cb,COLORREF Cf)
-{
-    stack<Vertex> S;
-    S.push(Vertex(x,y));
+    stack<pair<int,int>> S;
+    S.push(make_pair(x,y));
     while(!S.empty())
     {
-        Vertex v=S.top();
+        pair<int,int> v=S.top();
         S.pop();
-        COLORREF c=GetPixel(hdc,v.x,v.y);
+        COLORREF c=GetPixel(hdc,v.first,v.second);
         if(c==Cb || c==Cf)continue;
-        SetPixel(hdc,v.x,v.y,Cf);
-        S.push(Vertex(v.x+1,v.y));
-        S.push(Vertex(v.x-1,v.y));
-        S.push(Vertex(v.x,v.y+1));
-        S.push(Vertex(v.x,v.y-1));
+        SetPixel(hdc,v.first,v.second,Cf);
+        S.push(make_pair(v.first+1,v.second));
+        S.push(make_pair(v.first-1,v.second));
+        S.push(make_pair(v.first,v.second+1));
+        S.push(make_pair(v.first,v.second-1));
     }
 }
 void FloodFillNonRecursive::draw(Shape *Flood, HDC &hdc)

@@ -4,8 +4,9 @@
 
 #include "FloodFillRecursive.h"
 #include "../../../Shapes/Flood.h"
-
-void FloodFillRecursive::FloodFill(HDC hdc,int x,int y,COLORREF Cb,COLORREF Cf)
+#define MAXX  600
+#define MAXY 600
+void FloodFillRecursive::FloodFill(HDC &hdc,int x,int y,COLORREF Cb,COLORREF Cf)
 {
     COLORREF C=GetPixel(hdc,x,y);
     if(C==Cb || C==Cf)return;

@@ -9,7 +9,7 @@ void POLYGON::draw(HDC &hdc) {
 }
 
 POLYGON::POLYGON() {
-    this->points = new Point;
+    this->points = new Point();
     this->n = 0;
     this->id = mp["POLYGON"];
 }

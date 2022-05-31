@@ -11,7 +11,7 @@ class FloodFillRecursive: public Drawer
 public:
     FloodFillRecursive();
     void draw(Shape *Flood, HDC &hdc);
-    void FloodFill(HDC hdc,int x,int y,COLORREF Cb,COLORREF Cf);
+    void FloodFill(HDC &hdc,int x,int y,COLORREF Cb,COLORREF Cf);
     Drawer* copy() override;
 
 };
