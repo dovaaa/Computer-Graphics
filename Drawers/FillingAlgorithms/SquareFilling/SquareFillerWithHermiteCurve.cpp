@@ -28,12 +28,12 @@ void SquareFillerWithHermiteCurve::draw(Shape *square, HDC &hdc) {
     curve.p4.y = y1;
     curve.draw(hdc);
 
-    curve.p1.x = x1;
-    curve.p4.x = x1 + r;
+    curve.p1.y = y1;
+    curve.p4.y = y1 + r;
 
-    for (int y = y1; y <= y1 + r; y++) {
-        curve.p1.x = y;
-        curve.p4.x = y;
+    for (int x = y1; x <= x1 + r; x++) {
+        curve.p1.x = x;
+        curve.p4.x = x;
         curve.draw(hdc);
     }
 }

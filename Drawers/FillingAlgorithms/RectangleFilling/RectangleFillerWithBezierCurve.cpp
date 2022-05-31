@@ -29,7 +29,6 @@ void RectangleFillerWithBezierCurve::draw(Shape *rectangle, HDC &hdc) {
     curve.p1.x = x1; curve.p2.x = x1;
     curve.p3.x = x2; curve.p4.x = x2;
     for (int y = y1; y <= y3; y++){
-        std :: cout << y << "\n";
         curve.p1.y = y; curve.p2.y = y;
         curve.p3.y = y; curve.p4.y = y;
         curve.draw(hdc);
