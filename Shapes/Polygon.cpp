@@ -14,6 +14,12 @@ POLYGON::POLYGON() {
     this->id = mp["POLYGON"];
 }
 
+POLYGON::POLYGON(Point *points, int n,Drawer *dr) {
+    this->points = points;
+    this->n = n;
+    this->id = mp["POLYGON"];
+    this->drawer=dr;
+}
 POLYGON::POLYGON(Point *points, int n) {
     this->points = points;
     this->n = n;
@@ -41,4 +47,14 @@ Shape *POLYGON::copy(string s) {
         p[i] = Point(stoi(tmp[0]), stoi(tmp[1]));
     }
     return new POLYGON(p, nn);
+}
+
+POLYGON::POLYGON(Point *points, int n, COLORREF color, Drawer *dr)
+{
+    this->points = points;
+    this->n = n;
+    this->id = mp["POLYGON"];
+    this->drawer=dr;
+    this->c=color;
+
 }

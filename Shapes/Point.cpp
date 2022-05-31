@@ -10,11 +10,12 @@ Point::Point() {
     this->id = mp["point"];
 }
 
-Point::Point(int x, int y, COLORREF c) {
+Point::Point(int x, int y, COLORREF c,Drawer *dr) {
     this->x = x;
     this->y = y;
     this->c = c;
     this->id = mp["point"];
+    this->drawer=dr;
 }
 
 
@@ -23,6 +24,13 @@ Point::Point(int x, int y) {
     this->x = x;
     this->y = y;
     this->id = mp["point"];
+}
+Point::Point(int x, int y,COLORREF color) {
+    // todo curve drawer use this constructor without color
+    this->x = x;
+    this->y = y;
+    this->id = mp["point"];
+    this->c=color;
 }
 
 void Point::save(File &f) {

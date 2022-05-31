@@ -22,6 +22,10 @@
 #include "Drawers/CircleAlgorithms/CircleDrawerMidpoint.h"
 #include "Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.h"
 
+//Shapes Algorithm Import
+#include "Drawers/PointAlgorithm/PointDrawer.h"
+#include "Drawers/RectangleAlgorithms/RectangleDrawer.h"
+
 //Ellipse Algorithms Imports
 #include "Drawers/EllipseAlgorithms/EllipseDrawerDirect.h"
 #include "Drawers/EllipseAlgorithms/EllipseDrawerPolar.h"
@@ -40,6 +44,15 @@
 #include "Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.h"
 #include "Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.h"
 #include "Drawers/FillingAlgorithms/PolygonFillers/NonConvexFiller.h"
+
+//Clipping Imports
+#include "Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.h"
+#include "Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.h"
+
+#include "Drawers/ClippingCircleAlgorithms/ClippingCirclePoint.h"
+#include "Drawers/ClippingCircleAlgorithms/ClippingCircleLine.h"
+#include "Drawers/PolygonAlgorithms/PolygonDrawer.h"
+#include "Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.h"
 
 
 //Utility Imports
@@ -425,7 +438,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     cout << endl;
 
                     dr = new CircleFillerWithLine();
-                    shape = new Circle(x1, y1, a, x3, currentColor, dr);
+                    shape = new Circle(x1, y1, a, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -450,7 +463,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     cout << endl;
 
                     dr = new CircleFillerWithCircle();
-                    shape = new Circle(x1, y1, a, x3, currentColor, dr);
+                    shape = new Circle(x1, y1, a, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -692,19 +705,180 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     shapes.push_back(shape);
                     break;
                 case CLIP_RECTANGLE_POINT:
+                {
+                    if(xInputs.size() < 3)
+                    {
+                        std::cout
+                                << "You need to register at least 3 input points in order to clip a point on a rectangle\n";
+                        return 0;
+                    }
+                    x1=xInputs.top();
+                    y1=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x2=xInputs.top();
+                    y2=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x3=xInputs.top();
+                    y3=yInputs.top();
+                    dr=new RectangleDrawer();
+                    Shape *rect=new RECTANGLE(x1, y1, x2, y2, currentColor, dr);
+                    hdc=GetDC(hWnd);
+                    shape->draw(hdc);
+                    shapes.push_back(rect);
+                    dr=new PointDrawer();
+                    Shape *point=new Point(x3, y3, currentColor, dr);
+                    dr=new ClippingRectanglePoint();
+                    ((ClippingRectanglePoint *) dr)->draw(rect, point, hdc);
+
+
                     break;
+                }
                 case CLIP_RECTANGLE_LINE:
+                {
+                    if(xInputs.size() < 4)
+                    {
+                        std::cout
+                                << "You need to register 4 input points in order to clip a line on a rectangle\n";
+                        return 0;
+                    }
+                    x1=xInputs.top();
+                    y1=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x2=xInputs.top();
+                    y2=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x3=xInputs.top();
+                    y3=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x4=xInputs.top();
+                    y4=yInputs.top();
+
+                    dr=new RectangleDrawer();
+                    Shape *rect=new RECTANGLE(x1, y1, x2, y2, currentColor, dr);
+                    hdc=GetDC(hWnd);
+                    shape->draw(hdc);
+                    shapes.push_back(rect);
+                    dr=new LineDrawerDDA();
+                    Shape *line=new Line(x3, y3, x4, y4, currentColor, dr);
+                    dr=new ClippingRectangleLine();
+                    ((ClippingRectangleLine *) dr)->draw(rect, line, hdc);
                     break;
+                }
+
                 case CLIP_RECTANGLE_POLYGON:
+                {
+                    int n;
+                    cout << "enter number of points needed";
+                    cin >> n;
+                    if(xInputs.size() < n && n > 5)
+                    {
+                        std::cout << "You need to register at least " << n
+                                  << " or at least 5" << " input points in order to draw a Polygon of Size " << n
+                                  << "\n";
+                        return 0;
+                    }
+                    x1=xInputs.top();
+                    y1=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x2=xInputs.top();
+                    y2=yInputs.top();
+                    hdc=GetDC(hWnd);
+                    Point *points=new Point[n];
+                    for(int i=0; i < n; ++i)
+                    {
+                        x1=xInputs.top();
+                        y1=yInputs.top();
+                        xInputs.pop();
+                        yInputs.pop();
+                        points[i].x=x1;
+                        points[i].y=y1;
+                    }
+                    dr=new RectangleDrawer();
+                    Shape *rect=new RECTANGLE(x1, y1, x2, y2, currentColor, dr);
+                    rect->draw(hdc);
+                    shapes.push_back(rect);
+                    dr=new PolygonDrawer();
+                    Shape *poly= new POLYGON(points,n,currentColor,dr);
+                    dr = new ClippingRectanglePolygon();
+                    ((ClippingRectanglePolygon *) dr)->draw(rect, poly, hdc);
                     break;
+                }
                 case CLIP_SQUARE_POINT:
+
                     break;
                 case CLIP_SQUARE_LINE:
                     break;
                 case CLIP_CIRCLE_POINT:
+                {
+                    if(xInputs.size() < 3)
+                    {
+                        std::cout
+                                << "You need to register at least 3 input points in order to clip a point on a Circle\n";
+                        return 0;
+                    }
+                    x1=xInputs.top();
+                    y1=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x2=xInputs.top();
+                    y2=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x3=xInputs.top();
+                    y3=yInputs.top();
+                    dr=new CircleDrawerDirect();
+                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                    Shape *circle=new Circle(x1, y1, a, currentColor, dr);
+                    hdc=GetDC(hWnd);
+                    shape->draw(hdc);
+                    shapes.push_back(circle);
+                    dr=new PointDrawer();
+                    Shape *point=new Point(x3, y3, currentColor, dr);
+                    dr=new ClippingCirclePoint();
+                    ((ClippingCirclePoint *) dr)->draw(circle, point, hdc);
                     break;
+                }
                 case CLIP_CIRCLE_LINE:
+                {
+                    if(xInputs.size() < 4)
+                    {
+                        std::cout
+                                << "You need to register at least 4 input points in order to clip a Line on a Circle\n";
+                        return 0;
+                    }
+                    x1=xInputs.top();
+                    y1=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x2=xInputs.top();
+                    y2=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x3=xInputs.top();
+                    y3=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x4=xInputs.top();
+                    y4=yInputs.top();
+
+                    dr=new CircleDrawerDirect();
+                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                    Shape *circle=new Circle(x1, y1, a, currentColor, dr);
+                    hdc=GetDC(hWnd);
+                    shape->draw(hdc);
+                    shapes.push_back(circle);
+                    dr=new LineDrawerMidpoint();
+                    Shape *line=new Line(x3, y3, x4, y4, currentColor, dr);
+                    dr=new ClippingCircleLine();
+                    ((ClippingCircleLine *) dr)->draw(circle, line, hdc);
                     break;
+                }
                 case CLEAR_WINDOW:
                     shapes.clear();
                     InvalidateRect(hWnd, NULL, true);
