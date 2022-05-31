@@ -760,7 +760,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     dr=new RectangleDrawer();
                     Shape *rect=new RECTANGLE(x1, y1, x2, y2, currentColor, dr);
                     hdc=GetDC(hWnd);
-                    rect->draw(hdc);
+                    shape->draw(hdc);
                     shapes.push_back(rect);
                     dr=new LineDrawerDDA();
                     Shape *line=new Line(x3, y3, x4, y4, currentColor, dr);
@@ -885,7 +885,6 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     dr=new ClippingRectangleLine();
                     ((ClippingRectangleLine *) dr)->draw(square, line, hdc);
                     break;
-                }
                 case CLIP_CIRCLE_POINT:
                 {
                     if(xInputs.size() < 3)

@@ -8,8 +8,11 @@
 
 class NonConvexFiller: public Drawer
 {
+public:
+
     void draw(Shape *polygon, HDC &hdc);
     Drawer* copy() override;
+    NonConvexFiller();
 
 };
 
