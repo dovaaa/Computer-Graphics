@@ -8,7 +8,7 @@
 #include "../../LineAlgorithms/LineDrawerDDA.h"
 #include <cmath>
 
-Drawer *dr = new LineDrawerDDA();
+Drawer *dr;
 
 void CircleFillerWithLine::Draw2LinesQuarter1(HDC& hdc, int xc, int yc, int a, int b, COLORREF color) {
     Shape *line1 = new Line(xc, yc, xc+a, yc-b, color, dr);
@@ -72,4 +72,9 @@ void CircleFillerWithLine::draw(Shape *circle, HDC &hdc) {
 
 Drawer *CircleFillerWithLine::copy() {
     return new CircleFillerWithLine();
+}
+
+CircleFillerWithLine::CircleFillerWithLine() {
+    dr = new LineDrawerDDA();
+    id = mp["CircleFillerWithLine"];
 }

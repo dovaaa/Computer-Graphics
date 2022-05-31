@@ -153,7 +153,6 @@ void init() {
 LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
     HDC hdc;
-    HBRUSH hbrBkgnd = NULL;
     Shape *shape;
     Drawer *dr;
     init();
