@@ -6,7 +6,6 @@
 #define GRAPHICS_LINEDRAWERDDA_H
 #include "../Drawer.h"
 #include "../../Shapes/Shape.h"
-#include <Windows.h>
 
 class LineDrawerDDA : public Drawer {
 public:

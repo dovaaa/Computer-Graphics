@@ -1,36 +1,43 @@
-#include <windows.h>
+//Shapes Imports
 #include "Shapes/Shape.h"
 #include "Drawers/Drawer.h"
-#include "Drawers/LineAlgorithms/LineDrawerDDA.h"
 #include "Shapes/Line.h"
 #include "Shapes/ELLIPSE.h"
 #include "Shapes/Circle.h"
 #include "Shapes/Curve.h"
 #include "Shapes/Rectangle.h"
+#include "Shapes/Square.h"
+#include "Shapes/Polygon.h"
+
+//Line Algorithms Imports
+#include "Drawers/LineAlgorithms/LineDrawerDDA.h"
 #include "Drawers/LineAlgorithms/LineDrawerParametric.h"
 #include "Drawers/LineAlgorithms/LineDrawerMidpoint.h"
+
+//Circle Algorithms Imports
 #include "Drawers/CircleAlgorithms/CircleDrawerDirect.h"
 #include "Drawers/CircleAlgorithms/CircleDrawerPolar.h"
 #include "Drawers/CircleAlgorithms/CircleDrawerIterativePolar.h"
 #include "Drawers/CircleAlgorithms/CircleDrawerMidpoint.h"
 #include "Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.h"
+
+//Ellipse Algorithms Imports
 #include "Drawers/EllipseAlgorithms/EllipseDrawerDirect.h"
 #include "Drawers/EllipseAlgorithms/EllipseDrawerPolar.h"
 #include "Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.h"
+
+//Curve Algorithms Imports
 #include "Drawers/CurveAlgorithms/CurveDrawerBezier.h"
+#include "Drawers/CurveAlgorithms/CurveDrawerHermite.h"
+
+//Filling Algorithms Imports
 #include "Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.h"
 #include "Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.h"
 #include "Drawers/FillingAlgorithms/RectangleFilling/RectangleFillerWithBezierCurve.h"
-
-
-#include <cmath>
-#include <vector>
-#include "Utility.h"
 #include "Drawers/FillingAlgorithms/SquareFilling/SquareFillerWithHermiteCurve.h"
-#include "Shapes/Square.h"
-#include "Shapes/Polygon.h"
 
 
+//DEFINITIONS
 #define CHANGE_CURSOR 10001
 #define DISABLE_KEYBOARD 10002
 #define SAVE_DATA 10004
@@ -65,6 +72,7 @@
 #define CLEAR_WINDOW 10033
 #define EXIT_WINDOW 10034
 
+//COLORS DEFINITIONS
 #define COLOR_RED 10035
 #define COLOR_BLUE 10036
 #define COLOR_GREEN 10037
@@ -136,20 +144,19 @@ void init() {
     Drawer::addDrawer("CircleDrawerModifiedMidpoint", new CircleDrawerModifiedMidpoint());
     Drawer::addDrawer("CircleDrawerPolar", new CircleDrawerPolar());
 
-
     /* Curve Drawer Algorithms */
     Drawer::addDrawer("CurveDrawerBezier", new CurveDrawerBezier());
-
+    Drawer::addDrawer("CurveDrawerBezier", new CurveDrawerHermite());
 
 }
 
 LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
-    init();
     HDC hdc;
     HBRUSH hbrBkgnd = NULL;
     Shape *shape;
     Drawer *dr;
+    init();
     switch (msg)                  /* handle the messages */
     {
         case WM_COMMAND:

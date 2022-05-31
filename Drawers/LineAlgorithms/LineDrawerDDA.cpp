@@ -2,10 +2,8 @@
 // Created by Mohamed on 5/28/2022.
 //
 
-#include <Windows.h>
 #include "LineDrawerDDA.h"
 #include "../../Shapes/Line.h"
-#include <iostream>
 #include <cmath>
 
 void LineDrawerDDA::draw(Shape *line, HDC& hdc) {
@@ -38,6 +36,6 @@ Drawer *LineDrawerDDA::copy() {
 }
 
 LineDrawerDDA::LineDrawerDDA() {
-
+    id = mp["LineDrawerDDA"];
 }
 
