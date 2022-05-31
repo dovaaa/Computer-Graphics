@@ -27,13 +27,13 @@ void Flood::draw(HDC &hdc) {
 
 Shape *Flood::copy(string s) {
     vector<string> vec = UT::split(s, ',');
-        vector<string> tmp = UT::split(vec[0], '-');
+        vector<string> tmp = UT::split(vec[0], '*');
     Point pp(stoi(tmp[0]), stoi(tmp[1]));
     return new Flood(pp, stoi(vec[1]), stoi(vec[2]), NULL);
 }
 
 void Flood::save(File &f) {
-    string s = to_string(mp["flood"]) + ':' + p.getSave() + ',' +
+    string s = to_string(mp["flood"]) + ':' + p.getAsteriskSave() + ',' +
                to_string(c) + ',' + to_string(borderColor) + ':' + to_string(drawer->id) + '\n';
     f.write(s);
 }
