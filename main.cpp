@@ -358,7 +358,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     if(xInputs.size() < 2)
                     {
                         std::cout << "You need to register at least 2 input points in order to draw a circle\n";
-                        return 0; //TODO difference between break; and return 0;???
+                        return 0;
                     }
                     //Extracting Circle Input
                     x1=xInputs.top();
@@ -922,7 +922,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     if(xInputs.size() < 2)
                     {
                         std::cout
-                                << "You need to register at least 3 input points in order to clip a point on a rectangle\n";
+                                << "You need to register at least 4 input points in order to clip a point on a rectangle\n";
                         return 0;
                     }
                     x1=xInputs.top();
@@ -933,20 +933,22 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     y2=yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
+                    x3=xInputs.top();
+                    y3=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
 
                     dr=new RectangleDrawer();
-                    //TO accommodate rectanglepoint for square
-                    //x2,y2 is now rightbottom instead of R;
-//                    int r=sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
-                    int r; cout<<"enter length of square\n";
-                    cin>>r;
+
+                    int r=sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
+                    //x1 & x2 must be top-left
                     Shape *sq=new RECTANGLE(x1, y1, x1+r, y1+r, currentColor, dr);
                     hdc=GetDC(hWnd);
                     sq->draw(hdc);
 
                     shapes.push_back(sq);
                     dr=new PointDrawer();
-                    Shape *point=new Point(x2, y2, currentColor, dr);
+                    Shape *point=new Point(x3, y3, currentColor, dr);
                     dr=new ClippingRectanglePoint();
                     ((ClippingRectanglePoint *) dr)->draw(sq, point, hdc);
                     ReleaseDC(hWnd, hdc);

@@ -19,7 +19,6 @@ void FloodFillNonRecursive::NRFloodFill(HDC &hdc, int x, int y, COLORREF Cb, COL
         S.pop();
         COLORREF c = GetPixel(hdc, v.first, v.second);
         if (c == Cb || c == Cf)continue;
-        std :: cout << S.size() << " " << endl;
         SetPixel(hdc, v.first, v.second, Cf);
         S.push(make_pair(v.first + 1, v.second));
         S.push(make_pair(v.first - 1, v.second));
