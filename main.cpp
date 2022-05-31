@@ -6,6 +6,7 @@
 #include "Shapes/ELLIPSE.h"
 #include "Shapes/Circle.h"
 #include "Shapes/Curve.h"
+#include "Shapes/Rectangle.h"
 #include "Drawers/LineAlgorithms/LineDrawerParametric.h"
 #include "Drawers/LineAlgorithms/LineDrawerMidpoint.h"
 #include "Drawers/CircleAlgorithms/CircleDrawerDirect.h"
@@ -19,8 +20,9 @@
 #include "Drawers/CurveAlgorithms/CurveDrawerBezier.h"
 #include "Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.h"
 #include "Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.h"
+#include "Drawers/FillingAlgorithms/RectangleFilling/RectangleFillerWithBezierCurve.h"
 
-#include <iostream>
+
 #include <cmath>
 #include <vector>
 #include "Utility.h"
@@ -252,6 +254,12 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case FILL_SQUARE_WITH_HERMITE_CURVE:
                     break;
                 case FILL_RECTANGLE_WITH_BEZIER_CURVE:
+                    dr = new RectangleFillerWithBezierCurve();
+                    hdc = GetDC(hWnd);
+                    shape = new RECTANGLE(100, 100, 200, 300, currentColor, dr);
+                    shape->draw(hdc);
+                    ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
                 case CONVEX_FILLING:
                     break;

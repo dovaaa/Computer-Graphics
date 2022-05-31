@@ -4,14 +4,14 @@
 
 #include "Shape.h"
 
-class Rectangle : public Shape {
+class RECTANGLE : public Shape {
 public:
     int xright, yright;
     int xleft, yleft;
 
-    Rectangle();
+    RECTANGLE();
 
-    Rectangle(int, int, int, int, Drawer*);
+    RECTANGLE(int, int, int, int, COLORREF, Drawer*);
 
     void draw(HDC& hdc) override;
     void save(File &f) override;

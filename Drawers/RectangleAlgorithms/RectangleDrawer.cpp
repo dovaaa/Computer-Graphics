@@ -4,12 +4,10 @@
 
 #include "RectangleDrawer.h"
 #include "../../Shapes/Line.h"
-#include "../../Shapes/Rectangle.h"
 #include "../LineAlgorithms/LineDrawerParametric.h"
 
-void RectangleDrawer::draw(Shape *rectangle, HDC &hdc)
-{
-    class Rectangle *rect = (class Rectangle*) rectangle;
+void RectangleDrawer::draw(Shape *rectangle, HDC &hdc){
+    RECTANGLE *rect = (RECTANGLE*) rectangle;
     int x1=rect->xleft,y1=rect->yleft,x2=rect->xright,y2=rect->yleft
             ,x3=rect->xright,y3=rect->yright,x4=rect->xleft,y4=rect->yright;
     Drawer *dr = new LineDrawerParametric();

@@ -85,7 +85,7 @@ void PolygonClip(HDC hdc, POINT *p, int n, int xleft, int ytop, int xright, int 
 void ClippingRectanglePolygon::draw(Shape *rectangle,Shape *polygon, HDC &hdc)
 {
 
-    class Rectangle *rect = (class Rectangle*) rectangle;
+    RECTANGLE *rect = (class RECTANGLE*) rectangle;
     class Polygon *poly = (class Polygon*) polygon;
     POINT points[poly->n];
     for(int i=0; i < poly->n; ++i)
