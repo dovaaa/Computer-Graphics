@@ -54,6 +54,7 @@
 #include "Drawers/PolygonAlgorithms/PolygonDrawer.h"
 #include "Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.h"
 #include "Drawers/RectangleAlgorithms/SquareDrawer.h"
+#include "Shapes/Container.h"
 
 
 //Utility Imports
@@ -148,6 +149,8 @@ void init() {
     if (flag)
         return;
     flag = true;
+
+    /* Shapes */
     Shape::addShape("point", new Point());
     Shape::addShape("line", new Line());
     Shape::addShape("rectangle", new RECTANGLE());
@@ -157,6 +160,7 @@ void init() {
     Shape::addShape("polygon", new POLYGON());
     Shape::addShape("square", new Square());
     Shape::addShape("flood", new Flood());
+    Shape::addShape("container", new Container());
 
     /* Line Drawer Algorithms */
     Drawer::addDrawer("LineDrawerDDA", new LineDrawerDDA());
@@ -189,6 +193,11 @@ void init() {
     Drawer::addDrawer("NonConvexFiller", new NonConvexFiller());
     Drawer::addDrawer("SquareFillerWithHermiteCurve", new SquareFillerWithHermiteCurve());
     Drawer::addDrawer("RectangleFillerWithBezierCurve", new RectangleFillerWithBezierCurve());
+
+    /* Clipping Algorithms */
+    Drawer::addDrawer("RectangleDrawer", new RectangleDrawer());
+    Drawer::addDrawer("SquareDrawer", new SquareDrawer());
+    Drawer::addDrawer("ClippingRectangleLine", new ClippingRectangleLine());
 
 
 }
@@ -805,8 +814,11 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     dr=new PointDrawer();
                     Shape *point=new Point(x3, y3, currentColor, dr);
                     dr=new ClippingRectanglePoint();
-                    ((ClippingRectanglePoint *) dr)->draw(rect, point, hdc);
+                    shape = new Container(rect, point, dr);
+                    hdc = GetDC(hWnd);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
 
                     break;
                 }
@@ -842,8 +854,11 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     dr=new LineDrawerDDA();
                     Shape *line=new Line(x3, y3, x4, y4, currentColor, dr);
                     dr=new ClippingRectangleLine();
-                    ((ClippingRectangleLine *) dr)->draw(rect, line, hdc);
+                    shape = new Container(rect, line, dr);
+                    hdc=GetDC(hWnd);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
                 }
 

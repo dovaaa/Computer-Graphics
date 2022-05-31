@@ -13,6 +13,7 @@ public:
     void draw(HDC& hdc) override;
     void save(File &f) override;
     Shape* copy(string) override;
+    string getSave() override;
 };
 
 

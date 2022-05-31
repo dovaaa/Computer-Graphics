@@ -11,7 +11,7 @@
 class Container : public Shape {
 public:
     Container(Shape *pShape, Shape *pShape1, Drawer *pDrawer);
-
+    Container();
     Shape *s1, *s2;
     Shape* copy(std::string) override;
     void draw(HDC& hdc) override;
