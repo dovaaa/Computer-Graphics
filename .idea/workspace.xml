@@ -16,12 +16,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added ClippingAlgorithms for Rectangle and Circle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Container.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Container.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Point.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Point.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shapes/Point.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Point.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Rectangle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Rectangle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Rectangle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Rectangle.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Shape.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Shape.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Shape.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Shape.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,12 +268,12 @@
           <line>492</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>996</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="CMakeRunConfiguration">
-        <watch expression="(Drawer*)0x155fbbddbc0" language="ObjectiveC" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

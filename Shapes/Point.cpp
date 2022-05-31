@@ -44,7 +44,13 @@ Shape *Point::copy(string s) {
     return new Point(stoi(vec[0]), stoi(vec[1]), stoi(vec[2]));
 }
 
-string Point::getSave() {
-    return to_string(x) + '-' + to_string(y);
+string Point::getAsteriskSave() {
+    return to_string(x) + '*' + to_string(y);
 }
+
+string Point::getSave() {
+    string s =
+            to_string(mp["point"]) + '-' + to_string(x) + ',' + to_string(y) + ',' +
+            to_string(c) + '-' + to_string(drawer->id);
+    return s;}
 

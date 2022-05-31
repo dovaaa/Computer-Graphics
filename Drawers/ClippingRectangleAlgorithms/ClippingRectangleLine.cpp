@@ -35,7 +35,7 @@ void HIntersect(double xs, double ys, double xe, double ye, int y, double *xi, d
 
 void ClippingRectangleLine::draw(Shape *rectangle, Shape *line, HDC &hdc) {
     RECTANGLE *rect = (RECTANGLE *) rectangle;
-//    rect->draw(hdc);
+    rect->draw(hdc);
     Line *l = (Line *) line;
     int xs = l->stx, ys = l->sty, xe = l->edx, ye = l->edy;
     int xleft = rect->xleft, ytop = rect->yleft, xright = rect->xright, ybottom = rect->yright;

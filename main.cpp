@@ -979,97 +979,99 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     xInputs.pop();
                     yInputs.pop();
 
-                    dr=new RectangleDrawer();
-                    int r=sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
-                    Shape *sq=new RECTANGLE(x1, y1, x1+r, y1+r, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    dr = new RectangleDrawer();
+                    //TO accommodate rectanglepoint for square
+                    //x2,y2 is now rightbottom instead of R;
+//                    int r=sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
+                    int r;
+                    cout << "enter length of square\n";
+                    cin >> r;
+                    Shape *sq = new RECTANGLE(x1, y1, x1 + r, y1 + r, currentColor, dr);
                     sq->draw(hdc);
-                    shapes.push_back(sq);
-                    dr=new LineDrawerDDA();
-                    Shape *line=new Line(x3, y3, x4, y4, currentColor, dr);
-                    dr=new ClippingRectangleLine();
-                    ((ClippingRectangleLine *) dr)->draw(sq, line, hdc);
+                    dr = new LineDrawerDDA();
+                    Shape *line = new Line(x2, y2, x3, y3, currentColor, dr);
+                    dr = new ClippingRectangleLine();
+                    shape = new Container(sq, line, dr);
+                    hdc = GetDC(hWnd);
+                    shape->draw(hdc);
+                    ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
+                    break;
+                }
+                case CLIP_CIRCLE_POINT: {
+                    if (xInputs.size() < 3) {
+                        std::cout
+                                << "You need to register at least 3 input points in order to clip a point on a Circle\n";
+                        return 0;
+                    }
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x3 = xInputs.top();
+                    y3 = yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    dr = new CircleDrawerDirect();
+                    a = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                    Shape *circle = new Circle(x1, y1, a, currentColor, dr);
+                    hdc = GetDC(hWnd);
+                    shape->draw(hdc);
+                    shapes.push_back(circle);
+                    dr = new PointDrawer();
+                    Shape *point = new Point(x3, y3, currentColor, dr);
+                    dr = new ClippingCirclePoint();
+                    ((ClippingCirclePoint *) dr)->draw(circle, point, hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 }
-                    case CLIP_CIRCLE_POINT:
-                    {
-                        if(xInputs.size() < 3)
-                        {
-                            std::cout
-                                    << "You need to register at least 3 input points in order to clip a point on a Circle\n";
-                            return 0;
-                        }
-                        x1=xInputs.top();
-                        y1=yInputs.top();
-                        xInputs.pop();
-                        yInputs.pop();
-                        x2=xInputs.top();
-                        y2=yInputs.top();
-                        xInputs.pop();
-                        yInputs.pop();
-                        x3=xInputs.top();
-                        y3=yInputs.top();
-                        xInputs.pop();
-                        yInputs.pop();
-                        dr=new CircleDrawerDirect();
-                        a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-                        Shape *circle=new Circle(x1, y1, a, currentColor, dr);
-                        hdc=GetDC(hWnd);
-                        shape->draw(hdc);
-                        shapes.push_back(circle);
-                        dr=new PointDrawer();
-                        Shape *point=new Point(x3, y3, currentColor, dr);
-                        dr=new ClippingCirclePoint();
-                        ((ClippingCirclePoint *) dr)->draw(circle, point, hdc);
-                        ReleaseDC(hWnd, hdc);
-                        break;
+                case CLIP_CIRCLE_LINE: {
+                    if (xInputs.size() < 4) {
+                        std::cout
+                                << "You need to register at least 4 input points in order to clip a Line on a Circle\n";
+                        return 0;
                     }
-                    case CLIP_CIRCLE_LINE:
-                    {
-                        if(xInputs.size() < 4)
-                        {
-                            std::cout
-                                    << "You need to register at least 4 input points in order to clip a Line on a Circle\n";
-                            return 0;
-                        }
-                        x1=xInputs.top();
-                        y1=yInputs.top();
-                        xInputs.pop();
-                        yInputs.pop();
-                        x2=xInputs.top();
-                        y2=yInputs.top();
-                        xInputs.pop();
-                        yInputs.pop();
-                        x3=xInputs.top();
-                        y3=yInputs.top();
-                        xInputs.pop();
-                        yInputs.pop();
-                        x4=xInputs.top();
-                        y4=yInputs.top();
-                        xInputs.pop();
-                        yInputs.pop();
-                        dr=new CircleDrawerDirect();
-                        a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-                        Shape *circle=new Circle(x1, y1, a, currentColor, dr);
-                        hdc=GetDC(hWnd);
-                        circle->draw(hdc);
-                        shapes.push_back(circle);
-                        dr=new LineDrawerMidpoint();
-                        Shape *line=new Line(x3, y3, x4, y4, currentColor, dr);
-                        dr=new ClippingCircleLine();
-                        ((ClippingCircleLine *) dr)->draw(circle, line, hdc);
-                        ReleaseDC(hWnd, hdc);
-                        break;
-                    }
-                    case CLEAR_WINDOW:
-                        shapes.clear();
-                        while (!xInputs.empty()) xInputs.pop();
-                        while (!yInputs.empty()) yInputs.pop();
-                        InvalidateRect(hWnd, NULL, true);
-                        break;
-                    case EXIT_WINDOW:
-                        DestroyWindow(hWnd);
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x3 = xInputs.top();
+                    y3 = yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    x4 = xInputs.top();
+                    y4 = yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
+                    dr = new CircleDrawerDirect();
+                    a = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                    Shape *circle = new Circle(x1, y1, a, currentColor, dr);
+                    hdc = GetDC(hWnd);
+                    circle->draw(hdc);
+                    shapes.push_back(circle);
+                    dr = new LineDrawerMidpoint();
+                    Shape *line = new Line(x3, y3, x4, y4, currentColor, dr);
+                    dr = new ClippingCircleLine();
+                    ((ClippingCircleLine *) dr)->draw(circle, line, hdc);
+                    ReleaseDC(hWnd, hdc);
+                    break;
+                }
+                case CLEAR_WINDOW:
+                    shapes.clear();
+                    while (!xInputs.empty()) xInputs.pop();
+                    while (!yInputs.empty()) yInputs.pop();
+                    InvalidateRect(hWnd, NULL, true);
+                    break;
+                case EXIT_WINDOW:
+                    DestroyWindow(hWnd);
                     break;
                     default:
                         break;
