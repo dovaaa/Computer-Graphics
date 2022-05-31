@@ -14,18 +14,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="Implemented SquareDrawer.cpp, RectangleDrawer.cpp">
+    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added ClippingAlgorithms for Rectangle and Circle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shapes/Flood.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Flood.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shapes/Flood.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Flood.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Polygon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Polygon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +115,9 @@
       <workItem from="1653866059541" duration="1502000" />
       <workItem from="1653931048226" duration="7729000" />
       <workItem from="1653945153094" duration="2338000" />
+      <workItem from="1653971553987" duration="734000" />
+      <workItem from="1653975157286" duration="3924000" />
+      <workItem from="1654012064899" duration="768000" />
     </task>
     <task id="LOCAL-00001" summary="added hdc and color to lineDrawers, implemented lineDrawers">
       <created>1653772360368</created>
@@ -180,21 +175,28 @@
       <option name="project" value="LOCAL" />
       <updated>1653947074090</updated>
     </task>
-    <task id="LOCAL-00009" summary="implemented FloodFillNonRecursive.cpp, FloodFillRecursive.cpp, Flood.cpp shape">
-      <created>1653951797004</created>
+    <task id="LOCAL-00009" summary="added ClippingAlgorithms for Rectangle and Circle">
+      <created>1653966078276</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1653951797004</updated>
+      <updated>1653966078276</updated>
     </task>
-    <task id="LOCAL-00010" summary="Implemented SquareDrawer.cpp, RectangleDrawer.cpp">
-      <created>1653953974943</created>
+    <task id="LOCAL-00010" summary="added ClippingAlgorithms for Rectangle and Circle">
+      <created>1653966295375</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1653953974943</updated>
+      <updated>1653966295375</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added ClippingAlgorithms for Rectangle and Circle">
+      <created>1653971095205</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1653971095205</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,33 +217,30 @@
     <MESSAGE value="added hdc and color to lineDrawers, implemented lineDrawers" />
     <MESSAGE value="added circle and ellipse algorithms to main" />
     <MESSAGE value="added todo LineDrawerMidpoint.cpp" />
-    <MESSAGE value="added ClippingAlgorithms for Rectangle and Circle" />
     <MESSAGE value="added default to File.h, Shape.h" />
     <MESSAGE value="changed ClippingRectanglePolygon.cpp From POINT to point" />
-    <MESSAGE value="implemented FloodFillNonRecursive.cpp, FloodFillRecursive.cpp, Flood.cpp shape" />
-    <MESSAGE value="Implemented SquareDrawer.cpp, RectangleDrawer.cpp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented SquareDrawer.cpp, RectangleDrawer.cpp" />
+    <MESSAGE value="added ClippingAlgorithms for Rectangle and Circle" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ClippingAlgorithms for Rectangle and Circle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <condition expression="C==Cb || C==Cf" language="ObjectiveC" />
-          <url>file://$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.cpp</url>
-          <line>11</line>
+          <url>file://$PROJECT_DIR$/Shapes/Curve.cpp</url>
+          <line>46</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>558</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.cpp</url>
-          <line>12</line>
-          <option name="timeStamp" value="8" />
+          <line>226</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="(Drawer*)0x155fbbddbc0" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
