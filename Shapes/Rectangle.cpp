@@ -6,10 +6,10 @@ void RECTANGLE::draw(HDC &hdc) {
 
 
 RECTANGLE::RECTANGLE(int xleft, int yleft, int xright, int yright, COLORREF c, Drawer *d) {
-    this->xleft = xleft;
-    this->yleft = yleft;
-    this->xright = xright;
-    this->yright = yright;
+    this->xleft = min(xleft,xright);
+    this->yleft = min(yleft,yright);
+    this->xright = max(xright,xleft);
+    this->yright = max(yright,yleft);
     this->drawer = d;
     this->c = c;
     this->id = mp["rectangle"];

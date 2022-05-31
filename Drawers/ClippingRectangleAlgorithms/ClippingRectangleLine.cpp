@@ -43,7 +43,7 @@ void ClippingRectangleLine::draw(Shape *rectangle, Shape *line, HDC &hdc) {
     double x1 = xs, y1 = ys, x2 = xe, y2 = ye;
     OutCode out1 = GetOutCode(x1, y1, xleft, ytop, xright, ybottom);
     OutCode out2 = GetOutCode(x2, y2, xleft, ytop, xright, ybottom);
-    while ((out1.All || out2.All) && !(out1.All & out2.All)) {
+    while ((out1.All || out2.All) && !(out1.All && out2.All)) {
         double xi, yi;
         if (out1.All) {
             if (out1.left)VIntersect(x1, y1, x2, y2, xleft, &xi, &yi);
