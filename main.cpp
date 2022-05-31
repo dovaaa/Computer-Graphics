@@ -418,7 +418,11 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     xInputs.pop(); yInputs.pop();
                     a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
 
-                    dr = new CircleFillerWithLine();
+                    cout << "Enter the number of quarter you would like to fill (1 to 4 inclusive)\n-> ";
+                    cin >> x3;
+                    cout << endl;
+
+                    dr = new CircleFillerWithLine(x3);
                     shape = new Circle(x1, y1, a, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
@@ -439,7 +443,11 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     xInputs.pop(); yInputs.pop();
                     a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
 
-                    dr = new CircleFillerWithCircle();
+                    cout << "Enter the number of quarter you would like to fill (1 to 4 inclusive)\n-> ";
+                    cin >> x3;
+                    cout << endl;
+
+                    dr = new CircleFillerWithCircle(x3);
                     shape = new Circle(x1, y1, a, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
