@@ -603,8 +603,8 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                         points[i].x=x1;
                         points[i].y=y1;
                     }
-                    shape=new POLYGON(points, n);
-                    dr->draw(shape, hdc);
+                    shape=new POLYGON(points, n,currentColor,dr);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
