@@ -351,7 +351,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 
                     dr=new CircleDrawerDirect();
-                    shape=new Circle(x1, y1, a, currentColor, dr);
+                    shape=new Circle(x2, y2, a, currentColor, dr);
                     hdc=GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -375,7 +375,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 
                     dr=new CircleDrawerPolar();
-                    shape=new Circle(x1, y1, a, currentColor, dr);
+                    shape=new Circle(x2, y2, a, currentColor, dr);
                     hdc=GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -399,7 +399,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 
                     dr=new CircleDrawerIterativePolar();
-                    shape=new Circle(x1, y1, a, currentColor, dr);
+                    shape=new Circle(x2, y2, a, currentColor, dr);
                     hdc=GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -448,7 +448,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 
                     dr=new CircleDrawerModifiedMidpoint();
-                    shape=new Circle(x1, y1, a, currentColor, dr);
+                    shape=new Circle(x2, y2, a, currentColor, dr);
                     hdc=GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -477,7 +477,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     cout << endl;
 
                     dr=new CircleFillerWithLine();
-                    shape=new Circle(x1, y1, a, currentColor, dr);
+                    shape=new Circle(x2, y2, a, x3, currentColor, dr);
                     hdc=GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -505,16 +505,14 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     cout << endl;
 
                     dr=new CircleFillerWithCircle();
-                    shape=new Circle(x1, y1, a, currentColor, dr);
+                    shape=new Circle(x2, y2, a, x3, currentColor, dr);
                     hdc=GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case FILL_SQUARE_WITH_HERMITE_CURVE:
-                    //TODO : Fix Input
-                    if(xInputs.size() < 2)
-                    {
+                    if(xInputs.size() < 2){
                         std::cout << "You need to register at least 2 input points in order to draw a square\n";
                         return 0;
                     }
@@ -527,11 +525,11 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     y2=yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
-                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 
                     dr=new SquareFillerWithHermiteCurve();
                     hdc=GetDC(hWnd);
-                    shape=new Square(x1, y1, x1 + a, y1 + a, currentColor, dr);
+                    //INPUT MUST BE TOP-LEFT TO BOTTOM-RIGHT IN ORDER
+                    shape=new Square(x1, y1, x2, y2, currentColor, dr);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
@@ -1029,8 +1027,10 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     }
                     case CLEAR_WINDOW:
                         shapes.clear();
-                    InvalidateRect(hWnd, NULL, true);
-                    break;
+                        while (!xInputs.empty()) xInputs.pop();
+                        while (!yInputs.empty()) yInputs.pop();
+                        InvalidateRect(hWnd, NULL, true);
+                        break;
                     case EXIT_WINDOW:
                         DestroyWindow(hWnd);
                     break;
@@ -1053,7 +1053,13 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     //Circles are generated to keep track of the clicking position
                     xInputs.push(GET_X_LPARAM(lp));
                     yInputs.push(GET_Y_LPARAM(lp));
-
+                    hdc = GetDC(hWnd);
+                    for (x1 = -1; x1 < 2; x1++){
+                        for (x2 = -1; x2 < 2; x2++){
+                            SetPixel(hdc, xInputs.top() + x1, yInputs.top() + x2, currentColor);
+                        }
+                    }
+                    ReleaseDC(hWnd, hdc);
                     break;
                 case WM_PAINT:
                 {
