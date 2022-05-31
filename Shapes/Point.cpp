@@ -10,7 +10,16 @@ Point::Point() {
     this->id = mp["point"];
 }
 
+Point::Point(int x, int y, COLORREF c) {
+    this->x = x;
+    this->y = y;
+    this->c = c;
+    this->id = mp["point"];
+}
+
+
 Point::Point(int x, int y) {
+    // todo curve drawer use this constructor without color
     this->x = x;
     this->y = y;
     this->id = mp["point"];
@@ -23,9 +32,11 @@ void Point::save(File &f) {
 }
 
 Shape *Point::copy(string s) {
-    return nullptr;
+    vector<string> vec = UT::split(s, ',');
+    return new Point(stoi(vec[0]), stoi(vec[1]), stoi(vec[2]));
 }
 
 string Point::getSave() {
     return to_string(x) + '-' + to_string(y);
 }
+

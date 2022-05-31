@@ -42,5 +42,10 @@ void ELLIPSE::Draw4Points(HDC hdc, int xc, int yc, int x, int y, COLORREF color)
 }
 
 Shape *ELLIPSE::copy(string s) {
-    return nullptr;
+    vector<string> vec = UT::split(s, ',');
+    int x = stoi(vec[0]);
+    int y = stoi(vec[1]);
+    int rad = stoi(vec[2]);
+    COLORREF cc = stoi(vec[3]);
+    return new ELLIPSE(stoi(vec[0]), stoi(vec[0]), stoi(vec[0]), stoi(vec[0]), stoi(vec[0]), NULL);
 }

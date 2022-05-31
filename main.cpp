@@ -23,6 +23,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include "Utility.h"
 
 
 #define CHANGE_CURSOR 10001
@@ -159,7 +160,17 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                         shapes[i]->save(file);
                     }
                     break;
-                case LOAD_DATA:
+                case LOAD_DATA: {
+                    string s = file.get();
+                    vector<string> vec = UT::split(s, '\n');
+                    for (int i = 0; i < vec.size(); ++i) {
+                        vector<string> cur = UT::split(vec[i], ':');
+                        shape = Shape::shapes[stoi(cur[0])]->copy(cur[1]);
+                        shape->drawer = Drawer::drawers[stoi(cur[2])]->copy();
+                        shape->draw(hdc);
+                        shapes.push_back(shape);
+                    }
+                }
                     break;
                 case DRAW_LINE_DDA:
                     dr = new LineDrawerDDA();
@@ -295,6 +306,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case CLIP_CIRCLE_LINE:
                     break;
                 case CLEAR_WINDOW:
+                    shapes.clear();
                     InvalidateRect(hWnd, NULL, true);
                     break;
                 case EXIT_WINDOW:

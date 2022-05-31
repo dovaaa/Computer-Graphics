@@ -33,9 +33,5 @@ void Rectangle::save(File &f) {
 
 Shape *Rectangle::copy(string s) {
     vector<string> vec = UT::split(s, ',');
-    int xl = stoi(vec[0]);
-    int yl = stoi(vec[1]);
-    int xr = stoi(vec[2]);
-    int yr = stoi(vec[3]);
-    return new Rectangle(xl, yl, xr, yr, Drawer::drawers[Drawer::mp[vec[4]]]->copy());
+    return new Rectangle(stoi(vec[0]), stoi(vec[1]), stoi(vec[2]), stoi(vec[3]), NULL);
 }

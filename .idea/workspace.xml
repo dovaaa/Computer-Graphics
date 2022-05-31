@@ -16,8 +16,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added ClippingAlgorithms for Rectangle and Circle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Line.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Line.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shapes/Point.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Point.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shapes/Point.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Point.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Polygon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Polygon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Rectangle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Rectangle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653937329994</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added ClippingAlgorithms for Rectangle and Circle">
+      <created>1653953441591</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1653953441591</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,15 +193,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="added ClippingAlgorithms for Rectangle and Circle" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>157</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="shapes" language="ObjectiveC" />
