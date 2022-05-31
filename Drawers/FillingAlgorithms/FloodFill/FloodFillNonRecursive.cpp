@@ -40,5 +40,5 @@ void FloodFillNonRecursive::draw(Shape *Flood, HDC &hdc)
 
 Drawer *FloodFillNonRecursive::copy()
 {
-    return nullptr;
+    return new FloodFillNonRecursive();
 }

@@ -58,5 +58,9 @@ void ClippingCircleLine::draw(Shape *circle, Shape *line, HDC &hdc)
 }
 
 Drawer *ClippingCircleLine::copy() {
-    return nullptr;
+    return new ClippingCircleLine();
+}
+
+void ClippingCircleLine::draw(Shape *, HDC &) {
+
 }

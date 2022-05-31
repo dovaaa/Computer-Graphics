@@ -21,5 +21,5 @@ void EllipseDrawerPolar::draw(Shape *ellipse, HDC& hdc) {
 }
 
 Drawer *EllipseDrawerPolar::copy() {
-    return nullptr;
+    return new EllipseDrawerPolar();
 }

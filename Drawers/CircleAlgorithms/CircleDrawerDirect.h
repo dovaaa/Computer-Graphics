@@ -9,6 +9,7 @@
 
 class CircleDrawerDirect : public Drawer{
 public:
+    CircleDrawerDirect();
     void draw(Shape *circle, HDC& hdc) override;
     Drawer* copy() override;
 };

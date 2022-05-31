@@ -27,5 +27,5 @@ void EllipseDrawerDirect::draw(Shape *ellipse, HDC &hdc) {
 }
 
 Drawer *EllipseDrawerDirect::copy() {
-    return nullptr;
+    return new EllipseDrawerDirect();
 }

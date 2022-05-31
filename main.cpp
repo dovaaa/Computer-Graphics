@@ -26,6 +26,7 @@
 #include <cmath>
 #include <vector>
 #include "Utility.h"
+#include "Shapes/Polygon.h"
 
 
 #define CHANGE_CURSOR 10001
@@ -113,13 +114,29 @@ void init() {
     if (flag)
         return;
     flag = true;
-    Shape *line = new Line();
-    Shape::addShape("line", line);
+    Shape::addShape("point", new Point());
+    Shape::addShape("line", new Line());
+    Shape::addShape("rectangle", new RECTANGLE());
+    Shape::addShape("circle", new Circle());
+    Shape::addShape("ellipse", new ELLIPSE());
+    Shape::addShape("curve", new Curve());
+    Shape::addShape("polygon", new POLYGON());
+
+    /* Circle Drawer Algorithms */
+    Drawer::addDrawer("CircleDrawerDirect", new CircleDrawerDirect());
+    Drawer::addDrawer("CircleDrawerIterativePolar", new CircleDrawerIterativePolar());
+    Drawer::addDrawer("CircleDrawerMidpoint", new CircleDrawerMidpoint());
+    Drawer::addDrawer("CircleDrawerModifiedMidpoint", new CircleDrawerModifiedMidpoint());
+    Drawer::addDrawer("CircleDrawerPolar", new CircleDrawerPolar());
+
+
+
+    Drawer::addDrawer("CurveDrawerBezier", new CurveDrawerBezier());
 }
 
 LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
-
+    init();
     HDC hdc;
     HBRUSH hbrBkgnd = NULL;
     Shape* shape;
@@ -163,6 +180,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case LOAD_DATA: {
                     string s = file.get();
+                    hdc = GetDC(hWnd);
                     vector<string> vec = UT::split(s, '\n');
                     for (int i = 0; i < vec.size(); ++i) {
                         vector<string> cur = UT::split(vec[i], ':');
@@ -171,6 +189,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                         shape->draw(hdc);
                         shapes.push_back(shape);
                     }
+                    ReleaseDC(hWnd, hdc);
                 }
                     break;
                 case DRAW_LINE_DDA:
@@ -198,14 +217,15 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case DRAW_CIRCLE_DIRECT:
                     dr = new CircleDrawerDirect();
-                    shape = new Circle(200, 200, 50, currentColor, dr);
+                    shape = new Circle(300, 300, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
                 case DRAW_CIRCLE_POLAR:
                     dr = new CircleDrawerPolar();
-                    shape = new Circle(200, 200, 50, currentColor, dr);
+                    shape = new Circle(100, 100, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -213,7 +233,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case DRAW_CIRCLE_ITERATIVE_POLAR:
                     dr = new CircleDrawerIterativePolar();
-                    shape = new Circle(200, 200, 50, currentColor, dr);
+                    shape = new Circle(400, 400, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -221,7 +241,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case DRAW_CIRCLE_MIDPOINT:
                     dr = new CircleDrawerMidpoint();
-                    shape = new Circle(200, 200, 50, currentColor, dr);
+                    shape = new Circle(80, 80, 50, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -405,7 +425,7 @@ void AddMenu(HWND hWnd) {
     HMENU rectangleClippingSubList = CreateMenu();
     AppendMenu(rectangleClippingSubList, MF_STRING, CLIP_RECTANGLE_POINT, "Point");
     AppendMenu(rectangleClippingSubList, MF_STRING, CLIP_RECTANGLE_LINE, "Line");
-    AppendMenu(rectangleClippingSubList, MF_STRING, CLIP_RECTANGLE_POLYGON, "Polygon");
+    AppendMenu(rectangleClippingSubList, MF_STRING, CLIP_RECTANGLE_POLYGON, "POLYGON");
 
     /* Square Clipping SubList */
     HMENU squareClippingSubList = CreateMenu();

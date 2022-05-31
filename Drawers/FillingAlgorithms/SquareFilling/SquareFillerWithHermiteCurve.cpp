@@ -9,6 +9,5 @@ void SquareFillerWithHermiteCurve::draw(Shape *curve, HDC &hdc){
 }
 
 Drawer *SquareFillerWithHermiteCurve::copy(){
-    //TODO
-    return nullptr;
+    return new SquareFillerWithHermiteCurve();
 }

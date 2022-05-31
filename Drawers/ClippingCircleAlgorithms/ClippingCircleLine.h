@@ -4,13 +4,14 @@
 
 #ifndef GRAPHICS_CLIPPINGCIRCLELINE_H
 #define GRAPHICS_CLIPPINGCIRCLELINE_H
+
 #include "../Drawer.h"
 
-class ClippingCircleLine:public Drawer
-{
+class ClippingCircleLine : public Drawer {
 public:
-    void draw(Shape *Circle,Shape *line,HDC& hdc);
-    Drawer* copy() override;
+    void draw(Shape *Circle, Shape *line, HDC &hdc);
+    void draw(Shape *, HDC &);
+    Drawer *copy() override;
 };
 
 

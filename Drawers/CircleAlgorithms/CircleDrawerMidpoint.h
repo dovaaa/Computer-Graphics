@@ -10,6 +10,7 @@
 
 class CircleDrawerMidpoint : public Drawer{
 public:
+    CircleDrawerMidpoint();
     void draw(Shape *circle, HDC& hdc) override;
     Drawer* copy() override;
 };

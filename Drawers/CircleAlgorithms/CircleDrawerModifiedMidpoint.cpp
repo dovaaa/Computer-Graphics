@@ -30,5 +30,9 @@ void CircleDrawerModifiedMidpoint::draw(Shape *circle, HDC& hdc) {
 }
 
 Drawer *CircleDrawerModifiedMidpoint::copy() {
-    return nullptr;
+    return new CircleDrawerModifiedMidpoint();
+}
+
+CircleDrawerModifiedMidpoint::CircleDrawerModifiedMidpoint() {
+    this->id = mp["CircleDrawerModifiedMidpoint"];
 }

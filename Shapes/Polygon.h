@@ -8,13 +8,13 @@
 #include "Shape.h"
 #include "Point.h"
 
-class Polygon:public Shape
+class POLYGON: public Shape
 {
 public:
     Point* points;
     int n;
-    Polygon();
-    Polygon(Point*,int);
+    POLYGON();
+    POLYGON(Point*, int);
     void draw(HDC& hdc) override;
     void save(File &f) override;
     Shape* copy(string) override;

@@ -14,7 +14,57 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added ClippingAlgorithms for Rectangle and Circle" />
+    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added ClippingAlgorithms for Rectangle and Circle">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerDirect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerDirect.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerDirect.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerDirect.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerIterativePolar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerIterativePolar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerIterativePolar.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerIterativePolar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerMidpoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerMidpoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerMidpoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerMidpoint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerModifiedMidpoint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerPolar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerPolar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerPolar.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CircleAlgorithms/CircleDrawerPolar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCircleLine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCircleLine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCircleLine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCircleLine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCirclePoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCirclePoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCirclePoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingCircleAlgorithms/ClippingCirclePoint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectangleLine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePolygon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CurveAlgorithms/CurveDrawerBezier.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CurveAlgorithms/CurveDrawerBezier.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/CurveAlgorithms/CurveDrawerBezier.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/CurveAlgorithms/CurveDrawerBezier.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/Drawer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/Drawer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/Drawer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/Drawer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerDirect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerDirect.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerMidpoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerPolar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/EllipseAlgorithms/EllipseDrawerPolar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithCircle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/CircleFillers/CircleFillerWithLine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/NonConvexFiller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/NonConvexFiller.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/RectangleFilling/RectangleFillerWithBezierCurve.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/RectangleFilling/RectangleFillerWithBezierCurve.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/SquareFilling/SquareFillerWithHermiteCurve.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/SquareFilling/SquareFillerWithHermiteCurve.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerDDA.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerDDA.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerMidpoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerMidpoint.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerParametric.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/LineAlgorithms/LineDrawerParametric.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/PointAlgorithm/PointDrawer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/PointAlgorithm/PointDrawer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/PointAlgorithm/PointDrawer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/PointAlgorithm/PointDrawer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/RectangleAlgorithms/RectangleDrawer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/RectangleAlgorithms/RectangleDrawer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/RectangleAlgorithms/SquareDrawer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/RectangleAlgorithms/SquareDrawer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Curve.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Curve.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Polygon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Polygon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Polygon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Polygon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Shape.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Shape.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Shape.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Shape.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,7 +218,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653947074090</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added ClippingAlgorithms for Rectangle and Circle">
+      <created>1653966078276</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1653966078276</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added ClippingAlgorithms for Rectangle and Circle">
+      <created>1653966295375</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1653966295375</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,15 +253,34 @@
     <MESSAGE value="added hdc and color to lineDrawers, implemented lineDrawers" />
     <MESSAGE value="added circle and ellipse algorithms to main" />
     <MESSAGE value="added todo LineDrawerMidpoint.cpp" />
-    <MESSAGE value="added ClippingAlgorithms for Rectangle and Circle" />
     <MESSAGE value="added default to File.h, Shape.h" />
     <MESSAGE value="changed ClippingRectanglePolygon.cpp From POINT to point" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed ClippingRectanglePolygon.cpp From POINT to point" />
+    <MESSAGE value="added ClippingAlgorithms for Rectangle and Circle" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ClippingAlgorithms for Rectangle and Circle" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>188</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Shapes/Curve.cpp</url>
+          <line>46</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>176</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
-        <watch expression="SetBkColor(hdc, c)" language="ObjectiveC" />
+        <watch expression="shapes" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>

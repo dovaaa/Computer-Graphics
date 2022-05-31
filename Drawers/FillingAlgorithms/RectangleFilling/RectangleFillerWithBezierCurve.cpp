@@ -41,6 +41,5 @@ void RectangleFillerWithBezierCurve::draw(Shape *rectangle, HDC &hdc) {
 }
 
 Drawer *RectangleFillerWithBezierCurve::copy() {
-    //TODO
-    return nullptr;
+    return new RectangleFillerWithBezierCurve();
 }

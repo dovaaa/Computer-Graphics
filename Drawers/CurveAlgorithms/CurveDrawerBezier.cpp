@@ -29,5 +29,9 @@ void CurveDrawerBezier::draw(Shape * c, HDC &hdc) {
 }
 
 Drawer *CurveDrawerBezier::copy() {
-    return nullptr;
+    return new CurveDrawerBezier();
+}
+
+CurveDrawerBezier::CurveDrawerBezier() {
+    id = mp["CurveDrawerBezier"];
 }

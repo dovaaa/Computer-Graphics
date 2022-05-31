@@ -11,6 +11,7 @@ class ClippingRectanglePoint :public Drawer
 {
 public:
     void draw(Shape *rectangle,Shape *point,HDC& hdc);
+    void draw(Shape*, HDC&);
     Drawer* copy() override;
 };
 

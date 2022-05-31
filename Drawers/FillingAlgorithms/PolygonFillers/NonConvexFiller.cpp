@@ -44,7 +44,7 @@ void InitEdgeTable(POINT *polygon,int n,EdgeList table[])
 void NonConvexFiller::draw(Shape *polygon, HDC &hdc)
 {
     EdgeList *table=new EdgeList [MAXENTRIES];
-    class Polygon *poly = (class Polygon*) polygon;
+    class POLYGON *poly = (class POLYGON*) polygon;
     POINT points[poly->n];
     for(int i=0; i < poly->n; ++i)
     {
@@ -80,5 +80,5 @@ void NonConvexFiller::draw(Shape *polygon, HDC &hdc)
 
 Drawer *NonConvexFiller::copy()
 {
-    return nullptr;
+    return new NonConvexFiller();
 }

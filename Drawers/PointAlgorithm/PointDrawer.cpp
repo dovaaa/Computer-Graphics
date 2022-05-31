@@ -9,3 +9,8 @@ void PointDrawer::draw(Shape *point, HDC &hdc) {
     Point *p = (Point *) point;
     SetPixel(hdc, p->x, p->y, p->c);
 }
+
+Drawer *PointDrawer::copy() {
+    return new PointDrawer();
+}
+

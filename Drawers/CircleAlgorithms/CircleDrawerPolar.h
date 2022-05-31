@@ -9,6 +9,7 @@
 
 class CircleDrawerPolar : public Drawer{
 public:
+    CircleDrawerPolar();
     void draw(Shape *circle, HDC& hdc) override;
     Drawer* copy() override;
 };

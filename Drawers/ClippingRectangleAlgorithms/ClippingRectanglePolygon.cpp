@@ -19,7 +19,9 @@ struct Vertex {
 };
 
 typedef vector<Vertex> VertexList;
+
 typedef bool (*IsInFunc)(Vertex &v, int edge);
+
 typedef Vertex (*IntersectFunc)(Vertex &v1, Vertex &v2, int edge);
 
 VertexList ClipWithEdge(VertexList p, int edge, IsInFunc In, IntersectFunc Intersect) {
@@ -39,6 +41,7 @@ VertexList ClipWithEdge(VertexList p, int edge, IsInFunc In, IntersectFunc Inter
     }
     return OutList;
 }
+
 bool InLeft(Vertex &v, int edge) {
     return v.x >= edge;
 }
@@ -54,18 +57,21 @@ bool InTop(Vertex &v, int edge) {
 bool InBottom(Vertex &v, int edge) {
     return v.y <= edge;
 }
+
 Vertex VIntersect(Vertex &v1, Vertex &v2, int xedge) {
     Vertex res;
     res.x = xedge;
     res.y = v1.y + (xedge - v1.x) * (v2.y - v1.y) / (v2.x - v1.x);
     return res;
 }
+
 Vertex HIntersect(Vertex &v1, Vertex &v2, int yedge) {
     Vertex res;
     res.y = yedge;
     res.x = v1.x + (yedge - v1.y) * (v2.x - v1.x) / (v2.y - v1.y);
     return res;
 }
+
 void PolygonClip(HDC hdc, POINT *p, int n, int xleft, int ytop, int xright, int ybottom) {
     VertexList vlist;
     for (int i = 0; i < n; i++)vlist.push_back(Vertex(p[i].x, p[i].y));
@@ -82,21 +88,24 @@ void PolygonClip(HDC hdc, POINT *p, int n, int xleft, int ytop, int xright, int 
     }
 }
 
-void ClippingRectanglePolygon::draw(Shape *rectangle,Shape *polygon, HDC &hdc)
-{
+void ClippingRectanglePolygon::draw(Shape *rectangle, Shape *polygon, HDC &hdc) {
 
-    RECTANGLE *rect = (class RECTANGLE*) rectangle;
-    class Polygon *poly = (class Polygon*) polygon;
+    RECTANGLE *rect = (class RECTANGLE *) rectangle;
+    class POLYGON *poly = (class POLYGON *) polygon;
     POINT points[poly->n];
-    for(int i=0; i < poly->n; ++i)
-    {
+    for (int i = 0; i < poly->n; ++i) {
         POINT p;
-        p.x= poly->points[i].x;p.y= poly->points[i].y;
-        points[i]=p;
+        p.x = poly->points[i].x;
+        p.y = poly->points[i].y;
+        points[i] = p;
     }
-    PolygonClip( hdc, points,poly->n, rect->xleft, rect->yleft,  rect->xright, rect->yright);
+    PolygonClip(hdc, points, poly->n, rect->xleft, rect->yleft, rect->xright, rect->yright);
 }
 
 Drawer *ClippingRectanglePolygon::copy() {
-    return nullptr;
+    return new ClippingRectanglePolygon();
+}
+
+void ClippingRectanglePolygon::draw(Shape *, HDC &) {
+
 }

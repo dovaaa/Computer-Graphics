@@ -21,5 +21,9 @@ void CircleDrawerDirect::draw(Shape *circle, HDC& hdc) {
 }
 
 Drawer *CircleDrawerDirect::copy() {
-    return nullptr;
+    return new CircleDrawerDirect();
+}
+
+CircleDrawerDirect::CircleDrawerDirect() {
+    this->id = mp["CircleDrawerDirect"];
 }

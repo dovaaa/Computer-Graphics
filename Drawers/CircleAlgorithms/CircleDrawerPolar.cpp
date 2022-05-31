@@ -20,5 +20,9 @@ void CircleDrawerPolar::draw(Shape *circle, HDC& hdc) {
 }
 
 Drawer *CircleDrawerPolar::copy() {
-    return nullptr;
+    return new CircleDrawerPolar();
+}
+
+CircleDrawerPolar::CircleDrawerPolar() {
+    this->id = mp["CircleDrawerPolar"];
 }

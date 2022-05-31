@@ -21,5 +21,9 @@ void CircleDrawerIterativePolar::draw(Shape *circle, HDC& hdc) {
 }
 
 Drawer *CircleDrawerIterativePolar::copy() {
-    return nullptr;
+    return new CircleDrawerIterativePolar();
+}
+
+CircleDrawerIterativePolar::CircleDrawerIterativePolar() {
+    this->id = mp["CircleDrawerIterativePolar"];
 }

@@ -4,16 +4,16 @@
 
 #ifndef GRAPHICS_CLIPPINGCIRCLEPOINT_H
 #define GRAPHICS_CLIPPINGCIRCLEPOINT_H
+
 #include "../Drawer.h"
 
 
-class ClippingCirclePoint:public Drawer
-{
+class ClippingCirclePoint : public Drawer {
 public:
-    void draw(Shape *Circle,Shape *point,HDC& hdc);
-    Drawer* copy() override;
+    void draw(Shape *Circle, Shape *point, HDC &hdc);
+    void draw(Shape *, HDC &);
+    Drawer *copy() override;
 };
-
 
 
 #endif //GRAPHICS_CLIPPINGCIRCLEPOINT_H

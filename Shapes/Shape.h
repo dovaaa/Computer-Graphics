@@ -16,7 +16,6 @@ public:
     };
     static std::map<std::string, int> mp;
     static void addShape(std::string, Shape*);
-    static int idx;
     static std::vector<Shape*> shapes;
     int id;
     Drawer *drawer;

@@ -31,5 +31,9 @@ void ClippingCirclePoint::draw(Shape *circle, Shape *point, HDC &hdc)
 }
 
 Drawer *ClippingCirclePoint::copy() {
-    return nullptr;
+    return new ClippingCirclePoint();
+}
+
+void ClippingCirclePoint::draw(Shape *, HDC &) {
+
 }

@@ -38,6 +38,6 @@ void LineDrawerParametric::draw(Shape *line, HDC& hdc) {
 }
 
 Drawer *LineDrawerParametric::copy() {
-    return nullptr;
+    return new LineDrawerParametric();
 }
 

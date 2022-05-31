@@ -65,5 +65,5 @@ void LineDrawerMidpoint::plotPixel(int x1, int y1, int x2, int y2, int dx, int d
 }
 
 Drawer *LineDrawerMidpoint::copy() {
-    return nullptr;
+    return new LineDrawerMidpoint();
 }

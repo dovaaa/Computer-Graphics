@@ -23,5 +23,5 @@ void FloodFillRecursive::draw(Shape *Flood, HDC &hdc)
 
 Drawer *FloodFillRecursive::copy()
 {
-    return nullptr;
+    return new FloodFillRecursive();
 }

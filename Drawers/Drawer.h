@@ -19,12 +19,10 @@ class Drawer {
 public:
     static map<std::string, int> mp;
     static void addDrawer(std::string, Drawer*);
-    static int idx;
     int id;
     static vector<Drawer*> drawers;
     virtual Drawer* copy() = 0;
     virtual void draw(Shape*, HDC&) = 0;
-    void draw(Shape*,Shape*,HDC&);
     //virtual std::string save() = 0;
 };
 

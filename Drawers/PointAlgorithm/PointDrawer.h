@@ -11,6 +11,7 @@
 class PointDrawer : public Drawer{
 public:
     void draw(Shape* point, HDC& hdc) override;
+    Drawer* copy() override;
 };
 
 

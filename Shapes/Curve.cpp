@@ -54,6 +54,7 @@ Curve::Curve(Point p1, Point p2, Point p3, Point p4, COLORREF c, Drawer *d) {
     this->p4 = std::move(p4);
     this->c = c;
     this->drawer = drawer;
+    this->id = mp["curve"];
 }
 
 

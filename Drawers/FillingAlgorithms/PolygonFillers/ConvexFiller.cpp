@@ -44,7 +44,7 @@ void DrawSanLines(HDC hdc,Entry table[],COLORREF color)
 
 void ConvexFiller::draw(Shape *polygon, HDC &hdc)
 {
-    class Polygon *poly = (class Polygon*) polygon;
+    class POLYGON *poly = (class POLYGON*) polygon;
     Entry *table=new Entry[MAXENTRIES];
     InitEntries(table);
     Point t = poly->points[poly->n-1];
@@ -64,5 +64,5 @@ void ConvexFiller::draw(Shape *polygon, HDC &hdc)
 }
 Drawer *ConvexFiller::copy()
 {
-    return nullptr;
+    return new ConvexFiller();
 }
