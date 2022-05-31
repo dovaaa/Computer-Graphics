@@ -43,4 +43,5 @@ string RECTANGLE::getSave() {
             ',' +
             to_string(yright) + ',' +
             to_string(c) + '-' + to_string(drawer->id);
+    return s;
 }

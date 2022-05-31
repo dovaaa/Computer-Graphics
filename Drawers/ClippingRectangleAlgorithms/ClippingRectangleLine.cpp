@@ -6,6 +6,7 @@
 #include "../../Shapes/Rectangle.h"
 #include "../../Shapes/Line.h"
 #include "cmath"
+#include "../../Shapes/Container.h"
 
 union OutCode {
     unsigned All: 4;
@@ -34,6 +35,7 @@ void HIntersect(double xs, double ys, double xe, double ye, int y, double *xi, d
 
 void ClippingRectangleLine::draw(Shape *rectangle, Shape *line, HDC &hdc) {
     RECTANGLE *rect = (RECTANGLE *) rectangle;
+    rect->draw(hdc);
     Line *l = (Line *) line;
     int xs = l->stx, ys = l->sty, xe = l->edx, ye = l->edy;
     int xleft = rect->xleft, ytop = rect->yleft, xright = rect->xright, ybottom = rect->yright;
@@ -71,10 +73,11 @@ Drawer *ClippingRectangleLine::copy() {
     return new ClippingRectangleLine();
 }
 
-void ClippingRectangleLine::draw(Shape *, HDC &) {
-
+void ClippingRectangleLine::draw(Shape *sh, HDC &hdc) {
+    Container *cr = (Container*) sh;
+    draw(cr->s1, cr->s2, hdc);
 }
 
 ClippingRectangleLine::ClippingRectangleLine() {
-    id = mp["ClippingRectangleLine"];
+    this->id = mp["ClippingRectangleLine"];
 }

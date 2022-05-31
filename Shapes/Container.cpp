@@ -28,4 +28,9 @@ Container::Container(Shape *pShape, Shape *pShape1, Drawer *pDrawer) {
     this->s1 = pShape;
     this->s2 = pShape1;
     this->drawer = pDrawer;
+    this->id = mp["container"];
+}
+
+Container::Container() {
+    this->id = mp["container"];
 }

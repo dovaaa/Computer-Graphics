@@ -33,3 +33,12 @@ Shape *Line::copy(string s) {
     vector<string> vec = UT::split(s, ',');
     return new Line(stoi(vec[0]), stoi(vec[1]), stoi(vec[2]), stoi(vec[3]), stoi(vec[4]), NULL);
 }
+
+string Line::getSave() {
+    string s =
+            to_string(mp["line"]) + '-' + to_string(stx) + ',' + to_string(sty) + ',' + to_string(edx) +
+            ',' +
+            to_string(edy) + ',' +
+            to_string(c) + '-' + to_string(drawer->id);
+    return s;
+}
