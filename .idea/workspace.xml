@@ -14,19 +14,19 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="added to main">
-      <change afterPath="$PROJECT_DIR$/Drawers/PolygonAlgorithms/PolygonDrawer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Drawers/PolygonAlgorithms/PolygonDrawer.h" afterDir="false" />
+    <list default="true" id="e644eadd-03bb-4261-b1d8-08dc196443be" name="Changes" comment="Implemented SquareDrawer.cpp, RectangleDrawer.cpp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/ClippingRectangleAlgorithms/ClippingRectanglePoint.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Point.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Point.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Point.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Point.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillNonRecursive.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.h" beforeDir="false" afterPath="$PROJECT_DIR$/Drawers/FillingAlgorithms/PolygonFillers/ConvexFiller.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Flood.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Flood.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shapes/Flood.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Flood.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shapes/Polygon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Polygon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/Polygon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/Polygon.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
-    <list id="5561b88d-f454-4ef4-91ae-ffa3730c94d4" name="Changes by haridy" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,6 +91,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -118,8 +123,6 @@
       <workItem from="1653866059541" duration="1502000" />
       <workItem from="1653931048226" duration="7729000" />
       <workItem from="1653945153094" duration="2338000" />
-      <workItem from="1654015443359" duration="1380000" />
-      <workItem from="1654016994902" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="added hdc and color to lineDrawers, implemented lineDrawers">
       <created>1653772360368</created>
@@ -191,14 +194,7 @@
       <option name="project" value="LOCAL" />
       <updated>1653953974943</updated>
     </task>
-    <task id="LOCAL-00011" summary="added to main">
-      <created>1654011783486</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1654011783486</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,21 +220,20 @@
     <MESSAGE value="changed ClippingRectanglePolygon.cpp From POINT to point" />
     <MESSAGE value="implemented FloodFillNonRecursive.cpp, FloodFillRecursive.cpp, Flood.cpp shape" />
     <MESSAGE value="Implemented SquareDrawer.cpp, RectangleDrawer.cpp" />
-    <MESSAGE value="added to main" />
-    <option name="LAST_COMMIT_MESSAGE" value="added to main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented SquareDrawer.cpp, RectangleDrawer.cpp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <condition expression="C==Cb || C==Cf" />
+          <condition expression="C==Cb || C==Cf" language="ObjectiveC" />
           <url>file://$PROJECT_DIR$/Drawers/FillingAlgorithms/FloodFill/FloodFillRecursive.cpp</url>
           <line>11</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>630</line>
+          <line>558</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">

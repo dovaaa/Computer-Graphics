@@ -13,6 +13,7 @@ public:
     Point p;
     Flood();
     Flood(Point,COLORREF,Drawer*);
+    Flood(Point, COLORREF, COLORREF, Drawer*);
     void draw(HDC& hdc) override;
     void save(File &f) override;
     Shape* copy(string s) override;

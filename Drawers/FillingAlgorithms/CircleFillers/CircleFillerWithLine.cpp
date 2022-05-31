@@ -39,12 +39,27 @@ void CircleFillerWithLine::Draw2LinesQuarter4(HDC& hdc, int xc, int yc, int a, i
 }
 
 
+
 void CircleFillerWithLine::draw(Shape *circle, HDC &hdc) {
     Circle *circ = (Circle *) circle;
-    int quarter;
-    cout << "Enter the number of quarter you would like to fill (1 to 4 inclusive)\n-> ";
-    cin >> quarter;
-    cout << endl;
+    Fill(circ, circ->q, hdc);
+}
+
+/*
+ *
+
+    */
+
+Drawer *CircleFillerWithLine::copy() {
+    return new CircleFillerWithLine();
+}
+
+CircleFillerWithLine::CircleFillerWithLine() {
+    dr = new LineDrawerDDA();
+    id = mp["CircleFillerWithLine"];
+}
+
+void CircleFillerWithLine::Fill(Circle *circ, int quarter, HDC &hdc) {
     int x=circ->r,y=0;
     double theta=0,dtheta=1.0/x;
     circ->Draw8Points(hdc,circ->cx,circ->cy,x,y,circ->c);
@@ -68,13 +83,4 @@ void CircleFillerWithLine::draw(Shape *circle, HDC &hdc) {
                 break;
         }
     }
-}
-
-Drawer *CircleFillerWithLine::copy() {
-    return new CircleFillerWithLine();
-}
-
-CircleFillerWithLine::CircleFillerWithLine() {
-    dr = new LineDrawerDDA();
-    id = mp["CircleFillerWithLine"];
 }

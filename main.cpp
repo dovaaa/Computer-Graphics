@@ -104,7 +104,7 @@
 #define COLOR_YELLOW 10040
 #define COLOR_BLACK 10041
 
-HCURSOR cursor=LoadCursorA(NULL, IDC_ARROW);
+HCURSOR cursor = LoadCursorA(NULL, IDC_ARROW);
 
 LRESULT CALLBACK WindowProcedure(HWND, UINT, WPARAM, LPARAM);
 
@@ -112,25 +112,23 @@ void AddMenu(HWND hWnd);
 
 HMENU hMenu;
 
-int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hprevInst, LPSTR args, int ncmdshow)
-{
+int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hprevInst, LPSTR args, int ncmdshow) {
 
-    WNDCLASSW wc={0};
-    wc.hbrBackground=(HBRUSH) COLOR_WINDOW;
-    wc.hCursor=LoadCursor(NULL, IDC_ARROW);
-    wc.hInstance=hInst;
-    wc.lpszClassName=L"myWindowClass";
-    wc.lpfnWndProc=WindowProcedure;
+    WNDCLASSW wc = {0};
+    wc.hbrBackground = (HBRUSH) COLOR_WINDOW;
+    wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+    wc.hInstance = hInst;
+    wc.lpszClassName = L"myWindowClass";
+    wc.lpfnWndProc = WindowProcedure;
 
-    if(!RegisterClassW(&wc))
+    if (!RegisterClassW(&wc))
         return -1;
 
     CreateWindowW(L"myWindowClass", L"My Window", WS_OVERLAPPEDWINDOW | WS_VISIBLE, 750, 250, 800, 800, NULL, NULL,
                   NULL, NULL);
 
-    MSG msg={0};
-    while(GetMessage(&msg, NULL, NULL, NULL))
-    {
+    MSG msg = {0};
+    while (GetMessage(&msg, NULL, NULL, NULL)) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
@@ -138,18 +136,17 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hprevInst, LPSTR args, int ncmdsho
     return 0;
 }
 
-bool firstCreate=true;
+bool firstCreate = true;
 vector<Shape *> shapes;
 File file("mangaSave");
-bool flag=false;
+bool flag = false;
 
-COLORREF currentColor=RGB(255, 128, 53);
+COLORREF currentColor = RGB(255, 128, 53);
 
-void init()
-{
-    if(flag)
+void init() {
+    if (flag)
         return;
-    flag=true;
+    flag = true;
     Shape::addShape("point", new Point());
     Shape::addShape("line", new Line());
     Shape::addShape("rectangle", new RECTANGLE());
@@ -187,17 +184,18 @@ void init()
     Drawer::addDrawer("CircleFillerWithLine", new CircleFillerWithLine());
     Drawer::addDrawer("FloodFillRecursive", new FloodFillRecursive());
     Drawer::addDrawer("FloodFillNonRecursive", new FloodFillNonRecursive());
+    Drawer::addDrawer("ConvexFiller", new ConvexFiller());
+    Drawer::addDrawer("NonConvexFiller", new NonConvexFiller());
     Drawer::addDrawer("SquareFillerWithHermiteCurve", new SquareFillerWithHermiteCurve());
     Drawer::addDrawer("RectangleFillerWithBezierCurve", new RectangleFillerWithBezierCurve());
 
 
 }
 
-stack<int> xInputs;
-stack<int> yInputs;
+stack <int> xInputs;
+stack <int> yInputs;
 
-LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
-{
+LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
     int x1, x2, x3, x4;
     int y1, y2, y3, y4;
     int a, b;
@@ -208,52 +206,48 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
     switch (msg)                  /* handle the messages */
     {
         case WM_COMMAND:
-            switch (wp)
-            {
+            switch (wp) {
                 case CHANGE_CURSOR:
-                    cursor=LoadCursorA(NULL, IDC_CROSS);
+                    cursor = LoadCursorA(NULL, IDC_CROSS);
                     SetCursor(cursor);
                     break;
                 case DISABLE_KEYBOARD:
                     break;
                 case COLOR_RED:
-                    currentColor=RGB(255, 0, 0);
+                    currentColor = RGB(255, 0, 0);
                     break;
                 case COLOR_BLUE:
-                    currentColor=RGB(0, 0, 255);
+                    currentColor = RGB(0, 0, 255);
                     break;
                 case COLOR_GREEN:
-                    currentColor=RGB(0, 255, 0);
+                    currentColor = RGB(0, 255, 0);
                     break;
                 case COLOR_CYAN:
-                    currentColor=RGB(0, 255, 255);
+                    currentColor = RGB(0, 255, 255);
                     break;
                 case COLOR_MAGENTA:
-                    currentColor=RGB(255, 0, 255);
+                    currentColor = RGB(255, 0, 255);
                     break;
                 case COLOR_YELLOW:
-                    currentColor=RGB(255, 255, 0);
+                    currentColor = RGB(255, 255, 0);
                     break;
                 case COLOR_BLACK:
-                    currentColor=RGB(0, 0, 0);
+                    currentColor = RGB(0, 0, 0);
                     break;
                 case SAVE_DATA:
                     file.clear();
-                    for(int i=0; i < shapes.size(); ++i)
-                    {
+                    for (int i = 0; i < shapes.size(); ++i) {
                         shapes[i]->save(file);
                     }
                     break;
-                case LOAD_DATA:
-                {
-                    string s=file.get();
-                    hdc=GetDC(hWnd);
-                    vector<string> vec=UT::split(s, '\n');
-                    for(int i=0; i < vec.size(); ++i)
-                    {
-                        vector<string> cur=UT::split(vec[i], ':');
-                        shape=Shape::shapes[stoi(cur[0])]->copy(cur[1]);
-                        shape->drawer=Drawer::drawers[stoi(cur[2])]->copy();
+                case LOAD_DATA: {
+                    string s = file.get();
+                    hdc = GetDC(hWnd);
+                    vector<string> vec = UT::split(s, '\n');
+                    for (int i = 0; i < vec.size(); ++i) {
+                        vector<string> cur = UT::split(vec[i], ':');
+                        shape = Shape::shapes[stoi(cur[0])]->copy(cur[1]);
+                        shape->drawer = Drawer::drawers[stoi(cur[2])]->copy();
                         shape->draw(hdc);
                         shapes.push_back(shape);
                     }
@@ -261,372 +255,328 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                 }
                     break;
                 case DRAW_LINE_DDA:
-                    if(xInputs.size() < 2)
-                    {
-                        std::cout << "You need at least 2 points to draw  a line\n";
+                    if (xInputs.size() < 2){
+                        std :: cout << "You need at least 2 points to draw  a line\n";
                         return 0;
                     }
                     //Extracting Line Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
+                    x1 = xInputs.top(); y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
 
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
+                    x2 = xInputs.top(); y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
 
-                    dr=new LineDrawerDDA();
-                    shape=new Line(x1, y1, x2, y2, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    dr = new LineDrawerDDA();
+                    shape = new Line(x1, y1, x2, y2, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
 
                     break;
                 case DRAW_LINE_PARAMETRIC:
-                    if(xInputs.size() < 2)
-                    {
-                        std::cout << "You need at least 2 points to draw  a line\n";
+                    if (xInputs.size() < 2){
+                        std :: cout << "You need at least 2 points to draw  a line\n";
                         return 0;
                     }
                     //Extracting Line Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
+                    x1 = xInputs.top(); y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
 
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
+                    x2 = xInputs.top(); y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
 
-                    dr=new LineDrawerParametric();
-                    shape=new Line(x1, y1, x2, y2, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    dr = new LineDrawerParametric();
+                    shape = new Line(x1, y1, x2, y2, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case DRAW_LINE_MIDPOINT:
-                    if(xInputs.size() < 2)
-                    {
-                        std::cout << "You need at least 2 points to draw  a line\n";
+                    if (xInputs.size() < 2){
+                        std :: cout << "You need at least 2 points to draw  a line\n";
                         return 0;
                     }
                     //Extracting Line Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
+                    x1 = xInputs.top(); y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
 
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    dr=new LineDrawerMidpoint();
+                    x2 = xInputs.top(); y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    dr = new LineDrawerMidpoint();
 
-                    shape=new Line(x1, y1, x2, y2, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    shape = new Line(x1, y1, x2, y2, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case DRAW_CIRCLE_DIRECT:
-                    if(xInputs.size() < 2)
-                    {
-                        std::cout << "You need to register at least 2 input points in order to draw a circle\n";
+                    if (xInputs.size() < 2){
+                        std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
                         return 0; //TODO difference between break; and return 0;???
                     }
                     //Extracting Circle Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
 
-                    dr=new CircleDrawerDirect();
-                    shape=new Circle(x1, y1, a, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    dr = new CircleDrawerDirect();
+                    shape = new Circle(x1, y1, a, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case DRAW_CIRCLE_POLAR:
-                    if(xInputs.size() < 2)
-                    {
-                        std::cout << "You need to register at least 2 input points in order to draw a circle\n";
+                    if (xInputs.size() < 2){
+                        std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
                         return 0;
                     }
                     //Extracting Circle Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
 
-                    dr=new CircleDrawerPolar();
-                    shape=new Circle(x1, y1, a, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    dr = new CircleDrawerPolar();
+                    shape = new Circle(x1, y1, a, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case DRAW_CIRCLE_ITERATIVE_POLAR:
-                    if(xInputs.size() < 2)
-                    {
-                        std::cout << "You need to register at least 2 input points in order to draw a circle\n";
+                    if (xInputs.size() < 2){
+                        std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
                         return 0;
                     }
                     //Extracting Circle Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
 
-                    dr=new CircleDrawerIterativePolar();
-                    shape=new Circle(x1, y1, a, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    dr = new CircleDrawerIterativePolar();
+                    shape = new Circle(x1, y1, a, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case DRAW_CIRCLE_MIDPOINT:
-                    if(xInputs.size() < 2)
-                    {
-                        std::cout << "You need to register at least 2 input points in order to draw a circle\n";
+                    if (xInputs.size() < 2){
+                        std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
                         return 0;
                     }
                     //Extracting Circle Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
                     //Constructing objects needed for circle
-                    dr=new CircleDrawerMidpoint();
-                    shape=new Circle(x2, y2, a, currentColor, dr);
+                    dr = new CircleDrawerMidpoint();
+                    shape = new Circle(x2, y2, a, currentColor, dr);
                     //Drawing Circle
-                    hdc=GetDC(hWnd);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case DRAW_CIRCLE_MODIFIED_MIDPOINT:
-                    if(xInputs.size() < 2)
-                    {
-                        std::cout << "You need to register at least 2 input points in order to draw a circle\n";
+                    if (xInputs.size() < 2){
+                        std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
                         return 0;
                     }
                     //Extracting Circle Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
 
-                    dr=new CircleDrawerModifiedMidpoint();
-                    shape=new Circle(x1, y1, a, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    dr = new CircleDrawerModifiedMidpoint();
+                    shape = new Circle(x1, y1, a, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
 
                 case FILL_CIRCLE_WITH_LINE:
-                    if(xInputs.size() < 2)
-                    {
-                        std::cout << "You need to register at least 2 input points in order to draw a circle\n";
+                    if (xInputs.size() < 2){
+                        std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
                         return 0;
                     }
                     //Extracting Circle Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
 
-                    dr=new CircleFillerWithLine();
-                    shape=new Circle(x1, y1, a, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    cout << "Enter the number of quarter you would like to fill (1 to 4 inclusive)\n-> ";
+                    cin >> x3;
+                    cout << endl;
+
+                    dr = new CircleFillerWithLine();
+                    shape = new Circle(x1, y1, a, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case FILL_CIRCLE_WITH_CIRCLE:
-                    if(xInputs.size() < 2)
-                    {
-                        std::cout << "You need to register at least 2 input points in order to draw a circle\n";
+                    if (xInputs.size() < 2){
+                        std :: cout << "You need to register at least 2 input points in order to draw a circle\n";
                         return 0;
                     }
                     //Extracting Circle Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
 
-                    dr=new CircleFillerWithCircle();
-                    shape=new Circle(x1, y1, a, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    cout << "Enter the number of quarter you would like to fill (1 to 4 inclusive)\n-> ";
+                    cin >> x3;
+                    cout << endl;
+
+                    dr = new CircleFillerWithCircle();
+                    shape = new Circle(x1, y1, a, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case FILL_SQUARE_WITH_HERMITE_CURVE:
                     //TODO : Fix Input
-                    if(xInputs.size() < 2)
-                    {
-                        std::cout << "You need to register at least 2 input points in order to draw a square\n";
+                    if (xInputs.size() < 2){
+                        std :: cout << "You need to register at least 2 input points in order to draw a square\n";
                         return 0;
                     }
                     //Extracting Circle Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
 
-                    dr=new SquareFillerWithHermiteCurve();
-                    hdc=GetDC(hWnd);
-                    shape=new Square(x1, y1, x1 + a, y1 + a, currentColor, dr);
+                    dr = new SquareFillerWithHermiteCurve();
+                    hdc = GetDC(hWnd);
+                    shape = new Square(x1, y1, x1+a, y1+a, currentColor, dr);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case FILL_RECTANGLE_WITH_BEZIER_CURVE:
-                    if(xInputs.size() < 2)
-                    {
-                        std::cout << "You need to register at least 2 input points in order to draw a rectangle\n";
+                    if (xInputs.size() < 2){
+                        std :: cout << "You need to register at least 2 input points in order to draw a rectangle\n";
                         return 0;
                     }
                     //Extracting Circle Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
 
-                    dr=new RectangleFillerWithBezierCurve();
-                    hdc=GetDC(hWnd);
-                    shape=new RECTANGLE(x1, y1, x2, y2, currentColor, dr);
+                    dr = new RectangleFillerWithBezierCurve();
+                    hdc = GetDC(hWnd);
+                    shape = new RECTANGLE(x1, y1, x2, y2, currentColor, dr);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
-                case CONVEX_FILLING:
-                {
+                case CONVEX_FILLING:{
                     //need number of points for polygon
                     int n;
                     cout << "enter number of points needed";
                     cin >> n;
-                    if(xInputs.size() < n && n > 3)
+                    if(xInputs.size() < n&&n>3)
                     {
                         std::cout << "You need to register at least " << n
-                                  << " or at least 3" << " input points in order to draw a Polygon of Size " << n
-                                  << "\n";
+                                  <<" or at least 3" <<" input points in order to draw a Polygon of Size " << n << "\n";
                         return 0;
                     }
                     dr=new ConvexFiller();
                     hdc=GetDC(hWnd);
-                    Point *points=new Point[n];
+                    Point *points = new Point[n];
                     for(int i=0; i < n; ++i)
                     {
-                        x1=xInputs.top();
-                        y1=yInputs.top();
-                        xInputs.pop();
-                        yInputs.pop();
-                        points[i].x=x1;
-                        points[i].y=y1;
+                        x1 = xInputs.top();
+                        y1 = yInputs.top();
+                        xInputs.pop(); yInputs.pop();
+                        points[i].x = x1; points[i].y=y1;
                     }
-                    shape=new POLYGON(points, n, currentColor, dr);
-                    shape->draw(hdc);
+                    shape = new POLYGON(points,n);
+                    dr->draw(shape,hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 }
-                case NON_CONVEX_FILLING:
-                {
+                case NON_CONVEX_FILLING:{
                     //need number of points for polygon
                     int n;
                     cout << "enter number of points needed";
                     cin >> n;
-                    if(xInputs.size() < n && n > 3)
+                    if(xInputs.size() < n&&n>3)
                     {
                         std::cout << "You need to register at least " << n
-                                  << " or at least 3" << " input points in order to draw a Polygon of Size " << n
-                                  << "\n";
+                                  <<" or at least 3" <<" input points in order to draw a Polygon of Size " << n << "\n";
                         return 0;
                     }
                     dr=new NonConvexFiller();
                     hdc=GetDC(hWnd);
-                    Point *points=new Point[n];
+                    Point *points = new Point[n];
                     for(int i=0; i < n; ++i)
                     {
-                        x1=xInputs.top();
-                        y1=yInputs.top();
-                        xInputs.pop();
-                        yInputs.pop();
-                        points[i].x=x1;
-                        points[i].y=y1;
+                        x1 = xInputs.top();
+                        y1 = yInputs.top();
+                        xInputs.pop(); yInputs.pop();
+                        points[i].x = x1; points[i].y=y1;
                     }
-                    shape=new POLYGON(points, n, currentColor, dr);
-                    shape->draw(hdc);
+                    shape = new POLYGON(points,n);
+                    dr->draw(shape,hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 }
                 case RECURSIVE_FLOOD_FILL:
                 {
-                    if(xInputs.size() < 1)
-                    {
-                        std::cout << "You need to register at least 1 input point in order to Fill\n";
+                    if (xInputs.size() < 1){
+                        std :: cout << "You need to register at least 1 input point in order to Fill\n";
                         return 0;
                     }
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    Point p(x1, y1);
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    Point p(x1,y1);
                     dr=new FloodFillRecursive();
-                    shape=new Flood(p, currentColor, dr);
+                    shape = new Flood(p,currentColor,dr);
                     shape->c=currentColor;
                     hdc=GetDC(hWnd);
                     shape->draw(hdc);
@@ -636,18 +586,16 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                 }
                 case NON_RECURSIVE_FLOOD_FILL:
                 {
-                    if(xInputs.size() < 1)
-                    {
-                        std::cout << "You need to register at least 1 input point in order to Fill\n";
+                    if (xInputs.size() < 1){
+                        std :: cout << "You need to register at least 1 input point in order to Fill\n";
                         return 0;
                     }
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    Point p(x1, y1);
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    Point p(x1,y1);
                     dr=new FloodFillNonRecursive();
-                    shape=new Flood(p, currentColor, dr);
+                    shape = new Flood(p,currentColor,dr);
                     shape->c=currentColor;
                     hdc=GetDC(hWnd);
                     shape->draw(hdc);
@@ -656,117 +604,100 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     break;
                 }
                 case CARDINAL_SPLINE_CURVE:
-                    if(xInputs.size() < 4)
-                    {
-                        std::cout << "You need to register at least 4 input points in order to draw a curve\n";
+                    if (xInputs.size() < 4){
+                        std :: cout << "You need to register at least 4 input points in order to draw a curve\n";
                         return 0;
                     }
                     //Extracting Circle Input
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x3=xInputs.top();
-                    y3=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x4=xInputs.top();
-                    y4=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x3 = xInputs.top();
+                    y3 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x4 = xInputs.top();
+                    y4 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
 
-                    dr=new CurveDrawerBezier();
-                    shape=new Curve(x1, y1, x2, y2, x3, y3, x4, y4, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    dr = new CurveDrawerBezier();
+                    shape = new Curve(x1, y1, x2, y2, x3, y3, x4, y4, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case DRAW_ELLIPSE_DIRECT:
-                    if(xInputs.size() < 3)
-                    {
-                        std::cout << "You need to register at least 3 input points in order to draw an ellipse\n";
+                    if (xInputs.size() < 3){
+                        std :: cout << "You need to register at least 3 input points in order to draw an ellipse\n";
                         return 0;
                     }
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x3=xInputs.top();
-                    y3=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-                    b=sqrt((x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3));
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x3 = xInputs.top();
+                    y3 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
+                    b = sqrt( (x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3) );
 
 
-                    dr=new EllipseDrawerDirect();
-                    shape=new ELLIPSE(x1, y1, b, a, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    dr = new EllipseDrawerDirect();
+                    shape = new ELLIPSE(x1, y1, b, a, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case DRAW_ELLIPSE_POLAR:
-                    if(xInputs.size() < 3)
-                    {
-                        std::cout << "You need to register at least 3 input points in order to draw an ellipse\n";
+                    if (xInputs.size() < 3){
+                        std :: cout << "You need to register at least 3 input points in order to draw an ellipse\n";
                         return 0;
                     }
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x3=xInputs.top();
-                    y3=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-                    b=sqrt((x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3));
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x3 = xInputs.top();
+                    y3 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
+                    b = sqrt( (x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3) );
 
-                    dr=new EllipseDrawerPolar();
-                    shape=new ELLIPSE(x1, y1, b, a, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    dr = new EllipseDrawerPolar();
+                    shape = new ELLIPSE(x1, y1, b, a, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
                     break;
                 case DRAW_ELLIPSE_MIDPOINT:
-                    if(xInputs.size() < 3)
-                    {
-                        std::cout << "You need to register at least 3 input points in order to draw an ellipse\n";
+                    if (xInputs.size() < 3){
+                        std :: cout << "You need to register at least 3 input points in order to draw an ellipse\n";
                         return 0;
                     }
-                    x1=xInputs.top();
-                    y1=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x2=xInputs.top();
-                    y2=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    x3=xInputs.top();
-                    y3=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-                    b=sqrt((x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3));
+                    x1 = xInputs.top();
+                    y1 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x2 = xInputs.top();
+                    y2 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    x3 = xInputs.top();
+                    y3 = yInputs.top();
+                    xInputs.pop(); yInputs.pop();
+                    a = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
+                    b = sqrt( (x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3) );
 
-                    dr=new EllipseDrawerMidpoint();
-                    shape=new ELLIPSE(x1, y1, b, a, currentColor, dr);
-                    hdc=GetDC(hWnd);
+                    dr = new EllipseDrawerMidpoint();
+                    shape = new ELLIPSE(x1, y1, b, a, currentColor, dr);
+                    hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     shapes.push_back(shape);
@@ -959,9 +890,8 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 
             break;
         case WM_CREATE:
-            if(firstCreate)
-            {
-                firstCreate=false;
+            if (firstCreate) {
+                firstCreate = false;
                 AddMenu(hWnd);
             }
             break;
@@ -974,11 +904,10 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
             yInputs.push(GET_Y_LPARAM(lp));
 
             break;
-        case WM_PAINT:
-        {
+        case WM_PAINT: {
             PAINTSTRUCT ps;
             RECT rc;
-            HDC hdc=BeginPaint(hWnd, &ps);
+            HDC hdc = BeginPaint(hWnd, &ps);
             GetClientRect(hWnd, &rc);
             SetDCBrushColor(hdc, RGB(255, 255, 255));
             FillRect(hdc, &rc, (HBRUSH) GetStockObject(DC_BRUSH));
@@ -986,8 +915,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
             return 0;
         }
         case WM_SETCURSOR:
-            if(LOWORD(lp) == HTCLIENT)
-            {
+            if (LOWORD(lp) == HTCLIENT) {
                 ::SetCursor(cursor);
                 return TRUE;
             }
@@ -999,19 +927,18 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 
 }
 
-void AddMenu(HWND hWnd)
-{
-    hMenu=CreateMenu();
-    HMENU mainList=CreateMenu();
+void AddMenu(HWND hWnd) {
+    hMenu = CreateMenu();
+    HMENU mainList = CreateMenu();
 
     /* Draw Line SubList */
-    HMENU drawLineSubList=CreateMenu();
+    HMENU drawLineSubList = CreateMenu();
     AppendMenu(drawLineSubList, MF_STRING, DRAW_LINE_DDA, "DDA");
     AppendMenu(drawLineSubList, MF_STRING, DRAW_LINE_PARAMETRIC, "Parametric");
     AppendMenu(drawLineSubList, MF_STRING, DRAW_LINE_MIDPOINT, "Midpoint");
 
     /* Draw Circle SubList */
-    HMENU drawCircleSubList=CreateMenu();
+    HMENU drawCircleSubList = CreateMenu();
     AppendMenu(drawCircleSubList, MF_STRING, DRAW_CIRCLE_DIRECT, "Direct");
     AppendMenu(drawCircleSubList, MF_STRING, DRAW_CIRCLE_POLAR, "Polar");
     AppendMenu(drawCircleSubList, MF_STRING, DRAW_CIRCLE_ITERATIVE_POLAR, "Iterative Polar");
@@ -1020,7 +947,7 @@ void AddMenu(HWND hWnd)
 
 
     /* Filling SubList */
-    HMENU fillingSubList=CreateMenu();
+    HMENU fillingSubList = CreateMenu();
     AppendMenu(fillingSubList, MF_STRING, FILL_CIRCLE_WITH_LINE, "Fill circle with line");
     AppendMenu(fillingSubList, MF_STRING, FILL_CIRCLE_WITH_CIRCLE, "Fill with circle with circle");
     AppendMenu(fillingSubList, MF_STRING, FILL_SQUARE_WITH_HERMITE_CURVE, "Fill square with hermite curve");
@@ -1031,27 +958,27 @@ void AddMenu(HWND hWnd)
     AppendMenu(fillingSubList, MF_STRING, NON_RECURSIVE_FLOOD_FILL, "Non recursive flood fill");
 
     /* Ellipse SubList */
-    HMENU ellipseSubList=CreateMenu();
+    HMENU ellipseSubList = CreateMenu();
     AppendMenu(ellipseSubList, MF_STRING, DRAW_ELLIPSE_DIRECT, "Direct");
     AppendMenu(ellipseSubList, MF_STRING, DRAW_ELLIPSE_POLAR, "Polar");
     AppendMenu(ellipseSubList, MF_STRING, DRAW_ELLIPSE_MIDPOINT, "Midpoint");
 
     /* Clipping SubList */
-    HMENU clippingSubList=CreateMenu();
+    HMENU clippingSubList = CreateMenu();
 
     /* Rectangle Clipping SubList */
-    HMENU rectangleClippingSubList=CreateMenu();
+    HMENU rectangleClippingSubList = CreateMenu();
     AppendMenu(rectangleClippingSubList, MF_STRING, CLIP_RECTANGLE_POINT, "Point");
     AppendMenu(rectangleClippingSubList, MF_STRING, CLIP_RECTANGLE_LINE, "Line");
     AppendMenu(rectangleClippingSubList, MF_STRING, CLIP_RECTANGLE_POLYGON, "POLYGON");
 
     /* Square Clipping SubList */
-    HMENU squareClippingSubList=CreateMenu();
+    HMENU squareClippingSubList = CreateMenu();
     AppendMenu(squareClippingSubList, MF_STRING, CLIP_SQUARE_POINT, "Point");
     AppendMenu(squareClippingSubList, MF_STRING, CLIP_SQUARE_LINE, "Line");
 
     /* Circle Clipping SubList */
-    HMENU circleClippingSubList=CreateMenu();
+    HMENU circleClippingSubList = CreateMenu();
     AppendMenu(circleClippingSubList, MF_STRING, CLIP_CIRCLE_POINT, "Point");
     AppendMenu(circleClippingSubList, MF_STRING, CLIP_CIRCLE_LINE, "Line");
 
@@ -1061,7 +988,7 @@ void AddMenu(HWND hWnd)
     AppendMenu(clippingSubList, MF_POPUP, (UINT_PTR) circleClippingSubList, "Circle");
 
     /* Shape Color Menu */
-    HMENU shapeColorSubList=CreateMenu();
+    HMENU shapeColorSubList = CreateMenu();
     AppendMenu(shapeColorSubList, MF_STRING, COLOR_BLUE, "Blue");
     AppendMenu(shapeColorSubList, MF_STRING, COLOR_RED, "Red");
     AppendMenu(shapeColorSubList, MF_STRING, COLOR_GREEN, "Green");

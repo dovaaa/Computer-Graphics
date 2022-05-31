@@ -7,16 +7,27 @@
 
 #include "../../Drawer.h"
 #include "../../../Shapes/Shape.h"
+#include "../../../Shapes/Circle.h"
 
-class CircleFillerWithCircle : public Drawer{
+class CircleFillerWithCircle : public Drawer {
 public:
+
     CircleFillerWithCircle();
-    void draw(Shape* circle, HDC& hdc) override;
-    void Draw2PointsQuarter1(HDC&, int, int, int, int, COLORREF);
-    void Draw2PointsQuarter2(HDC&, int, int, int, int, COLORREF);
-    void Draw2PointsQuarter3(HDC&, int, int, int, int, COLORREF);
-    void Draw2PointsQuarter4(HDC&, int, int, int, int, COLORREF);
-    Drawer* copy() override;
+
+    void draw(Shape *circle, HDC &hdc) override;
+
+    void Fill(Circle *, int, HDC &);
+
+
+    void Draw2PointsQuarter1(HDC &, int, int, int, int, COLORREF);
+
+    void Draw2PointsQuarter2(HDC &, int, int, int, int, COLORREF);
+
+    void Draw2PointsQuarter3(HDC &, int, int, int, int, COLORREF);
+
+    void Draw2PointsQuarter4(HDC &, int, int, int, int, COLORREF);
+
+    Drawer *copy() override;
 };
 
 
