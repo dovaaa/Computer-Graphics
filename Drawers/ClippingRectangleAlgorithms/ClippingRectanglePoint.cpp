@@ -9,7 +9,7 @@
 
 void ClippingRectanglePoint::draw(Shape *rectangle, Shape *point, HDC &hdc) {
     RECTANGLE *rect = (RECTANGLE *) rectangle;
-    rect->draw(hdc);
+//    rect->draw(hdc);
     Point *point1 = (Point *) point;
     if (point1->x >= rect->xleft && point1->x <= rect->xright && point1->y >= rect->yleft && point1->y <= rect->yright)
         SetPixel(hdc, point1->x, point1->y, point->c);

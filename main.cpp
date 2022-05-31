@@ -919,7 +919,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                 }
                 case CLIP_SQUARE_POINT:
                 {
-                    if(xInputs.size() < 3)
+                    if(xInputs.size() < 2)
                     {
                         std::cout
                                 << "You need to register at least 3 input points in order to clip a point on a rectangle\n";
@@ -933,33 +933,28 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     y2=yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
-                    x3=xInputs.top();
-                    y3=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    dr=new SquareDrawer();
-                    Shape *squ=new Square(x1, y1, x2, y2, currentColor, dr);
-                    hdc=GetDC(hWnd);
-                    squ->draw(hdc);
 
-                    shapes.push_back(squ);
-                    dr=new PointDrawer();
-                    Shape *point=new Point(x3, y3, currentColor, dr);
-
+                    dr=new RectangleDrawer();
                     //TO accommodate rectanglepoint for square
                     //x2,y2 is now rightbottom instead of R;
+//                    int r=sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
+                    int r; cout<<"enter length of square\n";
+                    cin>>r;
+                    Shape *sq=new RECTANGLE(x1, y1, x1+r, y1+r, currentColor, dr);
+                    hdc=GetDC(hWnd);
+                    sq->draw(hdc);
 
-                    int r=sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
-                    Shape *square=new Square(x1, y1, x1 + r, y1 + r, currentColor, dr);
-
+                    shapes.push_back(sq);
+                    dr=new PointDrawer();
+                    Shape *point=new Point(x2, y2, currentColor, dr);
                     dr=new ClippingRectanglePoint();
-                    ((ClippingRectanglePoint *) dr)->draw(square, point, hdc);
+                    ((ClippingRectanglePoint *) dr)->draw(sq, point, hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 }
                 case CLIP_SQUARE_LINE:
                 {
-                    if(xInputs.size() < 4)
+                    if(xInputs.size() < 3)
                     {
                         std::cout
                                 << "You need to register 4 input points in order to clip a line on a rectangle\n";
@@ -977,26 +972,21 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     y3=yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
-                    x4=xInputs.top();
-                    y4=yInputs.top();
-                    xInputs.pop();
-                    yInputs.pop();
-                    dr=new SquareDrawer();
-                    Shape *sq=new Square(x1, y1, x2, y2, currentColor, dr);
+
+                    dr=new RectangleDrawer();
+                    //TO accommodate rectanglepoint for square
+                    //x2,y2 is now rightbottom instead of R;
+//                    int r=sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
+                    int r; cout<<"enter length of square\n";
+                    cin>>r;
+                    Shape *sq=new RECTANGLE(x1, y1, x1+r, y1+r, currentColor, dr);
                     hdc=GetDC(hWnd);
                     sq->draw(hdc);
                     shapes.push_back(sq);
                     dr=new LineDrawerDDA();
-                    Shape *line=new Line(x3, y3, x4, y4, currentColor, dr);
+                    Shape *line=new Line(x2, y2, x3, y3, currentColor, dr);
                     dr=new ClippingRectangleLine();
-
-                    //TO accommodate rectanglepoint for square
-                    //x2,y2 is now rightbottom instead of R;
-                    int r=sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
-                    Shape *square=new Square(x1, y1, x1 + r, y1 + r, currentColor, dr);
-
-                    dr=new ClippingRectangleLine();
-                    ((ClippingRectangleLine *) dr)->draw(square, line, hdc);
+                    ((ClippingRectangleLine *) dr)->draw(sq, line, hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 }
