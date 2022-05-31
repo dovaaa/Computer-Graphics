@@ -13,6 +13,7 @@ public:
     void save(File &f) override;
     void Draw8Points(HDC&, int, int, int, int, COLORREF);
     Shape* copy(string) override;
+    string getSave() override;
 };
 
 

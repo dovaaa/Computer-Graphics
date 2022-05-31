@@ -5,6 +5,7 @@
 #include "ClippingCirclePoint.h"
 #include "../../Shapes/Circle.h"
 #include "../../Shapes/Point.h"
+#include "../../Shapes/Container.h"
 
 bool CllipWithCircle(int xc, int yc, int rx, int ry, int px, int py) {
     int dx = rx - xc, dy = ry - yc;
@@ -24,6 +25,7 @@ bool CllipWithCircle(int xc, int yc, int rx, int ry, int px, int py) {
 void ClippingCirclePoint::draw(Shape *circle, Shape *point, HDC &hdc)
 {
     Circle *circ = (Circle*) circle;
+    circ->draw(hdc);
     Point *p = (Point*) point;
     if (CllipWithCircle(circ->cx, circ->cy, circ->cx + circ->r, circ->cy,
                          p->x, p->y))
@@ -34,8 +36,9 @@ Drawer *ClippingCirclePoint::copy() {
     return new ClippingCirclePoint();
 }
 
-void ClippingCirclePoint::draw(Shape *, HDC &) {
-
+void ClippingCirclePoint::draw(Shape *sh, HDC &hdc) {
+    Container *cr = (Container*) sh;
+    draw(cr->s1, cr->s2, hdc);
 }
 
 ClippingCirclePoint::ClippingCirclePoint() {

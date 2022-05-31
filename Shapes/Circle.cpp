@@ -57,4 +57,13 @@ Shape *Circle::copy(string s) {
     return new Circle(stoi(vec[0]), stoi(vec[1]), stoi(vec[2]), stoi(vec[3]), stoi(vec[4]), NULL);
 }
 
+string Circle::getSave() {
+    string s =
+            to_string(mp["circle"]) + '-' + to_string(cx) + ',' + to_string(cy) + ',' + to_string(r) +
+            ',' +
+            to_string(q) + ',' +
+            to_string(c) + '-' + to_string(drawer->id);
+    return s;
+}
+
 

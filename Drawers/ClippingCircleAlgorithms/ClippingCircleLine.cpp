@@ -6,6 +6,7 @@
 #include "../../Shapes/Line.h"
 #include "../../Shapes/Circle.h"
 #include "cmath"
+#include "../../Shapes/Container.h"
 
 bool CllipWithCircle2(int xc, int yc, int rx, int ry, int px, int py) {
     int dx = rx - xc, dy = ry - yc;
@@ -52,6 +53,7 @@ void CllipLineCircle(HDC hdc, int x1, int y1, int x2, int y2, int xc, int yc, in
 void ClippingCircleLine::draw(Shape *circle, Shape *line, HDC &hdc)
 {
     Circle *circ = (Circle*) circle;
+    circ->draw(hdc);
     Line *l = (Line*) line;
     CllipLineCircle( hdc,l->stx,l->sty,l->edx,l->edy,
                      circ->cx,circ->cy,circ->cx+circ->r,circ->cy, l->c);
@@ -61,8 +63,9 @@ Drawer *ClippingCircleLine::copy() {
     return new ClippingCircleLine();
 }
 
-void ClippingCircleLine::draw(Shape *, HDC &) {
-
+void ClippingCircleLine::draw(Shape *sh, HDC &hdc) {
+    Container *cr = (Container*) sh;
+    draw(cr->s1, cr->s2, hdc);
 }
 
 ClippingCircleLine::ClippingCircleLine() {
