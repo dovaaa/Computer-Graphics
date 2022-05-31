@@ -2,8 +2,8 @@
 #ifndef GRAPHICS_RECTANGLE_H
 #define GRAPHICS_RECTANGLE_H
 
-
 #include "Shape.h"
+
 class Rectangle : public Shape {
 public:
     int xright, yright;
