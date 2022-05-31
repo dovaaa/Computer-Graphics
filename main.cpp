@@ -194,12 +194,24 @@ void init() {
     Drawer::addDrawer("SquareFillerWithHermiteCurve", new SquareFillerWithHermiteCurve());
     Drawer::addDrawer("RectangleFillerWithBezierCurve", new RectangleFillerWithBezierCurve());
 
-    /* Clipping Algorithms */
+    /* Clipping Circle Algorithms */
+    Drawer::addDrawer("ClippingCircleLine", new ClippingCircleLine());
+    Drawer::addDrawer("ClippingCirclePoint", new ClippingCirclePoint());
+
+    /* Clipping Rectangle Algorithms */
+    Drawer::addDrawer("ClippingRectangleLine", new ClippingRectangleLine());
+    Drawer::addDrawer("ClippingRectanglePoint", new ClippingRectanglePoint());
+    Drawer::addDrawer("ClippingRectanglePolygon", new ClippingRectanglePolygon());
+
+    /* Point Drawer */
+    Drawer::addDrawer("PointDrawer", new PointDrawer());
+
+    /* Polygon Algorithms */
+    Drawer::addDrawer("PolygonDrawer", new PolygonDrawer());
+
+    /* Rectangle Algorithms */
     Drawer::addDrawer("RectangleDrawer", new RectangleDrawer());
     Drawer::addDrawer("SquareDrawer", new SquareDrawer());
-    Drawer::addDrawer("ClippingRectangleLine", new ClippingRectangleLine());
-
-
 }
 
 stack <int> xInputs;
