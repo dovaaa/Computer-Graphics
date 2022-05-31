@@ -243,9 +243,9 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 case LOAD_DATA: {
                     string s = file.get();
                     hdc = GetDC(hWnd);
-                    vector<string> vec = UT::split(s, '\n');
+                    vector <string> vec = UT::split(s, '\n');
                     for (int i = 0; i < vec.size(); ++i) {
-                        vector<string> cur = UT::split(vec[i], ':');
+                        vector <string> cur = UT::split(vec[i], ':');
                         shape = Shape::shapes[stoi(cur[0])]->copy(cur[1]);
                         shape->drawer = Drawer::drawers[stoi(cur[2])]->copy();
                         shape->draw(hdc);
@@ -684,12 +684,12 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     y3 = yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
-                    a = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-                    b = sqrt((x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3));
+                    a = sqrt((x3 - x2) * (x3 - x2) + (y3 - y2) * (y3 - y2));
+                    b = sqrt((x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1));
 
 
                     dr = new EllipseDrawerDirect();
-                    shape = new ELLIPSE(x1, y1, b, a, currentColor, dr);
+                    shape = new ELLIPSE(x3, y3, b, a, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -712,11 +712,11 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     y3 = yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
-                    a = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-                    b = sqrt((x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3));
+                    a = sqrt((x3 - x2) * (x3 - x2) + (y3 - y2) * (y3 - y2));
+                    b = sqrt((x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1));
 
                     dr = new EllipseDrawerPolar();
-                    shape = new ELLIPSE(x1, y1, b, a, currentColor, dr);
+                    shape = new ELLIPSE(x3, y3, b, a, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -739,11 +739,11 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     y3 = yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
-                    a = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-                    b = sqrt((x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3));
+                    a = sqrt((x3 - x2) * (x3 - x2) + (y3 - y2) * (y3 - y2));
+                    b = sqrt((x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1));
 
                     dr = new EllipseDrawerMidpoint();
-                    shape = new ELLIPSE(x1, y1, b, a, currentColor, dr);
+                    shape = new ELLIPSE(x3, y3, b, a, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
