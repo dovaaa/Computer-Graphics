@@ -12,26 +12,23 @@
 void SquareFillerWithHermiteCurve::draw(Shape *square, HDC &hdc) {
     Square *sq = (Square *) square;
 
-    int x1 = min(sq->x1, sq->x2), y1 = min(sq->y1, sq->y2),
-            x2 = max(sq->x1, sq->x2), y2 = max(sq->y1, sq->y2);
-    int r = sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
+    int x1 = sq->x1, y1 = sq->y1,
+            x2 = sq->x2, y2 = sq->y2;
 
+    int r = sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
     Drawer *dr = new CurveDrawerHermite();
 
+//    Curve curve = Curve(x1, y1, 0, 0, 0, 0, x1 + r, y1 + r, sq->c, dr);
+//    curve.draw(hdc);
+//
+//    curve.p1.x = x1;
+//    curve.p1.y = y1 + r;
+//    curve.p4.x = x1;
+//    curve.p4.y = y1;
+//    curve.draw(hdc);
+    Curve curve = Curve(x1, y1, 0, 0, 0, 0, x1, y2, sq->c, dr);
 
-    Curve curve = Curve(x1 + r, y1, 0, 0, 0, 0, x1 + r, y1 + r, sq->c, dr);
-    curve.draw(hdc);
-
-    curve.p1.x = x1;
-    curve.p1.y = y1 + r;
-    curve.p4.x = x1;
-    curve.p4.y = y1;
-    curve.draw(hdc);
-
-    curve.p1.y = y1;
-    curve.p4.y = y1 + r;
-
-    for (int x = y1; x <= x1 + r; x++) {
+    for (int x = x1; x <= x2; x++) {
         curve.p1.x = x;
         curve.p4.x = x;
         curve.draw(hdc);

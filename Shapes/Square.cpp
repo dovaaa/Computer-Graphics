@@ -3,6 +3,7 @@
 //
 
 #include "Square.h"
+#include <cmath>
 
 Square::Square() {
     this->x1 = 0;
@@ -15,8 +16,9 @@ Square::Square() {
 Square::Square(int x1, int y1, int x2, int y2, COLORREF c, Drawer *dr) {
     this->x1 = min(x1,x2);
     this->y1 = min(y1,y2);
-    this->x2 = max(x2,x1);
-    this->y2 = max(y2,y1);
+    int r = sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
+    this->x2 = this->x1 + r;
+    this->y2 = this->y1 + r;
     this->c = c;
     this->drawer = dr;
     this->id = mp["square"];
