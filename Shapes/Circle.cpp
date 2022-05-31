@@ -43,11 +43,7 @@ void Circle::save(File &f) {
 
 Shape *Circle::copy(string s) {
     vector<string> vec = UT::split(s, ',');
-    int x = stoi(vec[0]);
-    int y = stoi(vec[1]);
-    int rad = stoi(vec[2]);
-    COLORREF cc = stoi(vec[3]);
-    return new Circle(x, y, rad, cc, NULL);
+    return new Circle(stoi(vec[0]), stoi(vec[1]), stoi(vec[2]), stoi(vec[3]), NULL);
 }
 
 

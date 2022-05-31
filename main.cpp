@@ -120,7 +120,6 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
 
     HDC hdc;
     HBRUSH hbrBkgnd = NULL;
-    Line line;
     Shape* shape;
     Drawer *dr;
     switch (msg)                  /* handle the messages */
@@ -174,25 +173,25 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     break;
                 case DRAW_LINE_DDA:
                     dr = new LineDrawerDDA();
-                    line = Line(0, 0, 100, 100, currentColor, dr);
+                    shape = new Line(0, 0, 100, 100, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    line.draw(hdc);
-                    shapes.push_back(&line);
+                    shape->draw(hdc);
+                    shapes.push_back(shape);
                     ReleaseDC(hWnd, hdc);
 
                     break;
                 case DRAW_LINE_PARAMETRIC:
                     dr = new LineDrawerParametric();
-                    line = Line(0, 0, 100, 100, currentColor, dr);
+                    shape = new Line(0, 0, 100, 100, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    line.draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_LINE_MIDPOINT:
                     dr = new LineDrawerMidpoint();
-                    line = Line(200, 200, 0, 0, currentColor, dr);
+                    shape = new Line(200, 200, 0, 0, currentColor, dr);
                     hdc = GetDC(hWnd);
-                    line.draw(hdc);
+                    shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
                     break;
                 case DRAW_CIRCLE_DIRECT:
