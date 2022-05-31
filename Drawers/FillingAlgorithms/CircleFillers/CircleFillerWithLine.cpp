@@ -42,7 +42,7 @@ void CircleFillerWithLine::Draw2LinesQuarter4(HDC& hdc, int xc, int yc, int a, i
 
 void CircleFillerWithLine::draw(Shape *circle, HDC &hdc) {
     Circle *circ = (Circle *) circle;
-    Fill(circ, quarter, hdc);
+    Fill(circ, circ->q, hdc);
 }
 
 /*
@@ -83,8 +83,4 @@ void CircleFillerWithLine::Fill(Circle *circ, int quarter, HDC &hdc) {
                 break;
         }
     }
-}
-
-CircleFillerWithLine::CircleFillerWithLine(int q) {
-    this->quarter = q;
 }

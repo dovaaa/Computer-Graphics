@@ -30,7 +30,7 @@ void CircleFillerWithCircle::Draw2PointsQuarter4(HDC& hdc, int xc, int yc, int a
 
 void CircleFillerWithCircle::draw(Shape *circle, HDC &hdc) {
     Circle *temp = (Circle *) circle;
-    Fill(temp, quarter, hdc);
+    Fill(temp, temp->q, hdc);
 }
 
 Drawer *CircleFillerWithCircle::copy() {
@@ -39,10 +39,6 @@ Drawer *CircleFillerWithCircle::copy() {
 
 CircleFillerWithCircle::CircleFillerWithCircle() {
     this->id = mp["CircleFillerWithCircle"];
-}
-
-CircleFillerWithCircle::CircleFillerWithCircle(int q) {
-    this->quarter = q;
 }
 
 void CircleFillerWithCircle::Fill(Circle *temp, int quarter, HDC &hdc) {

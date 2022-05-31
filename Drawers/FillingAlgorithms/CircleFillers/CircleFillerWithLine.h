@@ -12,7 +12,6 @@
 
 class CircleFillerWithLine : public Drawer {
 public:
-    int quarter;
     void draw(Shape *circle, HDC &hdc) override;
     void Fill(Circle *, int, HDC &);
 
@@ -27,7 +26,6 @@ public:
     Drawer *copy() override;
 
     CircleFillerWithLine();
-    explicit CircleFillerWithLine(int);
 };
 
 

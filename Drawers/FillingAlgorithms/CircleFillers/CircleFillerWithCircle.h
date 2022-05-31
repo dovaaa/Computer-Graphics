@@ -11,11 +11,8 @@
 
 class CircleFillerWithCircle : public Drawer {
 public:
-    int quarter;
 
     CircleFillerWithCircle();
-
-    explicit CircleFillerWithCircle(int);
 
     void draw(Shape *circle, HDC &hdc) override;
 

@@ -422,8 +422,8 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     cin >> x3;
                     cout << endl;
 
-                    dr = new CircleFillerWithLine(x3);
-                    shape = new Circle(x1, y1, a, currentColor, dr);
+                    dr = new CircleFillerWithLine();
+                    shape = new Circle(x1, y1, a, x3, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);
@@ -447,8 +447,8 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     cin >> x3;
                     cout << endl;
 
-                    dr = new CircleFillerWithCircle(x3);
-                    shape = new Circle(x1, y1, a, currentColor, dr);
+                    dr = new CircleFillerWithCircle();
+                    shape = new Circle(x1, y1, a, x3, currentColor, dr);
                     hdc = GetDC(hWnd);
                     shape->draw(hdc);
                     ReleaseDC(hWnd, hdc);

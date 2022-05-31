@@ -24,6 +24,16 @@ Circle::Circle(int cx, int cy, int r, COLORREF c, Drawer *circleDrawer) {
     this->id = mp["circle"];
 }
 
+Circle::Circle(int cx, int cy, int r, int q, COLORREF c, Drawer *circleDrawer) {
+    this->drawer = circleDrawer;
+    this->cx = cx;
+    this->cy = cy;
+    this->r = r;
+    this->q = q;
+    this->c = c;
+    this->id = mp["circle"];
+}
+
 void Circle::Draw8Points(HDC &hdc, int xc, int yc, int a, int b, COLORREF color) {
     SetPixel(hdc, xc + a, yc + b, color);
     SetPixel(hdc, xc - a, yc + b, color);
@@ -37,13 +47,14 @@ void Circle::Draw8Points(HDC &hdc, int xc, int yc, int a, int b, COLORREF color)
 
 void Circle::save(File &f) {
     string s = to_string(mp["circle"]) + ':' + to_string(cx) + ',' + to_string(cy) + ',' + to_string(r) + ',' +
+               to_string(q) + ',' +
                to_string(c) + ':' + to_string(drawer->id) + '\n';
     f.write(s);
 }
 
 Shape *Circle::copy(string s) {
     vector<string> vec = UT::split(s, ',');
-    return new Circle(stoi(vec[0]), stoi(vec[1]), stoi(vec[2]), stoi(vec[3]), NULL);
+    return new Circle(stoi(vec[0]), stoi(vec[1]), stoi(vec[2]), stoi(vec[3]), stoi(vec[4]), NULL);
 }
 
 
