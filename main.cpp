@@ -1051,7 +1051,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                         a=sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
                         Shape *circle=new Circle(x1, y1, a, currentColor, dr);
                         hdc=GetDC(hWnd);
-                        shape->draw(hdc);
+                        circle->draw(hdc);
                         shapes.push_back(circle);
                         dr=new LineDrawerMidpoint();
                         Shape *line=new Line(x3, y3, x4, y4, currentColor, dr);
