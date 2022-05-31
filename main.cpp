@@ -26,6 +26,8 @@
 #include <cmath>
 #include <vector>
 #include "Utility.h"
+#include "Drawers/FillingAlgorithms/SquareFilling/SquareFillerWithHermiteCurve.h"
+#include "Shapes/Square.h"
 #include "Shapes/Polygon.h"
 
 
@@ -104,7 +106,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hprevInst, LPSTR args, int ncmdsho
 }
 
 bool firstCreate = true;
-vector<Shape*> shapes;
+vector<Shape *> shapes;
 File file("mangaSave");
 bool flag = false;
 
@@ -139,7 +141,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
     init();
     HDC hdc;
     HBRUSH hbrBkgnd = NULL;
-    Shape* shape;
+    Shape *shape;
     Drawer *dr;
     switch (msg)                  /* handle the messages */
     {
@@ -272,6 +274,12 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                     shapes.push_back(shape);
                     break;
                 case FILL_SQUARE_WITH_HERMITE_CURVE:
+                    dr = new SquareFillerWithHermiteCurve();
+                    hdc = GetDC(hWnd);
+                    shape = new Square(100, 100, 400, 400, currentColor, dr);
+                    shape->draw(hdc);
+                    ReleaseDC(hWnd, hdc);
+                    shapes.push_back(shape);
                     break;
                 case FILL_RECTANGLE_WITH_BEZIER_CURVE:
                     dr = new RectangleFillerWithBezierCurve();

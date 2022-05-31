@@ -6,16 +6,23 @@
 #define GRAPHICS_SQUARE_H
 
 #include "Shape.h"
-class Square: public Shape {
-public:
-    int x1,y1;
-    int x2,y2;
-    Square();
-    Square(int,int,int,int,Drawer*);
+#include "../Drawers/Drawer.h"
 
-    void draw(HDC& hdc) override;
+class Square : public Shape {
+public:
+    int x1, y1;
+    int x2, y2;
+    Drawer* drawer;
+
+    Square();
+
+    Square(int, int, int, int, COLORREF, Drawer *);
+
+    void draw(HDC &hdc) override;
+
     void save(File &f) override;
-    Shape* copy(string) override;
+
+    Shape *copy(string) override;
 };
 
 

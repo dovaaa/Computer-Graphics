@@ -6,7 +6,6 @@
 #include "RectangleFillerWithBezierCurve.h"
 #include "../../CurveAlgorithms/CurveDrawerBezier.h"
 #include "../../../Shapes/Rectangle.h"
-#include "../../../Shapes/Curve.h"
 
 void RectangleFillerWithBezierCurve::draw(Shape *rectangle, HDC &hdc) {
     RECTANGLE *rect = (RECTANGLE *) rectangle;

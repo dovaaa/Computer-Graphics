@@ -6,9 +6,10 @@
 #define GRAPHICS_RECTANGLEFILLERWITHBEZIERCURVE_H
 
 #include "../../Drawer.h"
+
 class RectangleFillerWithBezierCurve: public Drawer{
 public:
-    void draw(Shape *, HDC &hdc);
+    void draw(Shape *, HDC &hdc) override;
     Drawer* copy() override;
 };
 

@@ -12,9 +12,9 @@ Drawer *SquareDrawer::copy() {
 }
 
 void SquareDrawer::draw(Shape *square, HDC &hdc) {
-    class Square *sq = (class Square *) square;
+    Square *sq = (Square *) square;
     int x1 = sq->x1, x2 = sq->x2, y1 = sq->y1, y2 = sq->y2;
-    int r = sqrt((x2 - x1) * (x2 - x1) - ((y2 - y1) * (y2 - y1)));
+    int r = sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
     Drawer *dr = new LineDrawerParametric();
     Shape *line = new Line(x1, y1, x1 + r, y1, sq->c, dr);
     line->draw(hdc);
@@ -24,5 +24,4 @@ void SquareDrawer::draw(Shape *square, HDC &hdc) {
     line->draw(hdc);
     line = new Line(x1, y1 + r, x1, y1, sq->c, dr);
     line->draw(hdc);
-
 }

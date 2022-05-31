@@ -7,10 +7,11 @@
 
 #include "../../Drawer.h"
 
-class SquareFillerWithHermiteCurve: public Drawer{
+class SquareFillerWithHermiteCurve : public Drawer {
 public:
     void draw(Shape *curve, HDC &hdc) override;
-    Drawer* copy() override;
+
+    Drawer *copy() override;
 };
 
 

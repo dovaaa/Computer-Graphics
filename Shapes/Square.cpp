@@ -4,33 +4,30 @@
 
 #include "Square.h"
 
-Square::Square()
-{
-    this->x1=0;
-    this->y1=0;
-    this->y2=0;
-    this->x2=0;
+Square::Square() {
+    this->x1 = 0;
+    this->y1 = 0;
+    this->y2 = 0;
+    this->x2 = 0;
 }
 
-Square::Square(int x1, int y1, int x2, int y2, Drawer *dr)
-{
-    this->x1=x1;
-    this->y1=y1;
-    this->x2=x2;
-    this->y2=y2;
+Square::Square(int x1, int y1, int x2, int y2, COLORREF c, Drawer *dr) {
+    this->x1 = x1;
+    this->y1 = y1;
+    this->x2 = x2;
+    this->y2 = y2;
+    this->c = c;
+    this->drawer = dr;
 }
 
-void Square::draw(HDC &hdc)
-{
+void Square::draw(HDC &hdc) {
     drawer->draw(this, hdc);
 }
 
-void Square::save(File &f)
-{
+void Square::save(File &f) {
 
 }
 
-Shape *Square::copy(string)
-{
+Shape *Square::copy(string) {
     return nullptr;
 }
