@@ -29,11 +29,11 @@ POLYGON::POLYGON(Point *points, int n) {
 void POLYGON::save(File &f) {
     string s = to_string(mp["polygon"]) + ':' + to_string(n) + ',';
     for (int i = 0; i < n; ++i) {
-        s += points[i].getSave();
+        s += points[i].getAsteriskSave();
         if (i + 1 != n)
             s += '|';
     }
-    s += ':' + to_string(drawer->id) + '\n';
+    s += ',' + to_string(c) + ':' + to_string(drawer->id) + '\n';
     f.write(s);
 }
 
@@ -43,10 +43,10 @@ Shape *POLYGON::copy(string s) {
     int nn = stoi(vec[0]);
     Point *p = new Point[nn];
     for (int i = 0; i < nn; ++i) {
-        vector<string> tmp = UT::split(ps[i], '-');
+        vector<string> tmp = UT::split(ps[i], '*');
         p[i] = Point(stoi(tmp[0]), stoi(tmp[1]));
     }
-    return new POLYGON(p, nn);
+    return new POLYGON(p, nn, stoi(vec[2]), NULL);
 }
 
 POLYGON::POLYGON(Point *points, int n, COLORREF color, Drawer *dr)
