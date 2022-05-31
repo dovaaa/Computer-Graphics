@@ -30,18 +30,18 @@ void Curve::draw(HDC &hdc) {
 }
 
 void Curve::save(File &f) {
-    string s = to_string(mp["curve"]) + ':' + p1.getSave() + '|' + p2.getSave() + '|' + p3.getSave() + '|' +
-               p4.getSave() + ',' +
+    string s = to_string(mp["curve"]) + ':' + p1.getAsteriskSave() + '|' + p2.getAsteriskSave() + '|' + p3.getAsteriskSave() + '|' +
+               p4.getAsteriskSave() + ',' +
                to_string(c) + ':' + to_string(drawer->id) + '\n';
     f.write(s);
 }
 
 Shape *Curve::copy(string s) {
     vector<string> vec = UT::split(s, ',');
-    vector<string> points = UT::split(vec[0], '|');
+    vector<string> points = UT::split(s, '|');
     Point *p[4];
     for (int i = 0; i < points.size(); ++i) {
-        vector<string> tmp = UT::split(points[i], '-');
+        vector<string> tmp = UT::split(points[i], '*');
         p[i] = new Point(stoi(tmp[0]), stoi(tmp[1]));
     }
     return new Curve(*p[0], *p[1], *p[2], *p[3], stoi(vec[1]), NULL);

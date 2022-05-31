@@ -182,7 +182,7 @@ void init() {
 
     /* Curve Drawer Algorithms */
     Drawer::addDrawer("CurveDrawerBezier", new CurveDrawerBezier());
-    Drawer::addDrawer("CurveDrawerBezier", new CurveDrawerHermite());
+    Drawer::addDrawer("CurveDrawerHermite", new CurveDrawerHermite());
 
     /* Filling Algorithms */
     Drawer::addDrawer("CircleFillerWithCircle", new CircleFillerWithCircle());
@@ -1202,7 +1202,6 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
         /* Demo List */
         AppendMenu(mainList, MF_STRING, CHANGE_CURSOR, "Change Cursor");
         AppendMenu(mainList, MF_STRING, DISABLE_KEYBOARD, "Disable keyboard");
-        AppendMenu(mainList, MF_POPUP, (UINT_PTR) shapeColorSubList, "Shape Color");
         AppendMenu(mainList, MF_STRING, SAVE_DATA, "Save data");
         AppendMenu(mainList, MF_STRING, LOAD_DATA, "Load data");
         AppendMenu(mainList, MF_POPUP, (UINT_PTR) drawLineSubList, "Draw Line");
@@ -1215,6 +1214,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
         AppendMenu(mainList, MF_STRING, EXIT_WINDOW, "Exit");
 
         AppendMenu(hMenu, MF_POPUP, (UINT_PTR) mainList, "Demo");
+        AppendMenu(hMenu, MF_POPUP, (UINT_PTR) shapeColorSubList, "Color");
 
         SetMenu(hWnd, hMenu);
     }
