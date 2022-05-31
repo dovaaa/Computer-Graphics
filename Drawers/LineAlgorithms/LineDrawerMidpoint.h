@@ -11,6 +11,7 @@
 
 class LineDrawerMidpoint : public Drawer{
 public:
+    LineDrawerMidpoint();
     void draw(Shape* line, HDC& hdc) override;
     void plotPixel(int x1, int y1, int x2, int y2, int dx, int dy, int decide,Shape*, HDC &hdc);
     Drawer* copy() override;

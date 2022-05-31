@@ -11,6 +11,7 @@
 
 class LineDrawerParametric : public Drawer {
 public:
+    LineDrawerParametric();
     void draw(Shape *line,HDC& hdc) override;
     Drawer* copy() override;
 };

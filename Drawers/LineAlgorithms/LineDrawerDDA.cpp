@@ -37,3 +37,7 @@ Drawer *LineDrawerDDA::copy() {
     return new LineDrawerDDA();
 }
 
+LineDrawerDDA::LineDrawerDDA() {
+
+}
+

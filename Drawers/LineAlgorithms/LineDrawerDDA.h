@@ -10,6 +10,7 @@
 
 class LineDrawerDDA : public Drawer {
 public:
+    LineDrawerDDA();
     void draw(Shape *line, HDC& hdc) override;
     Drawer* copy() override;
 };
