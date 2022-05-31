@@ -824,7 +824,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     rect->draw(hdc);
                     shapes.push_back(rect);
                     dr=new PointDrawer();
-                    Shape *point=new Point(x3, y3, currentColor, dr);
+                    Shape *point=new Point(x3, y3, RGB(255, 255, 255), dr);
                     dr=new ClippingRectanglePoint();
                     shape = new Container(rect, point, dr);
                     hdc = GetDC(hWnd);
@@ -948,7 +948,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 
                     shapes.push_back(sq);
                     dr=new PointDrawer();
-                    Shape *point=new Point(x3, y3, currentColor, dr);
+                    Shape *point=new Point(x3, y3, RGB(255, 255, 255), dr);
                     dr=new ClippingRectanglePoint();
                     ((ClippingRectanglePoint *) dr)->draw(sq, point, hdc);
                     ReleaseDC(hWnd, hdc);
@@ -959,7 +959,7 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     if(xInputs.size() < 3)
                     {
                         std::cout
-                                << "You need to register 4 input points in order to clip a line on a rectangle\n";
+                                << "You need to register 4 input points in order to clip a line on a square\n";
                         return 0;
                     }
                     x1=xInputs.top();
@@ -974,19 +974,19 @@ LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
                     y3=yInputs.top();
                     xInputs.pop();
                     yInputs.pop();
+                    x4=xInputs.top();
+                    y4=yInputs.top();
+                    xInputs.pop();
+                    yInputs.pop();
 
                     dr=new RectangleDrawer();
-                    //TO accommodate rectanglepoint for square
-                    //x2,y2 is now rightbottom instead of R;
-//                    int r=sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
-                    int r; cout<<"enter length of square\n";
-                    cin>>r;
+                    int r=sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1)));
                     Shape *sq=new RECTANGLE(x1, y1, x1+r, y1+r, currentColor, dr);
                     hdc=GetDC(hWnd);
                     sq->draw(hdc);
                     shapes.push_back(sq);
                     dr=new LineDrawerDDA();
-                    Shape *line=new Line(x2, y2, x3, y3, currentColor, dr);
+                    Shape *line=new Line(x3, y3, x4, y4, currentColor, dr);
                     dr=new ClippingRectangleLine();
                     ((ClippingRectangleLine *) dr)->draw(sq, line, hdc);
                     ReleaseDC(hWnd, hdc);
